@@ -5,7 +5,11 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Mon Mar  7 15:22:12 2016 Eric DESCHODT
+<<<<<<< HEAD
+** Last update Mon Mar  7 15:31:24 2016 Eric DESCHODT
+=======
+** Last update Mon Mar  7 15:24:57 2016 Antoine Roig
+>>>>>>> 1623b309beae51b93573b7af61439be17cebeeec
 */
 
 #include "corewar.h"
@@ -41,6 +45,7 @@ t_champlist	*new_champ(t_champlist *champ, int id, int cycle)
   champ->begin->ope.comment = "yo";
   champ->begin->ope.nbr_cycles = cycle;
   champ->begin->current_cycle = 0;
+  champ->begin->next = champ->begin;
   return (champ);
 }
 
@@ -91,6 +96,7 @@ void    show_list(t_vm *vm)
 		(tmp->id), tmp->begin->ope.comment, tmp->begin->ope.nbr_cycles);
       tmp = tmp->next;
     }
+
 }
 
 int	main(int ac, char **av)
