@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Mon Mar  7 15:31:30 2016 Antoine Roig
+** Last update Mon Mar  7 15:38:21 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -32,7 +32,6 @@ t_vm	*new_vm(t_vm *vm)
 t_champlist	*new_champ(t_champlist *champ, int id, int cycle)
 {
   champ = xmalloc(sizeof(*champ));
-  champ->begin = NULL;
   champ->end = champ->begin;
   champ->id = id;
   champ->next = NULL;
@@ -76,7 +75,6 @@ void	launch_vm(t_vm *vm, int nb_champ)
       champ = NULL;
       add_champ_vm(vm, champ, i, cycle);
       cycle *= 2;
-      vm->nb++;
       i++;
     }
 }
