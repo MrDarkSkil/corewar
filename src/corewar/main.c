@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Mon Mar  7 15:09:21 2016 Eric DESCHODT
+** Last update Mon Mar  7 15:12:54 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -39,7 +39,8 @@ t_champlist	*new_champ(t_champlist *champ, int id, int cycle)
   champ->next = NULL;
   champ->begin = malloc(sizeof(t_instru));
   champ->begin->ope.comment = "yo";
- champ->begin->ope.nbr_cycles = cycle;
+  champ->begin->ope.nbr_cycles = cycle;
+  champ->begin->ope.cycle_cycle = 0;
   return (champ);
 }
 
