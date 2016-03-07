@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Mon Mar  7 14:54:46 2016 Antoine Roig
+** Last update Mon Mar  7 15:04:30 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -29,7 +29,7 @@ t_vm	*new_vm(t_vm *vm)
   return (vm);
 }
 
-t_champlist	*new_champ(t_champlist *champ, int id)
+t_champlist	*new_champ(t_champlist *champ, int id, int cycle)
 {
   champ = xmalloc(sizeof(*champ));
   champ->begin = NULL;
@@ -39,12 +39,13 @@ t_champlist	*new_champ(t_champlist *champ, int id)
   champ->next = NULL;
   champ->begin = malloc(sizeof(t_instru));
   champ->begin->ope.comment = "yo";
+ champ->begin->ope.nbr_cycles = cycle;
   return (champ);
 }
 
-void	add_champ_vm(t_vm *vm, t_champlist *champ, int nb_champ)
+void	add_champ_vm(t_vm *vm, t_champlist *champ, int nb_champ, int cycle)
 {
-  champ = new_champ(champ, nb_champ);
+  champ = new_champ(champ, nb_champ, cycle);
   if (vm->begin == NULL)
     {
       vm->begin = champ;
@@ -64,12 +65,15 @@ void	launch_vm(t_vm *vm, int nb_champ)
 {
   int		i;
   t_champlist	*champ;
+  int		cycle;
 
+  cycle = 2;
   i = 0;
   while (i < nb_champ)
     {
       champ = NULL;
-      add_champ_vm(vm, champ, i);
+      add_champ_vm(vm, champ, i, cycle);
+      cycle *= 2;
       vm->nb++;
       i++;
     }
@@ -82,7 +86,7 @@ void    show_list(t_vm *vm)
   tmp = vm->begin;
   while (tmp != NULL)
     {
-      printf("id = %d\ncomment = %s\n", (tmp->id), tmp->begin->ope.comment);
+      printf("id = %d\ncomment = %s\nnb cycle = %d", (tmp->id), tmp->begin->ope.comment, tmp->begin->ope.nb_cycles);
       tmp = tmp->next;
     }
 }
