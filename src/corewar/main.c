@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Mon Mar  7 15:06:25 2016 Antoine Roig
+** Last update Mon Mar  7 15:09:21 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -86,7 +86,8 @@ void    show_list(t_vm *vm)
   tmp = vm->begin;
   while (tmp != NULL)
     {
-      printf("id = %d\ncomment = %s\nnb cycle = %d", (tmp->id), tmp->begin->ope.comment, tmp->begin->ope.nbr_cycles);
+      my_printf("id = %d\ncomment = %s\nnb cycle = %d\n",
+		(tmp->id), tmp->begin->ope.comment, tmp->begin->ope.nbr_cycles);
       tmp = tmp->next;
     }
 }
@@ -101,6 +102,7 @@ int	main(int ac, char **av)
   nb_champ = atoi(av[1]);
   vm = new_vm(vm);
   launch_vm(vm, nb_champ);
-  show_list(vm); 
+  show_list(vm);
+  start_vm(vm);
   return (0);
 }
