@@ -5,13 +5,15 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:18:01 2016 Eric DESCHODT
-## Last update Mon Mar  7 14:56:33 2016 Antoine Roig
+## Last update Mon Mar  7 15:57:06 2016 Antoine Roig
 ##
 
 NAME		=		../../corewar
 
-SRC		=		main.c		\
-				start_vm.c
+SRC		=		main.c			\
+				start_vm.c		\
+				init_list_champ.c	\
+				utils.c
 
 OBJ		=		$(SRC:.c=.o)
 

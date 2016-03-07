@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Mon Mar  7 15:55:03 2016 Antoine Roig
+** Last update Mon Mar  7 15:58:13 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -20,6 +20,5 @@ int	main(int ac, char **av)
   nb_champ = atoi(av[1]);
   vm = new_vm(vm);
   launch_vm(vm, nb_champ);
-  show_list(vm); 
   return (0);
 }
