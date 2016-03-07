@@ -5,12 +5,13 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:18:01 2016 Eric DESCHODT
-## Last update Mon Mar  7 13:27:12 2016 Eric DESCHODT
+## Last update Mon Mar  7 14:04:51 2016 Eric DESCHODT
 ##
 
 NAME		=		../../corewar
 
-SRC		=		main.c
+SRC		=		main.c		\
+				start_vm.c
 
 OBJ		=		$(SRC:.c=.o)
 

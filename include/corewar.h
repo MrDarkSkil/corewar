@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Mon Mar  7 13:49:06 2016 Eric DESCHODT
+** Last update Mon Mar  7 14:04:01 2016 Eric DESCHODT
 */
 
 #ifndef COREWAR_H_
@@ -24,6 +24,7 @@ typedef struct		s_champlist
 {
   t_instru		*begin;
   t_instru		*end;
+  t_instru		*current;
   int			id;
   struct s_champlist	*next;
 }			t_champlist;
