@@ -5,11 +5,10 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Mon Mar  7 14:06:42 2016 Eric DESCHODT
+** Last update Mon Mar  7 14:29:48 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
-#include <stdio.h>
 
 void		exec_champ(t_champlist *champ)
 {
@@ -17,7 +16,7 @@ void		exec_champ(t_champlist *champ)
 
   cur_instru = champ->current;
   if (cur_instru->current_cycle == 0)
-    printf("%d : %s\n", champ->id, cur_instru->ope.mnemonique);
+    my_printf("%d : %s\n", champ->id, cur_instru->ope.mnemonique);
   cur_instru->current_cycle++;
   if (cur_instru->current_cycle == cur_instru->ope.nbr_cycles)
     {
@@ -37,7 +36,7 @@ int		start_vm(t_vm *vm)
     {
       i = 0;
       cur_champ = vm->begin;
-      while (i < 4) /* a modifier en dynamique */
+      while (i < vm->nb)
 	{
 	  exec_champ(cur_champ);
 	  cur_champ = cur_champ->next;

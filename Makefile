@@ -5,17 +5,22 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:27:34 2016 Eric DESCHODT
-## Last update Mon Mar  7 13:28:46 2016 Eric DESCHODT
+## Last update Mon Mar  7 14:26:44 2016 Eric DESCHODT
 ##
 
+MAKE	=	make --no-print-directory
+
 all	:
-		make all -C src/corewar/
+		@$(MAKE) all -C lib/my
+		@$(MAKE) all -C src/corewar/
 
 clean	:
-		make clean -C src/corewar/
+		@$(MAKE) clean -C lib/my
+		@$(MAKE) clean -C src/corewar/
 
 fclean	:	clean
-		make fclean -C src/corewar/
+		@$(MAKE) fclean -C lib/my
+		@$(MAKE) fclean -C src/corewar/
 
 re	:	fclean all
 

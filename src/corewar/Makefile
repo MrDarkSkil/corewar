@@ -5,7 +5,7 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:18:01 2016 Eric DESCHODT
-## Last update Mon Mar  7 14:04:51 2016 Eric DESCHODT
+## Last update Mon Mar  7 14:28:48 2016 Eric DESCHODT
 ##
 
 NAME		=		../../corewar
@@ -20,10 +20,12 @@ CFLAGS		+=		-W -Wall -Wextra -ansi -pedantic
 #CFLAGS		+=		-g3
 CFLAGS		+=		-I../../include
 
+LFLAGS		=		-lmyprintf -L../../lib
+
 all		:		$(NAME)
 
 $(NAME)		:		$(OBJ)
-				cc -o $(NAME) $(OBJ)
+				cc -o $(NAME) $(OBJ) $(LFLAGS)
 
 clean		:
 				rm -rf $(OBJ)
