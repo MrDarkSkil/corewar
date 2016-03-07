@@ -5,7 +5,7 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:18:01 2016 Eric DESCHODT
-## Last update Mon Mar  7 13:27:12 2016 Eric DESCHODT
+## Last update Mon Mar  7 14:49:02 2016 Antoine Roig
 ##
 
 NAME		=		../../corewar
@@ -16,7 +16,7 @@ OBJ		=		$(SRC:.c=.o)
 
 CFLAGS		+=		-W -Wall -Wextra -ansi -pedantic
 #CFLAGS		+=		-Werror
-#CFLAGS		+=		-g3
+CFLAGS		+=		-g3
 CFLAGS		+=		-I../../include
 
 all		:		$(NAME)
