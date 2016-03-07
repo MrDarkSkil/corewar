@@ -6,10 +6,14 @@
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
 <<<<<<< HEAD
+<<<<<<< HEAD
 ** Last update Mon Mar  7 15:31:24 2016 Eric DESCHODT
 =======
 ** Last update Mon Mar  7 15:24:57 2016 Antoine Roig
 >>>>>>> 1623b309beae51b93573b7af61439be17cebeeec
+=======
+** Last update Mon Mar  7 15:31:30 2016 Antoine Roig
+>>>>>>> f07e997e4f6be9845dfe648bcab1293b8a7fdd15
 */
 
 #include "corewar.h"
@@ -38,10 +42,10 @@ t_champlist	*new_champ(t_champlist *champ, int id, int cycle)
   champ = xmalloc(sizeof(*champ));
   champ->begin = NULL;
   champ->end = champ->begin;
-  champ->current = champ->begin;
   champ->id = id;
   champ->next = NULL;
   champ->begin = malloc(sizeof(t_instru));
+  champ->current = champ->begin;
   champ->begin->ope.comment = "yo";
   champ->begin->ope.nbr_cycles = cycle;
   champ->begin->current_cycle = 0;
