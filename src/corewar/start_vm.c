@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Mon Mar  7 15:37:27 2016 Eric DESCHODT
+** Last update Mon Mar  7 15:42:45 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -14,7 +14,6 @@ void		exec_champ(t_champlist *champ)
 {
   t_instru	*cur_instru;
 
-  printf ("%p\n", champ->current);
   cur_instru = champ->current;
   if (cur_instru->current_cycle == 0)
     my_printf("%d : %s\n", champ->id, cur_instru->ope.comment);
@@ -35,10 +34,9 @@ int		start_vm(t_vm *vm)
   cycle = CYCLE_TO_DIE;
   while (cycle > 0)
     {
-      my_printf("\ncycle = %d\n", cycle);
+      my_printf("\nCycle = %d\n", CYCLE_TO_DIE - cycle);
       i = 0;
       cur_champ = vm->begin;
-      printf("nombre : %d\n", vm->nb);
       while (i < vm->nb)
 	{
 	  exec_champ(cur_champ);
