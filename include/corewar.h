@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Mon Mar  7 13:31:08 2016 Eric DESCHODT
+** Last update Mon Mar  7 13:49:06 2016 Eric DESCHODT
 */
 
 #ifndef COREWAR_H_
@@ -20,18 +20,19 @@ typedef struct		s_instru
   struct s_instru	*next;
 }			t_instru;
 
-typedef struct		s_champ
+typedef struct		s_champlist
 {
-  t_instru		*list;
+  t_instru		*begin;
   t_instru		*end;
-  int			nb;
-}			t_champ;
+  int			id;
+  struct s_champlist	*next;
+}			t_champlist;
 
 typedef struct		s_vm
 {
-  t_champ		*list;
-  t_champ		*end;
-  char			*board;
+  t_champlist		*begin;
+  t_champlist		*end;
+  int			nb;
 }			t_vm;
 
 #endif /* !COREWAR_H */
