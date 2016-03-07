@@ -1,24 +1,14 @@
 /*
-** main.c for corewar in /home/descho_e/year_2015_2016/C_Prog_Elem/coreware/src
+** init_list_champ.c for init_list_champ in /home/roig_a/Corewar/coreware
 ** 
-** Made by Eric DESCHODT
-** Login   <descho_e@epitech.net>
+** Made by Antoine Roig
+** Login   <roig_a@epitech.net>
 ** 
-** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Mon Mar  7 15:59:36 2016 Antoine Roig
+** Started on  Mon Mar  7 15:54:12 2016 Antoine Roig
+** Last update Mon Mar  7 15:58:00 2016 Antoine Roig
 */
 
 #include "corewar.h"
-
-void    *xmalloc(int size)
-{
-  void  *element;
-
-  element = malloc(size);
-  if (!element)
-    exit(EXIT_FAILURE);
-  return (element);
-}
 
 t_vm	*new_vm(t_vm *vm)
 {
@@ -77,36 +67,4 @@ void	launch_vm(t_vm *vm, int nb_champ)
       cycle *= 2;
       i++;
     }
-}
-
-void    show_list(t_vm *vm)
-{
-  t_champlist        *tmp;
-
-  tmp = vm->begin;
-  while (tmp != NULL)
-    {
-      my_printf("id = %d\ncomment = %s\nnb cycle = %d\n",
-		(tmp->id), tmp->begin->ope.comment, tmp->begin->ope.nbr_cycles);
-      tmp = tmp->next;
-    }
-
-}
-
->>>>>>> d932ef16e4c3e02158ac3b4132ef235cb26888fd
-int	main(int ac, char **av)
-{
-  int	nb_champ;
-  t_vm	*vm;
-
-  ac = ac;
-  vm = NULL;
-  nb_champ = atoi(av[1]);
-  vm = new_vm(vm);
-  launch_vm(vm, nb_champ);
-<<<<<<< HEAD
-=======
-  start_vm(vm);
->>>>>>> d932ef16e4c3e02158ac3b4132ef235cb26888fd
-  return (0);
 }

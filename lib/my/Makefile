@@ -5,13 +5,13 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 14:19:42 2016 Eric DESCHODT
-## Last update Mon Mar  7 14:25:29 2016 Eric DESCHODT
+## Last update Mon Mar  7 15:09:57 2016 Eric DESCHODT
 ##
 
 NAME	=	../libmyprintf.a
 
 CFLAGS  +=      -W -Wextra -Wall
-CFLAGS  +=      -ansi -pedantic -g
+CFLAGS  +=      -ansi -pedantic
 CFLAGS  +=      -I../../include
 CFLAGS  +=      -Werror
 
