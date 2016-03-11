@@ -5,7 +5,7 @@
 ** Login   <julian_r@epitech.net>
 ** 
 ** Started on  Fri Mar 11 11:03:06 2016 Juliani Renaud
-** Last update Fri Mar 11 12:30:58 2016 Juliani Renaud
+** Last update Fri Mar 11 12:34:00 2016 Juliani Renaud
 */
 
 #include "corewar.h"
@@ -78,7 +78,6 @@ char		*changopen(char *str)
 
 void		write_name_comment(int fdwrite, char *name, char *comment)
 {
-  printf("%s\n", name);
   if ((write(fdwrite, name, PROG_NAME_LENGTH)) == -1)
     my_puterror("Error with write name in write_name_comment\n");
   if ((write(fdwrite, comment, COMMENT_LENGTH)) == -1)
