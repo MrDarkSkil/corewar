@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Sun Oct 11 22:13:44 2015 Roig Antoine
-** Last update Mon Mar  7 13:53:03 2016 Antoine Roig
+** Last update Tue Mar  8 15:31:09 2016 Juliani Renaud
 */
 
 #include "list.h"

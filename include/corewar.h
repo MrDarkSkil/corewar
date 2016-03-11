@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Mon Mar  7 17:14:42 2016 Eric DESCHODT
+** Last update Fri Mar 11 11:24:40 2016 Juliani Renaud
 */
 
 #ifndef COREWAR_H_
@@ -14,9 +14,13 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 # include "op.h"
 # include "myprintf.h"
 # include "get_next_line.h"
+
 
 typedef struct		s_instru
 {
@@ -42,7 +46,8 @@ typedef struct		s_vm
   int			nb;
 }			t_vm;
 
-
+void	my_puterror(char *str);
+char	*my_memeset(char *str, char c, int len);
 void    *xmalloc(int size);
 t_vm	*new_vm(t_vm *vm);
 void	launch_vm(t_vm *vm, int nb_champ);

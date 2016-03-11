@@ -5,20 +5,22 @@
 ## Login   <julian_r@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:27:46 2016 Juliani Renaud
-## Last update Tue Mar  8 14:27:50 2016 Juliani Renaud
+## Last update Fri Mar 11 12:01:01 2016 Juliani Renaud
 ##
 
 NAME	=	asm
 
-SRC	=	
+SRC	=	main.c					\
+		../../lib/get_next_line/get_next_line.c	\
+		my_strcat.c
 
 OBJ	=	$(SRC:.c=.o)
 
 CFLAGS	+=	-Werror -Wextra -Wall
 CFLAGS	+=	-pedantic -ansi
-CFLAGS	+=	-I./include
+CFLAGS	+=	-I./../../include
 
-CC	=	gcc
+CC	=	gcc -g3
 
 RM	=	rm -rf
 
