@@ -6,10 +6,15 @@
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
 <<<<<<< HEAD
+<<<<<<< HEAD
 ** Last update Mon Mar 14 17:05:34 2016 Juliani Renaud
 =======
 ** Last update Tue Mar  8 17:30:26 2016 Eric DESCHODT
 >>>>>>> 4d69422aaf278a3bd23f86782f2c61c86cc97175
+=======
+** Last update Mon Mar 14 16:37:12 2016 Eric DESCHODT
+
+>>>>>>> 0b4be3eac11405a6f4dd4dda1e1daf9f59f62ee6
 */
 
 #ifndef COREWAR_H_
@@ -28,6 +33,7 @@
 # define MAGIC_NUMBER 85
 
 
+<<<<<<< HEAD
 typedef struct		s_instru
 {
   op_t			ope;
@@ -43,36 +49,41 @@ typedef struct		s_headers
 }			t_headers;
 
 typedef struct		s_champlist
+=======
+typedef struct		s_champ
+>>>>>>> 0b4be3eac11405a6f4dd4dda1e1daf9f59f62ee6
 {
-  t_instru		*begin;
-  t_instru		*end;
-  t_instru		*current;
+  char			reg[REG_NUMBER][T_REG];
   int			id;
-  struct s_champlist	*next;
-  struct s_champlist	*prev;
-}			t_champlist;
+  unsigned char		*instru;
+  int			cycle;
+  int			cursor;
+  int			size;
+  int			alive;
+  op_t			ope;
+  struct s_champ	*next;
+  struct s_champ	*prev;
+}			t_champ;
 
 typedef struct		s_vm
 {
-  t_champlist		*begin;
-  t_champlist		*end;
+  t_champ		*begin;
+  t_champ		*end;
   int			nb;
 }			t_vm;
 
-/* <<<<<<< HEAD */
 void	my_puterror(char *str);
 char	*my_memeset(char *str, char c, int len);
-/* ======= */
+
 typedef union		u_byte
 {
   char			byte[4];
   unsigned int		full;
 }			t_byte;
 
-/* >>>>>>> 4d69422aaf278a3bd23f86782f2c61c86cc97175 */
 void    *xmalloc(int size);
 t_vm	*new_vm(t_vm *vm);
 void	launch_vm(t_vm *vm, int nb_champ);
-int     start_vm(t_vm *vm);
+int     start_vm(t_vm *vm, unsigned char *board);
 
 #endif /* !COREWAR_H */

@@ -5,7 +5,7 @@
 ** Login   <julian_r@epitech.net>
 ** 
 ** Started on  Fri Mar 11 11:03:06 2016 Juliani Renaud
-** Last update Mon Mar 14 17:19:03 2016 Juliani Renaud
+** Last update Mon Mar 14 17:22:39 2016 Juliani Renaud
 */
 
 #include "corewar.h"
@@ -40,10 +40,8 @@ int		swap(int magic)
 {
   int		new_magic;
 
-  printf("1 : %d\n", magic);
   new_magic = ((magic >> 24) &0xff) | ((magic << 8) &0xff0000)
     | ((magic >> 8) &0xff00) | ((magic << 24) &0xff000000);
-  printf("2 : %d\n", new_magic);
   return (new_magic);
 }
 

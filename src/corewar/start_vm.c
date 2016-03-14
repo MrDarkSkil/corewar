@@ -5,45 +5,89 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Mon Mar  7 15:42:45 2016 Eric DESCHODT
+** Last update Mon Mar 14 13:47:29 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
-void		exec_champ(t_champlist *champ)
+void		init_alive(t_vm *vm)
 {
-  t_instru	*cur_instru;
+  int		i;
+  t_champ	*tmp;
 
-  cur_instru = champ->current;
-  if (cur_instru->current_cycle == 0)
-    my_printf("%d : %s\n", champ->id, cur_instru->ope.comment);
-  cur_instru->current_cycle++;
-  if (cur_instru->current_cycle == cur_instru->ope.nbr_cycles)
+  tmp = vm->begin;
+  i = 0;
+  while (i < vm->nb)
     {
-      cur_instru->current_cycle = 0;
-      champ->current = champ->current->next;
+      tmp->alive = 0;
+      tmp = tmp->next;
+      i++;
     }
 }
 
-int		start_vm(t_vm *vm)
+void		load_instru(t_champ *champ,
+			    unsigned char *board)
 {
-  t_champlist	*cur_champ;
-  int		cycle;
-  int		i;
+  (void)board;
+  champ->ope.nbr_cycles = 1;
+}
 
-  cycle = CYCLE_TO_DIE;
-  while (cycle > 0)
+int		execute_champ(t_champ *champ,
+			      unsigned char *board)
+{
+  if (champ->cycle == 0)
+    load_instru(champ, board);
+  else if (champ->cycle == champ->ope.nbr_cycles)
     {
-      my_printf("\nCycle = %d\n", CYCLE_TO_DIE - cycle);
-      i = 0;
-      cur_champ = vm->begin;
-      while (i < vm->nb)
+      champ->instru += 1;
+      champ->cycle = 0;
+      champ->cursor += 1;
+    }
+  my_printf("%x\n", *champ->instru);
+  champ->cycle++;
+  if (champ->cursor == (champ->size))
+    {
+      my_printf("==== RESET ====\n");
+      champ->instru -= (champ->size + 1);
+      champ->cursor = -1;
+    }
+  return (0);
+}
+
+int		all_champ(t_vm *vm,
+			  unsigned char *board)
+{
+  int		i;
+  t_champ	*tmp;
+
+  i = 0;
+  tmp = vm->begin;
+  while (i < vm->nb)
+    {
+      execute_champ(tmp, board);
+      tmp = tmp->next;
+      i++;
+    }
+  return (0);
+}
+
+int		start_vm(t_vm *vm,
+			 unsigned char *board)
+{
+  int		end;
+  int		start;
+
+  end = CYCLE_TO_DIE;
+  while (end > 0)
+    {
+      start = end;
+      init_alive(vm);
+      while (start > 0)
 	{
-	  exec_champ(cur_champ);
-	  cur_champ = cur_champ->next;
-	  i++;
+	  all_champ(vm, board);
+	  start--;
 	}
-      cycle -= CYCLE_DELTA;
+      end -= CYCLE_DELTA;
     }
   return (0);
 }
