@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Mon Mar 14 09:13:16 2016 Eric DESCHODT
+** Last update Mon Mar 14 09:32:49 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -100,11 +100,18 @@ int		main(int ac, char **av)
 {
   unsigned char	board[MEM_SIZE];
   t_champ	new_elem;
+  t_vm		vm;
 
   if (ac < 2)
     return (0);
   init_board(board);
   create_champ(&new_elem, av[1], 0, board);
+  new_elem.next = &new_elem;
+  new_elem.prev = &new_elem;
+  vm.begin = &new_elem;
+  vm.end = &new_elem;
+  vm.nb = 1;
   printboard(board);
+  start_vm(&vm, board);
   return (0);
 }

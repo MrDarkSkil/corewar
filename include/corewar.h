@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Mon Mar 14 09:13:04 2016 Eric DESCHODT
+** Last update Mon Mar 14 09:31:53 2016 Eric DESCHODT
 
 */
 
@@ -53,6 +53,6 @@ typedef union		u_byte
 void    *xmalloc(int size);
 t_vm	*new_vm(t_vm *vm);
 void	launch_vm(t_vm *vm, int nb_champ);
-int     start_vm(t_vm *vm);
+int     start_vm(t_vm *vm, unsigned char *board);
 
 #endif /* !COREWAR_H */

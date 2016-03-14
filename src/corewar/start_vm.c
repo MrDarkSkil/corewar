@@ -5,45 +5,14 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Mon Mar  7 15:42:45 2016 Eric DESCHODT
+** Last update Mon Mar 14 09:33:24 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
-void		exec_champ(t_champlist *champ)
+int		start_vm(t_vm *vm, unsigned char *board)
 {
-  t_instru	*cur_instru;
-
-  cur_instru = champ->current;
-  if (cur_instru->current_cycle == 0)
-    my_printf("%d : %s\n", champ->id, cur_instru->ope.comment);
-  cur_instru->current_cycle++;
-  if (cur_instru->current_cycle == cur_instru->ope.nbr_cycles)
-    {
-      cur_instru->current_cycle = 0;
-      champ->current = champ->current->next;
-    }
-}
-
-int		start_vm(t_vm *vm)
-{
-  t_champlist	*cur_champ;
-  int		cycle;
-  int		i;
-
-  cycle = CYCLE_TO_DIE;
-  while (cycle > 0)
-    {
-      my_printf("\nCycle = %d\n", CYCLE_TO_DIE - cycle);
-      i = 0;
-      cur_champ = vm->begin;
-      while (i < vm->nb)
-	{
-	  exec_champ(cur_champ);
-	  cur_champ = cur_champ->next;
-	  i++;
-	}
-      cycle -= CYCLE_DELTA;
-    }
+  (void)vm;
+  (void)board;
   return (0);
 }
