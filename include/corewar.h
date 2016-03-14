@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Mon Mar 14 09:31:53 2016 Eric DESCHODT
+** Last update Mon Mar 14 11:53:05 2016 Eric DESCHODT
 
 */
 
@@ -28,8 +28,11 @@ typedef struct		s_champ
 {
   int			id;
   unsigned char		*instru;
-  unsigned int		cycle;
+  int			cycle;
+  int			cursor;
   int			size;
+  int			alive;
+  op_t			ope;
   struct s_champ	*next;
   struct s_champ	*prev;
 }			t_champ;

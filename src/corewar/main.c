@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Mon Mar 14 09:32:49 2016 Eric DESCHODT
+** Last update Mon Mar 14 13:43:21 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -55,7 +55,7 @@ void		printboard(unsigned char *board)
       my_printf("%s%x ", (board[i] < 16) ? "0" : "",  board[i]);
       i++;
     }
-  printf("\n");
+  my_printf("\n");
 }
 
 int		get_header(int fd, header_t *head)
@@ -84,13 +84,14 @@ int		create_champ(t_champ *new_elem,
   if ((fd = open(name, O_RDONLY)) == -1
       || get_header(fd, &head) == -1
       || (prog = malloc(sizeof(char) * head.prog_size + 1)) == NULL
-      || read(fd, prog, head.prog_size) == -1)
+      || read(fd, prog, head.prog_size + 1) == -1)
     return (-1);
   new_elem->instru = &board[a];
   new_elem->cycle = 0;
+  new_elem->cursor = 0;
   new_elem->size = head.prog_size;
   i = 0;
-  while (i < head.prog_size)
+  while (i < head.prog_size + 1)
     board[a++] = prog[i++];
   close (fd);
   free(prog);
@@ -111,7 +112,8 @@ int		main(int ac, char **av)
   vm.begin = &new_elem;
   vm.end = &new_elem;
   vm.nb = 1;
-  printboard(board);
+  vm.begin->id = 1;
+  /* printboard(board); */
   start_vm(&vm, board);
   return (0);
 }
