@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Mon Mar 14 11:53:05 2016 Eric DESCHODT
+** Last update Mon Mar 14 16:37:12 2016 Eric DESCHODT
 
 */
 
@@ -26,6 +26,7 @@
 
 typedef struct		s_champ
 {
+  char			reg[REG_NUMBER][T_REG];
   int			id;
   unsigned char		*instru;
   int			cycle;
