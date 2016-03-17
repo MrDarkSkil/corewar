@@ -1,15 +1,11 @@
 /*
-** op.c for  korewar
-**
-** Made by Astek
-** Login   <astek@epitech.net>
-**
-** Started on  Mon Mar 30 11:14:31 2009 Astek
-** Last update Tue Mar 22 16:44:20 2011 Astek
-*/
-
-/*
-** Ne pas passer ce fichier dans la moulinette de Norme.
+** op.c for  in /home/descho_e/year_2015_2016/C_Prog_Elem/coreware
+** 
+** Made by Eric DESCHODT
+** Login   <descho_e@epitech.net>
+** 
+** Started on  Thu Mar 17 12:57:29 2016 Eric DESCHODT
+** Last update Thu Mar 17 12:59:14 2016 Eric DESCHODT
 */
 
 #include "op.h"

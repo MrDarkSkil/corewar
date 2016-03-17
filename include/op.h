@@ -1,46 +1,36 @@
 /*
-** op.h
-**
-** Nicolas Sadirac
-** Tue Jul 13 18:53:48 1993
+** op.h for  in /home/descho_e/year_2015_2016/C_Prog_Elem/coreware
+** 
+** Made by Eric DESCHODT
+** Login   <descho_e@epitech.net>
+** 
+** Started on  Thu Mar 17 12:50:43 2016 Eric DESCHODT
+** Last update Thu Mar 17 12:54:30 2016 Eric DESCHODT
 */
-
 
 #ifndef _OP_H_
 # define _OP_H_
 
-#define MEM_SIZE                (6*1024)
-#define IDX_MOD                 512   /* modulo de l'index < */
-#define MAX_ARGS_NUMBER         4     /* this may not be changed 2^*IND_SIZE */
+# define MEM_SIZE               (6*1024)
+# define IDX_MOD                512
+# define MAX_ARGS_NUMBER        4
 
-#define COMMENT_CHAR            '#'
-#define LABEL_CHAR              ':'
-#define DIRECT_CHAR             '%'
-#define SEPARATOR_CHAR          ','
+# define COMMENT_CHAR           '#'
+# define LABEL_CHAR             ':'
+# define DIRECT_CHAR            '%'
+# define SEPARATOR_CHAR         ','
+# define LABEL_CHARS		"abcdefghijklmnopqrstuvwxyz_0123456789"
+# define NAME_CMD_STRING	".name"
+# define COMMENT_CMD_STRING	".comment"
 
-#define LABEL_CHARS             "abcdefghijklmnopqrstuvwxyz_0123456789"
-
-#define NAME_CMD_STRING         ".name"
-#define COMMENT_CMD_STRING      ".comment"
-
-/*
- ** regs
- */
-
-#define REG_NUMBER      16              /* r1 <--> rx */
-
-/*
- ** 
- */
+# define REG_NUMBER		16
 
 typedef char    args_type_t;
 
-#define T_REG           1       /* registre */
-#define T_DIR           2       /* directe  (ld  #1,r1  met 1 dans r1) */
-#define T_IND           4       /* indirecte toujours relatif
-                                   ( ld 1,r1 met ce qu'il y a l'adress (1+pc)
-                                   dans r1 (4 octecs )) */
-#define T_LAB           8       /* LABEL */
+# define T_REG			1
+# define T_DIR			2
+# define T_IND			4                          
+# define T_LAB			8
 
 typedef struct  op_s    
 {
@@ -52,47 +42,26 @@ typedef struct  op_s
    char         *comment;
 }		op_t;
 
-/* typedef struct op_s     op_t; */
-
-/*
- ** size
- */
-
-#define IND_SIZE        2               /* en octet */
-#define REG_SIZE        4               /* en octet */
-#define DIR_SIZE        REG_SIZE        /* en octet */
-
-/*
- ** op_tab
- */
-
+# define IND_SIZE		2
+# define REG_SIZE		4
+# define DIR_SIZE		REG_SIZE
 
 extern  op_t    op_tab[];
 
+# define PROG_NAME_LENGTH       128
+# define COMMENT_LENGTH         2048
+# define COREWAR_EXEC_MAGIC     0xea83f3
 
-/*
- ** header
- */
-#define PROG_NAME_LENGTH        128
-#define COMMENT_LENGTH          2048
-
-struct header_s
+typedef struct	header_s
 {
-   int  magic;
-#define COREWAR_EXEC_MAGIC      0xea83f3        /* why not */
-   char prog_name[PROG_NAME_LENGTH+1];
-   int  prog_size;
-   char comment[COMMENT_LENGTH+1];
-};
+   int		magic;
+   char		prog_name[PROG_NAME_LENGTH+1];
+   int		prog_size;
+   char		comment[COMMENT_LENGTH+1];
+}		header_t;
 
-typedef struct header_s header_t;
+# define CYCLE_TO_DIE		1536
+# define CYCLE_DELTA		5
+# define NBR_LIVE		40
 
-/*
- ** live 
- */
-
-#define CYCLE_TO_DIE    1536    /* nombre de cycle pour etre d\'eclarer mort */
-#define CYCLE_DELTA     5
-#define NBR_LIVE        40
-
-#endif
+#endif /* !OP_H_ */
