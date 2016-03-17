@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Thu Mar 17 17:30:58 2016 Eric DESCHODT
+** Last update Thu Mar 17 18:13:31 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -28,7 +28,6 @@ void		decal(char in[2],
   arg->type = mv;
   arg->val = 0;
   tmp.full = 0;
-  my_printf("mv = %d\n", mv);
   i = -1;
   while (++i < mv)
     {
@@ -37,9 +36,6 @@ void		decal(char in[2],
       champ->cursor += 1;
     }
   i = -1;
-  while (++i < 4)
-    my_printf("%x ", tmp.byte[i]);
-  my_printf("\n");
   revert_endian(&tmp.full);
   arg->val = tmp.full;
 }
@@ -87,8 +83,25 @@ int		zjump(t_args *arg, void *champ)
   return (0);
 }
 
+int		zjump2(t_champ *champ)
+{
+  t_byte	tmp;
+  int		i;
+
+  tmp.full = 0;
+  i = -1;
+  while (++i < IND_SIZE)
+    {
+      tmp.byte[4 - IND_SIZE + i] = (*champ->instru);
+      champ->instru += 1;
+      champ->cursor += 1;
+    }
+  revert_endian(&tmp.full);
+  return (0);
+}
+
 void		get_jump(t_champ *champ,
-			 unsigned char *board,
+			 unsigned char*board,
 			 op_t *reference)
 {
   int		i;
@@ -116,7 +129,7 @@ void		get_jump(t_champ *champ,
     reference->func(arg, champ);
 }
 void		load_instru(t_champ *champ,
-			    unsigned char *board)
+			    unsigned char*board)
 {
   int		i;
 
@@ -133,7 +146,7 @@ void		load_instru(t_champ *champ,
   else if (i == 0)
     living(champ);
   else if (i == 8)
-    zjump(champ);
+    zjump2(champ);
   else
     {
       champ->ope.nbr_cycles = op_tab[i].nbr_cycles;

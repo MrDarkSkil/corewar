@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Thu Mar 17 12:50:43 2016 Eric DESCHODT
-** Last update Thu Mar 17 16:00:18 2016 Eric DESCHODT
+** Last update Thu Mar 17 18:02:01 2016 Eric DESCHODT
 */
 
 #ifndef _OP_H_
@@ -35,7 +35,7 @@ typedef char    args_type_t;
 
 typedef union           u_byte
 {
-  char		        byte[4];
+  unsigned char		byte[4];
   int		        full;
 }                       t_byte;
 
