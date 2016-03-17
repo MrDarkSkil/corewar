@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Thu Mar 17 11:39:31 2016 Eric DESCHODT
+** Last update Thu Mar 17 14:35:24 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -90,7 +90,10 @@ int		main(int ac, char **av)
   vm.begin = &new_elem;
   vm.end = &new_elem;
   vm.nb = 1;
-  vm.begin->reg[0][0] = 1;
+  vm.begin->reg[0][0] = 0;
+  vm.begin->reg[0][1] = 0;
+  vm.begin->reg[0][2] = 0;
+  vm.begin->reg[0][3] = 4;
   start_vm(&vm, board);
   return (0);
 }

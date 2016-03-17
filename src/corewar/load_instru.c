@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Thu Mar 17 11:36:53 2016 Eric DESCHODT
+** Last update Thu Mar 17 17:30:58 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -16,29 +16,75 @@ void		decal(char in[2],
 {
   int		mv;
   int		i;
-  int		pow;
+  t_byte	tmp;
 
-  pow = 1;
   i = 0;
   if (in[0] == 0 && in[1] == 1)
-    mv = T_REG;
+    mv = 1;
   else if (in[0] == 1 && in[1] == 0)
     mv = T_DIR;
   else if (in[0] == 1 && in[1] == 1)
     mv = T_IND;
   arg->type = mv;
-  i = 0;
-  while (++i < mv)
-    pow *= 16;
   arg->val = 0;
+  tmp.full = 0;
+  my_printf("mv = %d\n", mv);
   i = -1;
   while (++i < mv)
     {
-      arg->val += pow * (*champ->instru);
-      pow /= 16;
+      tmp.byte[4 - mv + i] = (*champ->instru);
       champ->instru += 1;
       champ->cursor += 1;
     }
+  i = -1;
+  while (++i < 4)
+    my_printf("%x ", tmp.byte[i]);
+  my_printf("\n");
+  revert_endian(&tmp.full);
+  arg->val = tmp.full;
+}
+
+int		convert_reg(char *nbr)
+{
+  int		i;
+  t_byte	result;
+
+  i = -1;
+  while (++i < REG_SIZE)
+    result.byte[i] = nbr[i];
+  return (result.full);
+}
+
+int		sti(t_args *arg, void *champ)
+{
+  int		i;
+  unsigned char	*adr;
+
+  adr = ((t_champ *)champ)->start;
+  if (arg[1].type == 1)
+    adr += convert_reg(((t_champ *)champ)->reg[arg[1].val]);
+  else
+    adr += arg[1].val;
+  if (arg[2].type == 1)
+    adr += convert_reg(((t_champ *)champ)->reg[arg[2].val]);
+  else
+    adr += arg[2].val;
+  i = 0;
+  while (i < REG_SIZE)
+    {
+      *adr = ((t_champ *)champ)->reg[arg[0].val - 1][i];
+      adr++;
+      i++;
+    }
+  return (0);
+}
+
+int		zjump(t_args *arg, void *champ)
+{
+  (void)champ;
+  printf("%d\n", arg[0].val % IDX_MOD);
+  exit(0);
+  return (0);
 }
 
 void		get_jump(t_champ *champ,
@@ -66,6 +112,8 @@ void		get_jump(t_champ *champ,
       if (i % 2 == 0)
 	decal(in, champ, &arg[j++]);
     }
+  if (reference->func != NULL)
+    reference->func(arg, champ);
 }
 void		load_instru(t_champ *champ,
 			    unsigned char *board)
@@ -84,12 +132,14 @@ void		load_instru(t_champ *champ,
     }
   else if (i == 0)
     living(champ);
+  else if (i == 8)
+    zjump(champ);
   else
     {
       champ->ope.nbr_cycles = op_tab[i].nbr_cycles;
       champ->ope.nbr_args = op_tab[i].nbr_args;
       my_printf("Champion : %d commande : %s qui prend %d cycles\n",
-		champ->reg[0][0],
+		convert_reg(champ->reg[0]),
 		op_tab[i].mnemonique, op_tab[i].nbr_cycles);
       get_jump(champ, board, &op_tab[i]);
     }

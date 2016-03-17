@@ -5,7 +5,7 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:18:01 2016 Eric DESCHODT
-## Last update Thu Mar 17 11:36:17 2016 Eric DESCHODT
+## Last update Thu Mar 17 14:36:22 2016 Eric DESCHODT
 ##
 
 NAME		=		../../corewar

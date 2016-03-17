@@ -5,12 +5,13 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Thu Mar 17 12:50:43 2016 Eric DESCHODT
-** Last update Thu Mar 17 12:54:30 2016 Eric DESCHODT
+** Last update Thu Mar 17 16:00:18 2016 Eric DESCHODT
 */
 
 #ifndef _OP_H_
 # define _OP_H_
 
+# include "corewar.h"
 # define MEM_SIZE               (6*1024)
 # define IDX_MOD                512
 # define MAX_ARGS_NUMBER        4
@@ -32,25 +33,38 @@ typedef char    args_type_t;
 # define T_IND			4                          
 # define T_LAB			8
 
-typedef struct  op_s    
+typedef union           u_byte
 {
-   char         *mnemonique;
-   char         nbr_args;
-   args_type_t  type[MAX_ARGS_NUMBER];
-   char         code;
-   int          nbr_cycles;
-   char         *comment;
+  char		        byte[4];
+  int		        full;
+}                       t_byte;
+
+typedef struct          s_args
+{
+  args_type_t           type;
+  int			val;
+}			t_args;
+
+typedef struct  op_s
+{
+  char          *mnemonique;
+  char          nbr_args;
+  args_type_t   type[MAX_ARGS_NUMBER];
+  char          code;
+  int           nbr_cycles;
+  char          *comment;
+  int		(*func)(t_args *, void *);
 }		op_t;
 
 # define IND_SIZE		2
 # define REG_SIZE		4
 # define DIR_SIZE		REG_SIZE
 
-extern  op_t    op_tab[];
-
 # define PROG_NAME_LENGTH       128
 # define COMMENT_LENGTH         2048
 # define COREWAR_EXEC_MAGIC     0xea83f3
+
+extern op_t op_tab[];
 
 typedef struct	header_s
 {
