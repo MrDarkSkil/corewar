@@ -9,8 +9,6 @@
 #ifndef _OP_H_
 # define _OP_H_
 
-
-
 #define MEM_SIZE                (6*1024)
 #define IDX_MOD                 512   /* modulo de l'index < */
 #define MAX_ARGS_NUMBER         4     /* this may not be changed 2^*IND_SIZE */
@@ -44,7 +42,7 @@ typedef char    args_type_t;
                                    dans r1 (4 octecs )) */
 #define T_LAB           8       /* LABEL */
 
-struct  op_s    
+typedef struct  op_s    
 {
    char         *mnemonique;
    char         nbr_args;
@@ -52,9 +50,9 @@ struct  op_s
    char         code;
    int          nbr_cycles;
    char         *comment;
-};
+}		op_t;
 
-typedef struct op_s     op_t;
+/* typedef struct op_s     op_t; */
 
 /*
  ** size
