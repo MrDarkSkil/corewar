@@ -5,10 +5,11 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Fri Mar 18 14:24:09 2016 Eric DESCHODT
+** Last update Fri Mar 18 17:08:16 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
+
 void		zjump_move(t_champ *champ,
 			   unsigned char *board,
 			   t_byte tmp)
@@ -39,6 +40,8 @@ int		zjump(t_champ *champ,
   t_byte	tmp;
   int		i;
 
+
+  my_printf("zjump\n");
   i = -1;
   if (*champ->instru &  (1u << 0))
     tmp.full = -1;

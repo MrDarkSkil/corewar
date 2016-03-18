@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Fri Mar 18 14:30:23 2016 Eric DESCHODT
+** Last update Fri Mar 18 17:07:13 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -45,17 +45,20 @@ void		living(t_champ *champ, unsigned char *board)
   int		result;
   t_byte	tmp;
 
-  moving_PC(champ, board, 1);
   i = 0;
   tmp.full = 0;
   result = 0;
+  moving_PC(champ, board, 1);
+  my_printf("Live\n");
   while (i < 4)
     {
       tmp.byte[i] = (*champ->instru);
       moving_PC(champ, board, 1);
       i++;
     }
+  i = -1;
   revert_endian(&tmp.full);
   result = tmp.full;
+
   find_living_champion(result, champ);
 }

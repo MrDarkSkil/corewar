@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Fri Mar 18 14:30:34 2016 Eric DESCHODT
+** Last update Fri Mar 18 17:59:06 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -25,6 +25,8 @@ void		decal(char in[2],
   else if (in[0] == 1 && in[1] == 0)
     mv = T_DIR;
   else if (in[0] == 1 && in[1] == 1)
+    mv = T_IND;
+  else
     mv = T_IND;
   arg->type = mv;
   arg->val = 0;
@@ -62,9 +64,9 @@ void		get_jump(t_champ *champ,
   t_args	arg[4];
 
   c = *champ->instru;
-  moving_PC(champ, board, 1);
   i = 8;
   j = 0;
+  moving_PC(champ, board, 1);
   while (--i >= 0 && j < reference->nbr_args)
     {
       if (c & (1u << i))
@@ -103,7 +105,7 @@ void		load_instru(t_champ *champ,
   i = 0;
   while (op_tab[i].code != *champ->instru && op_tab[i].code != 0)
     i++;
-  moving_PC(champ, board, 1);
+  moving_PC(champ, board, 1); 
   if (i == 16)
     {
       champ->ope.nbr_cycles = 1;
