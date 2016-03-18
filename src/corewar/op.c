@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Thu Mar 17 12:57:29 2016 Eric DESCHODT
-** Last update Thu Mar 17 15:19:50 2016 Eric DESCHODT
+** Last update Thu Mar 17 18:17:35 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -23,7 +23,7 @@ op_t    op_tab[] =
      "ou  (or   r1, r2, r3   r1 | r2 -> r3", NULL},
     {"xor", 3, {T_REG | T_IND | T_DIR, T_REG | T_IND | T_DIR, T_REG}, 8, 6,
      "ou (xor  r1, r2, r3   r1^r2 -> r3", NULL},
-    {"zjmp", 1, {T_DIR}, 9, 20, "jump if zero", &zjump},
+    {"zjmp", 1, {T_DIR}, 9, 20, "jump if zero", NULL},
     {"ldi", 3, {T_REG | T_DIR | T_IND, T_DIR | T_REG, T_REG}, 10, 25,
      "load index", NULL},
     {"sti", 3, {T_REG, T_REG | T_DIR | T_IND, T_DIR | T_REG}, 11, 25,

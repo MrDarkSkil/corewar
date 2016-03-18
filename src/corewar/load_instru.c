@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Thu Mar 17 18:13:31 2016 Eric DESCHODT
+** Last update Fri Mar 18 12:28:07 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -75,28 +75,35 @@ int		sti(t_args *arg, void *champ)
   return (0);
 }
 
-int		zjump(t_args *arg, void *champ)
+typedef struct	s_test
 {
-  (void)champ;
-  printf("%d\n", arg[0].val % IDX_MOD);
-  exit(0);
-  return (0);
-}
+  unsigned char	byte[2];
+  short int	full;
+}		t_test;
 
 int		zjump2(t_champ *champ)
 {
   t_byte	tmp;
   int		i;
 
-  tmp.full = 0;
   i = -1;
+  if (*champ->instru &  (1u << 0))
+    tmp.full = -1;
+  else
+    tmp.full = 0;
   while (++i < IND_SIZE)
     {
       tmp.byte[4 - IND_SIZE + i] = (*champ->instru);
       champ->instru += 1;
       champ->cursor += 1;
     }
+
   revert_endian(&tmp.full);
+  tmp.full %= IDX_MOD;
+  /* my_printf("%d\n", tmp.full); */
+  champ->instru -= 4;
+  champ->instru += tmp.full;
+  /* my_printf("%d\n", *champ->instru); */
   return (0);
 }
 
@@ -128,6 +135,7 @@ void		get_jump(t_champ *champ,
   if (reference->func != NULL)
     reference->func(arg, champ);
 }
+
 void		load_instru(t_champ *champ,
 			    unsigned char*board)
 {
@@ -152,7 +160,7 @@ void		load_instru(t_champ *champ,
       champ->ope.nbr_cycles = op_tab[i].nbr_cycles;
       champ->ope.nbr_args = op_tab[i].nbr_args;
       my_printf("Champion : %d commande : %s qui prend %d cycles\n",
-		convert_reg(champ->reg[0]),
+		champ->reg[0][3],
 		op_tab[i].mnemonique, op_tab[i].nbr_cycles);
       get_jump(champ, board, &op_tab[i]);
     }

@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Thu Mar 17 16:18:29 2016 Eric DESCHODT
+** Last update Fri Mar 18 12:27:23 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -37,7 +37,6 @@ void		find_living_champion(int result,
 	}
       start = start->next;
     }
-  my_printf("Live\n");
 }
 
 void		living(t_champ *champ)
