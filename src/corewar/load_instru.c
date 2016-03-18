@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Fri Mar 18 14:27:38 2016 Eric DESCHODT
+** Last update Fri Mar 18 14:30:34 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -94,8 +94,6 @@ void		moving_PC(t_champ *champ, unsigned char *board, int move)
   else
     champ->instru += move;
 }
-
-
 
 void		load_instru(t_champ *champ,
 			    unsigned char *board)
