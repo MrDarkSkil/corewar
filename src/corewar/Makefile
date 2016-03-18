@@ -5,7 +5,7 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:18:01 2016 Eric DESCHODT
-## Last update Thu Mar 17 14:36:22 2016 Eric DESCHODT
+## Last update Fri Mar 18 14:28:28 2016 Eric DESCHODT
 ##
 
 NAME		=		../../corewar
@@ -15,7 +15,9 @@ SRC		=		main.c			\
 				utils.c			\
 				op.c			\
 				living.c		\
-				load_instru.c
+				load_instru.c		\
+				zjump.c			\
+				sti.c
 
 OBJ		=		$(SRC:.c=.o)
 

@@ -5,14 +5,15 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Fri Mar 18 12:28:07 2016 Eric DESCHODT
+** Last update Fri Mar 18 14:27:38 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
 void		decal(char in[2],
 		      t_champ *champ,
-		      t_args *arg)
+		      t_args *arg,
+		      unsigned char *board)
 {
   int		mv;
   int		i;
@@ -32,8 +33,7 @@ void		decal(char in[2],
   while (++i < mv)
     {
       tmp.byte[4 - mv + i] = (*champ->instru);
-      champ->instru += 1;
-      champ->cursor += 1;
+      moving_PC(champ, board, 1);
     }
   i = -1;
   revert_endian(&tmp.full);
@@ -51,62 +51,6 @@ int		convert_reg(char *nbr)
   return (result.full);
 }
 
-int		sti(t_args *arg, void *champ)
-{
-  int		i;
-  unsigned char	*adr;
-
-  adr = ((t_champ *)champ)->start;
-  if (arg[1].type == 1)
-    adr += convert_reg(((t_champ *)champ)->reg[arg[1].val]);
-  else
-    adr += arg[1].val;
-  if (arg[2].type == 1)
-    adr += convert_reg(((t_champ *)champ)->reg[arg[2].val]);
-  else
-    adr += arg[2].val;
-  i = 0;
-  while (i < REG_SIZE)
-    {
-      *adr = ((t_champ *)champ)->reg[arg[0].val - 1][i];
-      adr++;
-      i++;
-    }
-  return (0);
-}
-
-typedef struct	s_test
-{
-  unsigned char	byte[2];
-  short int	full;
-}		t_test;
-
-int		zjump2(t_champ *champ)
-{
-  t_byte	tmp;
-  int		i;
-
-  i = -1;
-  if (*champ->instru &  (1u << 0))
-    tmp.full = -1;
-  else
-    tmp.full = 0;
-  while (++i < IND_SIZE)
-    {
-      tmp.byte[4 - IND_SIZE + i] = (*champ->instru);
-      champ->instru += 1;
-      champ->cursor += 1;
-    }
-
-  revert_endian(&tmp.full);
-  tmp.full %= IDX_MOD;
-  /* my_printf("%d\n", tmp.full); */
-  champ->instru -= 4;
-  champ->instru += tmp.full;
-  /* my_printf("%d\n", *champ->instru); */
-  return (0);
-}
-
 void		get_jump(t_champ *champ,
 			 unsigned char*board,
 			 op_t *reference)
@@ -117,10 +61,8 @@ void		get_jump(t_champ *champ,
   char		in[2];
   t_args	arg[4];
 
-  (void)board;
   c = *champ->instru;
-  champ->instru++;
-  champ->cursor++;
+  moving_PC(champ, board, 1);
   i = 8;
   j = 0;
   while (--i >= 0 && j < reference->nbr_args)
@@ -130,31 +72,49 @@ void		get_jump(t_champ *champ,
       else
 	in[(i % 2 == 1) ? 0 : 1] = 0;
       if (i % 2 == 0)
-	decal(in, champ, &arg[j++]);
+	decal(in, champ, &arg[j++], board);
     }
   if (reference->func != NULL)
     reference->func(arg, champ);
 }
 
+void		moving_PC(t_champ *champ, unsigned char *board, int move)
+{
+  champ->cursor += move;
+  if (champ->cursor == MEM_SIZE)
+    {
+      champ->cursor = 0;
+      champ->instru = &board[0];
+    }
+  else if (champ->cursor == -1)
+    {
+      champ->cursor = MEM_SIZE - 1;
+      champ->instru = &board[MEM_SIZE - 1];
+    }
+  else
+    champ->instru += move;
+}
+
+
+
 void		load_instru(t_champ *champ,
-			    unsigned char*board)
+			    unsigned char *board)
 {
   int		i;
 
   i = 0;
   while (op_tab[i].code != *champ->instru && op_tab[i].code != 0)
     i++;
-  champ->instru += 1;
-  champ->cursor += 1;
+  moving_PC(champ, board, 1);
   if (i == 16)
     {
       champ->ope.nbr_cycles = 1;
       champ->ope.nbr_args = 1;
     }
   else if (i == 0)
-    living(champ);
+    living(champ, board);
   else if (i == 8)
-    zjump2(champ);
+    zjump(champ, board);
   else
     {
       champ->ope.nbr_cycles = op_tab[i].nbr_cycles;

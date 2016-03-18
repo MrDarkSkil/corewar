@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Fri Mar 18 12:25:18 2016 Eric DESCHODT
+** Last update Fri Mar 18 13:11:42 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -34,11 +34,6 @@ int		execute_champ(t_champ *champ,
     champ->cycle = 0;
   else
     champ->cycle++;
-  if (champ->cursor == (champ->size))
-    {
-      champ->instru = champ->start;
-      champ->cursor = 0;
-    }
   return (0);
 }
 

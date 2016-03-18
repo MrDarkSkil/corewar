@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Thu Mar 17 17:58:25 2016 Eric DESCHODT
+** Last update Fri Mar 18 13:10:21 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -66,7 +66,7 @@ int		create_champ(t_champ *new_elem,
   new_elem->instru = &board[a];
   new_elem->start = &board[a];
   new_elem->cycle = 0;
-  new_elem->cursor = 0;
+  new_elem->cursor = a;
   new_elem->size = head.prog_size;
   i = 0;
   while (i < head.prog_size + 1)
