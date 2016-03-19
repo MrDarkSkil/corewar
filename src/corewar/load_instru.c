@@ -1,3 +1,4 @@
+
 /*
 ** start_vm.c for corewar in /home/descho_e/year_2015_2016/C_Prog_Elem/coreware
 ** 
@@ -5,7 +6,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Fri Mar 18 17:59:06 2016 Eric DESCHODT
+** Last update Fri Mar 18 21:51:39 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -27,13 +28,18 @@ void		decal(char in[2],
   else if (in[0] == 1 && in[1] == 1)
     mv = T_IND;
   else
-    mv = T_IND;
+    mv = T_LAB;
   arg->type = mv;
+  if (mv == T_DIR)
+    mv = DIR_SIZE;
+  else if (mv == T_IND)
+    mv = IND_SIZE;
   arg->val = 0;
   tmp.full = 0;
   i = -1;
   while (++i < mv)
     {
+
       tmp.byte[4 - mv + i] = (*champ->instru);
       moving_PC(champ, board, 1);
     }
@@ -74,10 +80,10 @@ void		get_jump(t_champ *champ,
       else
 	in[(i % 2 == 1) ? 0 : 1] = 0;
       if (i % 2 == 0)
-	decal(in, champ, &arg[j++], board);
+      	decal(in, champ, &arg[j++], board);
     }
-  if (reference->func != NULL)
-    reference->func(arg, champ);
+  /* if (reference->func != NULL) */
+  /*   reference->func(arg, champ); */
 }
 
 void		moving_PC(t_champ *champ, unsigned char *board, int move)
@@ -106,22 +112,28 @@ void		load_instru(t_champ *champ,
   while (op_tab[i].code != *champ->instru && op_tab[i].code != 0)
     i++;
   moving_PC(champ, board, 1); 
-  if (i == 16)
+  if (op_tab[i].code == 0)
     {
+      my_printf("Ope inconnue %x\n", *(champ->instru - 1));
       champ->ope.nbr_cycles = 1;
       champ->ope.nbr_args = 1;
     }
-  else if (i == 0)
+  else if (op_tab[i].code == 11)
+    sti(champ, board);
+    /* { */
+    /*   my_printf("Sti\n"); */
+    /*   i = -1; */
+    /*   while (++i < 6) */
+    /* 	moving_PC(champ, board, 1); */
+    /* } */
+  else if (op_tab[i].code == 1)
     living(champ, board);
-  else if (i == 8)
+  else if (op_tab[i].code == 9)
     zjump(champ, board);
   else
     {
       champ->ope.nbr_cycles = op_tab[i].nbr_cycles;
       champ->ope.nbr_args = op_tab[i].nbr_args;
-      my_printf("Champion : %d commande : %s qui prend %d cycles\n",
-		champ->reg[0][3],
-		op_tab[i].mnemonique, op_tab[i].nbr_cycles);
       get_jump(champ, board, &op_tab[i]);
     }
 }
