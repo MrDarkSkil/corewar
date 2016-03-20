@@ -5,12 +5,14 @@
 ## Login   <julian_r@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:27:46 2016 Juliani Renaud
-## Last update Sun Mar 20 23:28:04 2016 Léo Hubert
+## Last update Sun Mar 20 23:36:11 2016 Léo Hubert
 ##
 
 NAME	=	./../../asm
 
 SRC	=	main.c					\
+		file_my.c				\
+		parse_header.c				\
 		my_takestr.c				\
 		my_strcmp.c				\
 		../../lib/get_next_line/get_next_line.c
