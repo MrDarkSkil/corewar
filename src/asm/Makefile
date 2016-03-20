@@ -5,20 +5,22 @@
 ## Login   <julian_r@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:27:46 2016 Juliani Renaud
-## Last update Fri Mar 11 12:01:01 2016 Juliani Renaud
+## Last update Sun Mar 20 23:28:04 2016 Léo Hubert
 ##
 
-NAME	=	asm
+NAME	=	./../../asm
 
 SRC	=	main.c					\
-		../../lib/get_next_line/get_next_line.c	\
-		my_strcat.c
+		my_takestr.c				\
+		my_strcmp.c				\
+		../../lib/get_next_line/get_next_line.c
 
 OBJ	=	$(SRC:.c=.o)
 
 CFLAGS	+=	-Werror -Wextra -Wall
 CFLAGS	+=	-pedantic -ansi
 CFLAGS	+=	-I./../../include
+CFLAGS	+=	-lmyprintf -l./../../lib
 
 CC	=	gcc -g3
 
@@ -27,7 +29,7 @@ RM	=	rm -rf
 all	:	$(NAME)
 
 $(NAME)	:	$(OBJ)
-		$(CC) -o $(NAME) $(OBJ) 
+		$(CC) -o $(NAME) $(OBJ)
 
 clean	:
 		$(RM) $(OBJ)

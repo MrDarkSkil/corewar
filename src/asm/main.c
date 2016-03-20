@@ -1,119 +1,192 @@
 /*
-** main.c for asm in /home/julian_r/rendu/prog_elem/coreware/src/asm
-** 
-** Made by Juliani Renaud
-** Login   <julian_r@epitech.net>
-** 
-** Started on  Fri Mar 11 11:03:06 2016 Juliani Renaud
-** Last update Mon Mar 14 17:22:39 2016 Juliani Renaud
+** test.c for test in /home/hubert_i/rendu/2015/coreware/src/asm
+**
+** Made by Léo Hubert
+** Login   <hubert_i@epitech.net>
+**
+** Started on  Thu Mar 17 16:45:26 2016 Léo Hubert
+** Last update Sun Mar 20 23:29:41 2016 Léo Hubert
 */
 
-#include "corewar.h"
+#include "compilator.h"
 
-int		my_strlen(char *str)
+char	*parse_name(char *str)
 {
-  int		i;
+  int	i;
+  char	*result;
 
   i = 0;
+  if ((result = malloc(PROG_NAME_LENGTH + 2)) == NULL || my_strlen(str) > PROG_NAME_LENGTH)
+    return (NULL);
   while (str[i])
-    i++;
-  return (i);
-}
-
-void		my_puterror(char *str)
-{
-  write(2, str, my_strlen(str));
-  exit (0);
-}
-
-char		*my_memeset(char *str, char c, int len)
-{
-  int		i;
-
-  i = 0;
-  while (i < len)
-    str[i++] = c;
-  return (str);
-}
-
-int		swap(int magic)
-{
-  int		new_magic;
-
-  new_magic = ((magic >> 24) &0xff) | ((magic << 8) &0xff0000)
-    | ((magic >> 8) &0xff00) | ((magic << 24) &0xff000000);
-  return (new_magic);
-}
-
-char		*recup(char *str)
-{
-  int		i;
-  int		j;
-  char		*rturn;
-
-  if ((rturn = malloc(sizeof(char) * my_strlen(str))) == NULL)
-    my_puterror("Error with mallic rturn in recup\n");
-  i = 0;
-  j = 0;
-  while (str[i] != '"' && str[i] != '\0')
-    i++;
-  i++;
-  while (str[i] != '"' && str[i] != '\0')
     {
-      rturn[j] = str[i];
-      i++;
-      j++;
-    }
-  rturn[j] = '\0';
-  return (rturn);
-}
-
-char		*changopen(char *str)
-{
-  int		i;
-  char		*rturn;
-
-  i = 0;
-  if ((rturn = malloc(sizeof(char) * (my_strlen(str) + 4))) == NULL)
-    my_puterror("Error with malloc rturn in changopen\n");
-  while (str[i] != '.')
-    {
-      rturn[i] = str[i];
+      result[i] = str[i];
       i++;
     }
-  rturn = my_strcat(rturn, ".cor");
-  return (rturn);
+  while (i < PROG_NAME_LENGTH)
+    {
+      result[i] = 0;
+      i++;
+    }
+  return (result);
 }
 
-void		write_name_comment(int fdwrite, t_headers *head)
+char	*parse_comment(char *str)
 {
-  if ((write(fdwrite, head, PROG_NAME_LENGTH)) == -1)
-    my_puterror("Error with write name in write_name_comment\n");
+  int	i;
+  char	*result;
+
+  i = 0;
+  if ((result = malloc(COMMENT_LENGTH  + 2)) == NULL || my_strlen(str) > COMMENT_LENGTH)
+    return (NULL);
+  while (str[i])
+    {
+      result[i] = str[i];
+      i++;
+    }
+  while (i < COMMENT_LENGTH)
+    {
+      result[i] = 0;
+      i++;
+    }
+  return (result);
 }
 
-int		main(int ac, char **av)
+char	*get_name(char *str)
 {
-  int		fdread;
-  int		fdwrite;
-  t_headers	*head;
+  char	*name;
 
-  ac = ac;
-  if ((fdread = open(av[1], O_RDONLY)) == -1)
-    my_puterror("Error with open av in main\n");
-  if ((fdwrite = open(changopen(av[1]), O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR
-		      | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)) == -1)
-    my_puterror("Error with open av in main\n");
-  if ((head = malloc(sizeof(head))) == NULL)
-    my_puterror("Error with malloc head in main\n");
-  if ((head->name = malloc(sizeof(char) * (PROG_NAME_LENGTH + 1))) == NULL)
-    my_puterror("Error with malloc name in main\n");
-  if ((head->comment = malloc(sizeof(char) * (COMMENT_LENGTH + 1))) == NULL)
-    my_puterror("Error with malloc name in main\n");
-  head->magic = swap(COREWAR_EXEC_MAGIC);
-  head->name = my_memeset(head->name, '\0', (PROG_NAME_LENGTH + 1));
-  head->comment = my_memeset(head->comment, '\0', (COMMENT_LENGTH + 1));
-  head->name = recup(get_next_line(fdread));
-  head->comment = recup(get_next_line(fdread));
-  write_name_comment(fdwrite, head);
+  if (my_strcmp(NAME_CMD_STRING, take_begin(str, ' ')) != 0)
+    return (NULL);
+  name = parse_name(take_after(str, '\"'));
+  if (my_strlen(name) > 0)
+    {
+      name[my_strlen(name) - 1] = '\0';
+      return (name);
+    }
+  else
+    return (NULL);
+}
+
+char	*get_comment(char *str)
+{
+  char	*comment;
+
+  if (my_strcmp(COMMENT_CMD_STRING, take_begin(str, ' ')) != 0)
+    return (NULL);
+  comment = parse_comment(take_after(str, '\"'));
+  if (my_strlen(comment) > 0)
+    {
+      comment[my_strlen(comment) - 1] = '\0';
+      return (comment);
+    }
+  else
+    return (NULL);
+}
+
+int swap_nbr(int nbr)
+{
+  int new_nbr;
+
+  new_nbr = ((nbr >> 24) &0xff) | ((nbr << 8) &0xff0000)
+    | ((nbr >> 8) &0xff00) | ((nbr << 24) &0xff000000);
+  return (new_nbr);
+}
+
+int	my_putstr(char *str)
+{
+  int	i;
+  while (str[i])
+    {
+      write(1, &str[i], 1);
+      i++;
+    }
+  return (0);
+}
+
+int	my_strlen(char *str)
+{
+  int	counter;
+
+ counter = -1;
+  if (str == NULL)
+    return (0);
+  while (str[++counter] != 0);
+  return (counter);
+}
+
+char	*my_strfusion(char *str, char *str2)
+{
+  char	*result;
+  int	counter;
+  int	counter2;
+
+  counter = 0;
+  counter2 = 0;
+  if ((result = malloc(my_strlen(str) + my_strlen(str2) + 1)) == NULL)
+    return (NULL);
+  while (str[counter] != 0)
+    {
+      result[counter] = str[counter];
+      counter++;
+    }
+  while (str2[counter2] != 0)
+    {
+      result[counter] = str2[counter2];
+      counter2++;
+      counter++;
+    }
+  result[counter] = '\0';
+  return (result);
+}
+
+int	create_cor(char *file)
+{
+  int	fd;
+  int	fdwrite;
+  char	*str;
+  int	magic_number;
+
+  magic_number = swap_nbr(COREWAR_EXEC_MAGIC);
+  if ((fd = open(file, O_RDONLY)) == -1)
+    return (-2);
+  if ((fdwrite = open(my_strfusion(take_begin(file, '.'), ".cor"), O_WRONLY | O_CREAT | O_TRUNC,
+		      S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)) == -1)
+    return (-3);
+  if (write(fdwrite, &magic_number, 4) == -1)
+    return (-1);
+  if ((str = get_name(get_next_line(fd))) == NULL)
+    return (-1);
+  if (write(fdwrite, str, PROG_NAME_LENGTH) == -1)
+    return (-1);
+  if ((str = get_comment(get_next_line(fd))) == NULL)
+    return (-1);
+  if (write(fdwrite, str, COMMENT_LENGTH) == -1)
+    return (-1);
+  close(fd);
+  close(fdwrite);
+  return (0);
+}
+
+int	main(int ac, char **av)
+{
+  int	i;
+  int	res;
+
+  i = 1;
+  if (ac > 1)
+    {
+      res = create_cor(av[i]);
+      if (res == -1)
+	return (my_putstr("Error champion not OK"));
+      else if (res == -2)
+	return (my_putstr("File Not Found:"));
+      else if (res == -3)
+	return (my_putstr("Error load read file"));
+    }
+  else if (ac == 1)
+    {
+      my_putstr("Error aguments\nMettre message appropriè. (sans fautes :p)");
+    }
   return (0);
 }

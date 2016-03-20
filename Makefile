@@ -5,7 +5,7 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:27:34 2016 Eric DESCHODT
-## Last update Mon Mar  7 14:26:44 2016 Eric DESCHODT
+## Last update Thu Mar 17 18:28:10 2016 Léo Hubert
 ##
 
 MAKE	=	make --no-print-directory
@@ -13,14 +13,17 @@ MAKE	=	make --no-print-directory
 all	:
 		@$(MAKE) all -C lib/my
 		@$(MAKE) all -C src/corewar/
+		@$(MAKE) all -C src/asm/
 
 clean	:
 		@$(MAKE) clean -C lib/my
 		@$(MAKE) clean -C src/corewar/
+		@$(MAKE) clean -C src/asm/
 
 fclean	:	clean
 		@$(MAKE) fclean -C lib/my
 		@$(MAKE) fclean -C src/corewar/
+		@$(MAKE) fclean -C src/asm/
 
 re	:	fclean all
 

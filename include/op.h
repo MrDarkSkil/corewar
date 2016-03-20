@@ -1,17 +1,16 @@
 /*
 ** op.h for  in /home/descho_e/year_2015_2016/C_Prog_Elem/coreware
-** 
+**
 ** Made by Eric DESCHODT
 ** Login   <descho_e@epitech.net>
-** 
+**
 ** Started on  Thu Mar 17 12:50:43 2016 Eric DESCHODT
-** Last update Thu Mar 17 18:02:01 2016 Eric DESCHODT
+** Last update Sun Mar 20 23:20:13 2016 Léo Hubert
 */
 
 #ifndef _OP_H_
 # define _OP_H_
 
-# include "corewar.h"
 # define MEM_SIZE               (6*1024)
 # define IDX_MOD                512
 # define MAX_ARGS_NUMBER        4
@@ -30,7 +29,7 @@ typedef char    args_type_t;
 
 # define T_REG			1
 # define T_DIR			2
-# define T_IND			4                          
+# define T_IND			4
 # define T_LAB			8
 
 typedef union           u_byte
@@ -40,6 +39,7 @@ typedef union           u_byte
 }                       t_byte;
 
 typedef struct          s_args
+
 {
   args_type_t           type;
   int			val;
