@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Fri Mar 18 18:34:50 2016 Antoine Roig
-** Last update Fri Mar 18 22:20:17 2016 Antoine Roig
+** Last update Sat Mar 19 23:09:17 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -40,7 +40,6 @@ void	add_list_end_vm(t_vm *vm, t_champ *champ)
   new->prev = NULL;
   if (vm->begin == NULL)
     {
-      printf("ICI\n");
       vm->begin = new;
       vm->end = new;
       vm->nb = 1;

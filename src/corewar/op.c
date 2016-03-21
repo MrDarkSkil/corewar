@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Thu Mar 17 12:57:29 2016 Eric DESCHODT
-** Last update Fri Mar 18 21:52:22 2016 Eric DESCHODT
+** Last update Mon Mar 21 12:56:26 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -13,16 +13,16 @@
 op_t    op_tab[] =
   {
     {"live", 1, {T_DIR}, 1, 10, "alive", NULL},
-    {"ld", 2, {T_DIR | T_IND, T_REG}, 2, 5, "load", &ld},
+    {"ld", 2, {T_DIR | T_IND, T_REG}, 2, 5, "load", NULL},
     {"st", 2, {T_REG, T_IND | T_REG}, 3, 5, "store", NULL},
-    {"add", 3, {T_REG, T_REG, T_REG}, 4, 10, "addition", NULL},
-    {"sub", 3, {T_REG, T_REG, T_REG}, 5, 10, "soustraction", NULL},
+    {"add", 3, {T_REG, T_REG, T_REG}, 4, 10, "addition", &add},
+    {"sub", 3, {T_REG, T_REG, T_REG}, 5, 10, "soustraction", &sub},
     {"and", 3, {T_REG | T_DIR | T_IND, T_REG | T_IND | T_DIR, T_REG}, 6, 6,
-     "et (and  r1, r2, r3   r1&r2 -> r3", NULL},
+     "et (and  r1, r2, r3   r1&r2 -> r3", &and},
     {"or", 3, {T_REG | T_IND | T_DIR, T_REG | T_IND | T_DIR, T_REG}, 7, 6,
-     "ou  (or   r1, r2, r3   r1 | r2 -> r3", NULL},
+     "ou  (or   r1, r2, r3   r1 | r2 -> r3", &or},
     {"xor", 3, {T_REG | T_IND | T_DIR, T_REG | T_IND | T_DIR, T_REG}, 8, 6,
-     "ou (xor  r1, r2, r3   r1^r2 -> r3", NULL},
+     "ou (xor  r1, r2, r3   r1^r2 -> r3", &xor},
     {"zjmp", 1, {T_DIR}, 9, 20, "jump if zero", NULL},
     {"ldi", 3, {T_REG | T_DIR | T_IND, T_DIR | T_REG, T_REG}, 10, 25,
      "load index", NULL},

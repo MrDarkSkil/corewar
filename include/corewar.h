@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Sat Mar 19 18:36:01 2016 Eric DESCHODT
+** Last update Mon Mar 21 12:57:02 2016 Antoine Roig
 */
 
 #ifndef COREWAR_H_
@@ -86,6 +86,11 @@ void    printboard(unsigned char *board);
 
 int     sti(t_champ *champ, unsigned char *board);
 int     ld(t_args *arg, void *champ);
+int	add(t_args *arg, void *champ);
+int	or(t_args *arg, void *champ);
+int	xor(t_args *arg, void *champ);
+int	and(t_args *arg, void *champ);
+int	sub(t_args *arg, void *champ);
 int     zjump(t_champ *champ,
 	      unsigned char *board);
 

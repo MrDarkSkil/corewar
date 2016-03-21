@@ -1,4 +1,3 @@
-
 /*
 ** start_vm.c for corewar in /home/descho_e/year_2015_2016/C_Prog_Elem/coreware
 ** 
@@ -6,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Fri Mar 18 21:51:39 2016 Eric DESCHODT
+** Last update Sat Mar 19 22:35:41 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -39,7 +38,6 @@ void		decal(char in[2],
   i = -1;
   while (++i < mv)
     {
-
       tmp.byte[4 - mv + i] = (*champ->instru);
       moving_PC(champ, board, 1);
     }
@@ -82,8 +80,8 @@ void		get_jump(t_champ *champ,
       if (i % 2 == 0)
       	decal(in, champ, &arg[j++], board);
     }
-  /* if (reference->func != NULL) */
-  /*   reference->func(arg, champ); */
+  if (reference->func != NULL)
+    reference->func(arg, champ);
 }
 
 void		moving_PC(t_champ *champ, unsigned char *board, int move)
@@ -120,12 +118,6 @@ void		load_instru(t_champ *champ,
     }
   else if (op_tab[i].code == 11)
     sti(champ, board);
-    /* { */
-    /*   my_printf("Sti\n"); */
-    /*   i = -1; */
-    /*   while (++i < 6) */
-    /* 	moving_PC(champ, board, 1); */
-    /* } */
   else if (op_tab[i].code == 1)
     living(champ, board);
   else if (op_tab[i].code == 9)
