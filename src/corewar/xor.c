@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar 21 12:55:15 2016 Antoine Roig
-** Last update Mon Mar 21 14:49:58 2016 Antoine Roig
+** Last update Mon Mar 21 17:22:05 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -34,10 +34,6 @@ int	xor(t_args *arg, void *champ)
       ((t_champ *)champ)->reg[arg[2].val][2] = nb3.byte[2];
       ((t_champ *)champ)->reg[arg[2].val][3] = nb3.byte[3];
     }
-  if (((t_champ *)champ)->carry == 1)
-    ((t_champ *)champ)->carry = 0;
-  else
-    ((t_champ *)champ)->carry = 1;
-  printf("pute\n");
+  swap_carry(((t_champ *)champ));
   return (0);
 }

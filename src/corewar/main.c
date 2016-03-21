@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Sat Mar 19 23:22:40 2016 Antoine Roig
+** Last update Mon Mar 21 17:23:41 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -82,12 +82,13 @@ int		create_champ(t_champ *new_elem,
   free(prog);
   return (0);
 }
+
 int		main(int ac, char **av)
 {
   unsigned char	board[MEM_SIZE];
   t_vm		*vm;
   t_dlist	*list;
-  
+
   if (ac < 2)
     return (0);
   init_board(board);
@@ -98,6 +99,7 @@ int		main(int ac, char **av)
   fill_list(list, av);
   find_dump(list, vm);
   find_champ(list, vm, board);
+  init_alive(vm);
   show_list_vm(vm);
   start_vm(vm, board);
   return (0);

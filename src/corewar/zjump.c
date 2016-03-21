@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Fri Mar 18 21:46:23 2016 Eric DESCHODT
+** Last update Mon Mar 21 17:09:51 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -21,7 +21,7 @@ void		zjump_move(t_champ *champ,
    moving_PC(champ, board, -1);
  while (tmp.full != 0)
    {
-      if (tmp.full < 1)
+      if (tmp.full < 0)
 	{
 	  moving_PC(champ, board, -1);
 	  tmp.full++;
@@ -41,6 +41,7 @@ int		zjump(t_champ *champ,
   int		i;
 
   my_printf("zjump\n");
+  champ->ope.nbr_cycles = 20;
   i = -1;
   if (*champ->instru &  (1u << 0))
     tmp.full = -1;

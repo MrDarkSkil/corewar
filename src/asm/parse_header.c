@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sun Mar 20 23:34:15 2016 Léo Hubert
-** Last update Sun Mar 20 23:34:24 2016 Léo Hubert
+** Last update Mon Mar 21 17:27:23 2016 Eric DESCHODT
 */
 
 #include "compilator.h"
@@ -16,7 +16,8 @@ char	*parse_name(char *str)
   char	*result;
 
   i = 0;
-  if ((result = malloc(PROG_NAME_LENGTH + 2)) == NULL || my_strlen(str) > PROG_NAME_LENGTH)
+  if ((result = malloc(PROG_NAME_LENGTH + 2)) == NULL
+      || my_strlen(str) > PROG_NAME_LENGTH)
     return (NULL);
   while (str[i])
     {
@@ -37,7 +38,8 @@ char	*parse_comment(char *str)
   char	*result;
 
   i = 0;
-  if ((result = malloc(COMMENT_LENGTH  + 2)) == NULL || my_strlen(str) > COMMENT_LENGTH)
+  if ((result = malloc(COMMENT_LENGTH  + 2)) == NULL
+      || my_strlen(str) > COMMENT_LENGTH)
     return (NULL);
   while (str[i])
     {

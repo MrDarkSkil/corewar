@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 16:45:26 2016 Léo Hubert
-** Last update Sun Mar 20 23:34:47 2016 Léo Hubert
+** Last update Mon Mar 21 17:27:07 2016 Eric DESCHODT
 */
 
 #include "compilator.h"
@@ -20,7 +20,8 @@ int	create_cor(char *file)
   magic_number = swap_nbr(COREWAR_EXEC_MAGIC);
   if ((fd = open(file, O_RDONLY)) == -1)
     return (-2);
-  if ((fdwrite = open(my_strfusion(take_begin(file, '.'), ".cor"), O_WRONLY | O_CREAT | O_TRUNC,
+  if ((fdwrite = open(my_strfusion(take_begin(file, '.'), ".cor"),
+		      O_WRONLY | O_CREAT | O_TRUNC,
 		      S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)) == -1)
     return (-3);
   if (write(fdwrite, &magic_number, 4) == -1)

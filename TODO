@@ -1,0 +1,10 @@
+-live (externe)
+-st
+-ldi
+-zjump (verifier le carry)
+-sti (externe)
+-fork
+-lld
+-lldi
+-lfork
+-aff

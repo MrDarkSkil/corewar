@@ -5,17 +5,25 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Sat Mar 19 21:41:30 2016 Antoine Roig
-** Last update Mon Mar 21 13:09:26 2016 Antoine Roig
+** Last update Mon Mar 21 17:18:37 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
+
+void	swap_carry(t_champ *champ)
+{
+  if (champ->carry == 1)
+    champ->carry = 0;
+  else
+    champ->carry = 1;
+}
 
 int	add(t_args *arg, void *champ)
 {
   t_byte	nb1;
   t_byte	nb2;
   t_byte        nb3;
- 
+
   if (arg[0].type != 1 || arg[1].type != 1 || arg[2].type != 1)
     return (0);
   else
@@ -34,9 +42,6 @@ int	add(t_args *arg, void *champ)
       ((t_champ *)champ)->reg[arg[2].val][2] = nb3.byte[2];
       ((t_champ *)champ)->reg[arg[2].val][3] = nb3.byte[3];
     }
-  if (((t_champ *)champ)->carry == 1)
-    ((t_champ *)champ)->carry = 0;
-  else
-    ((t_champ *)champ)->carry = 1;
+  swap_carry(((t_champ *)champ));
   return (0);
 }

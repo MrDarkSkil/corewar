@@ -5,12 +5,14 @@
 ** Login   <descho_e@epitech.net>
 **
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Mon Mar 21 14:51:35 2016 Antoine Roig
+** Last update Mon Mar 21 17:10:20 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
 int		ld(t_args *arg, void *champ)
 {
+  (void)arg;
+  (void)champ;
   return (0);
 }

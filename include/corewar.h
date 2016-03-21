@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Mon Mar 21 12:57:02 2016 Antoine Roig
+** Last update Mon Mar 21 17:22:39 2016 Eric DESCHODT
 */
 
 #ifndef COREWAR_H_
@@ -68,47 +68,90 @@ typedef struct          s_lcmd
   int                   id;
 }                       t_lcmd;
 
-void	my_puterror(char *str);
-char	*my_memeset(char *str, char c, int len);
-void    *xmalloc(int size);
+void			my_puterror(char *str);
 
-t_vm	*new_vm(t_vm *vm);
-void	launch_vm(t_vm *vm, int nb_champ);
-int     start_vm(t_vm *vm, unsigned char *board);
-void    find_living_champion(int result, t_champ *champ);
-void    living(t_champ *champ, unsigned char *board);
-void	load_instru(t_champ *champ, unsigned char *board);
+char			*my_memeset(char *str, char c, int len);
 
-void    revert_endian(int *nb);
-void    print_info(header_t *head);
-int     convert_reg(char *nbr);
-void    printboard(unsigned char *board);
+void			*xmalloc(int size);
 
-int     sti(t_champ *champ, unsigned char *board);
-int     ld(t_args *arg, void *champ);
-int	add(t_args *arg, void *champ);
-int	or(t_args *arg, void *champ);
-int	xor(t_args *arg, void *champ);
-int	and(t_args *arg, void *champ);
-int	sub(t_args *arg, void *champ);
-int     zjump(t_champ *champ,
-	      unsigned char *board);
+t_vm			*new_vm(t_vm *vm);
 
-void    moving_PC(t_champ *champ, unsigned char *board, int move);
-int	create_champ(t_champ *new_elem, t_lcmd *info, unsigned char *board);
-  void	find_champ(t_dlist *list, t_vm *vm, unsigned char *board);
-void	find_dump(t_dlist *list, t_vm *vm);
-void	info_champ(t_dlist *list, int i, t_lcmd *info);
-void	fill_list(t_dlist *list, char **av);
-void	fill_new(t_champ *new, t_champ *champ);
-void	add_list_end_vm(t_vm *vm, t_champ *champ);
-t_vm	*new_vm(t_vm *vm);
-void    show_list_vm(t_vm *vm);
+void			launch_vm(t_vm *vm, int nb_champ);
+
+int			start_vm(t_vm *vm, unsigned char *board);
+
+void			find_living_champion(int result, t_champ *champ);
+
+void			living(t_champ *champ, unsigned char *board);
+
+void			load_instru(t_champ *champ, unsigned char *board);
+
+void			revert_endian(int *nb);
+
+void			print_info(header_t *head);
+
+int			convert_reg(char *nbr);
+
+void			printboard(unsigned char *board);
+
+/* VM fonctions */
+
+int			sti(t_champ *champ, unsigned char *board);
+int			forking(t_champ *champ, unsigned char *board);
+int			ld(t_args *arg, void *champ);
+int			add(t_args *arg, void *champ);
+int			or(t_args *arg, void *champ);
+int			xor(t_args *arg, void *champ);
+int			and(t_args *arg, void *champ);
+int			sub(t_args *arg, void *champ);
+int			zjump(t_champ *champ,
+			      unsigned char *board);
+void			moving_PC(t_champ *champ,
+				  unsigned char *board,
+				  int move);
+void			init_alive(t_vm *vm);
+void			swap_carry(t_champ *champ);
+
+/* Lists */
+
+int			create_champ(t_champ *new_elem,
+				     t_lcmd *info,
+				     unsigned char *board);
+
+void			find_champ(t_dlist *list,
+				   t_vm *vm,
+				   unsigned char *board);
+
+void			find_dump(t_dlist *list,
+				  t_vm *vm);
+
+void			info_champ(t_dlist *list,
+				   int i,
+				   t_lcmd *info);
+
+void			fill_list(t_dlist *list,
+				  char **av);
+
+void			fill_new(t_champ *new,
+				 t_champ *champ);
+
+void			add_list_end_vm(t_vm *vm,
+					t_champ *champ);
+
+t_vm			*new_vm(t_vm *vm);
+
+void			show_list_vm(t_vm *vm);
+
 void                    *xmalloc(int);
+
 t_dlist                 *new_list(t_dlist*);
+
 void                    show_list(t_dlist *);
+
 void                    clear_list(t_dlist *list);
+
 void                    rev_list(t_dlist * list);
+
 /* add_list */
 
 void                    add_list_end(t_dlist *, char *);

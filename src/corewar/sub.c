@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Sun Mar 20 01:35:42 2016 Antoine Roig
-** Last update Mon Mar 21 14:46:13 2016 Antoine Roig
+** Last update Mon Mar 21 17:23:13 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -15,7 +15,7 @@ int	sub(t_args *arg, void *champ)
   t_byte	nb1;
   t_byte	nb2;
   t_byte        nb3;
- 
+
   if (arg[0].type != 1 || arg[1].type != 1 || arg[2].type != 1)
     return (0);
   else
@@ -34,10 +34,6 @@ int	sub(t_args *arg, void *champ)
       ((t_champ *)champ)->reg[arg[2].val][2] = nb3.byte[2];
       ((t_champ *)champ)->reg[arg[2].val][3] = nb3.byte[3];
     }
-  if (((t_champ *)champ)->carry == 1)
-    ((t_champ *)champ)->carry = 0;
-  else
-    ((t_champ *)champ)->carry = 1;
-  printf("pute\n");
+  swap_carry(((t_champ *)champ));
   return (0);
 }

@@ -5,7 +5,7 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:18:01 2016 Eric DESCHODT
-## Last update Mon Mar 21 12:57:21 2016 Antoine Roig
+## Last update Mon Mar 21 15:35:32 2016 Eric DESCHODT
 ##
 
 NAME		=		../../corewar
@@ -28,7 +28,8 @@ SRC		=		main.c			\
 				xor.c			\
 				and.c			\
 				sub.c			\
-				ld.c
+				ld.c			\
+				forking.c
 
 OBJ		=		$(SRC:.c=.o)
 
