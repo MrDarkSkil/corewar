@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Fri Mar 18 18:34:50 2016 Antoine Roig
-** Last update Sat Mar 19 23:09:17 2016 Antoine Roig
+** Last update Mon Mar 21 15:10:00 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -67,18 +67,18 @@ void    show_list_vm(t_vm *vm)
   t_champ        *tmp_v;
 
   tmp_v = vm->begin;
-  printf("\nnb champ = %d\n", vm->nb);
-  printf("dump = %d\n\n", vm->dump);
+  my_printf("\nnb champ = %d\n", vm->nb);
+  my_printf("dump = %d\n\n", vm->dump);
   while (tmp_v)
     {
-      printf("instru = %p\n", tmp_v->instru);
-      printf("start = %p\n", tmp_v->start);
-      printf("id = %d\n", (tmp_v->id));
-      printf("name = %s\n", (tmp_v->name));
-      printf("cycle = %d\n", (tmp_v->cycle));
-      printf("cursor =%d\n", (tmp_v->cursor));
-      printf("size = %d\n", (tmp_v->size));
-      printf("alive = %d\n", (tmp_v->alive));
+      my_printf("instru = %p\n", tmp_v->instru);
+      my_printf("start = %p\n", tmp_v->start);
+      my_printf("id = %d\n", (tmp_v->id));
+      my_printf("name = %s\n", (tmp_v->name));
+      my_printf("cycle = %d\n", (tmp_v->cycle));
+      my_printf("cursor =%d\n", (tmp_v->cursor));
+      my_printf("size = %d\n", (tmp_v->size));
+      my_printf("alive = %d\n", (tmp_v->alive));
       write(1, "\n\n", 1);
       tmp_v = tmp_v->next;
     }
