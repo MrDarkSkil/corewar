@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 16 14:47:43 2016 Antoine Roig
-** Last update Sat Mar 19 17:10:05 2016 Antoine Roig
+** Last update Mon Mar 21 15:06:30 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -93,7 +93,12 @@ void	find_champ(t_dlist *list, t_vm *vm, unsigned char *board)
 	  info = malloc(sizeof(t_lcmd));
 	  info->name = tmp->arg;
 	  info_champ(list, i, info);
-	  create_champ(new_elem, info, board);
+	  if (create_champ(new_elem, info, board) == -1)
+	    {
+	      my_putstr("Invalid magic number\n");
+	      my_putstr(info->name);
+	      exit(0);
+	    }
 	  add_list_end_vm(vm, new_elem);
 	  i = 0;
 	  pop_list_begin(list);
