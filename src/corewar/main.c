@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Mon Mar 21 17:23:41 2016 Eric DESCHODT
+** Last update Mon Mar 21 18:03:49 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -61,7 +61,7 @@ int		create_champ(t_champ *new_elem,
   nb.full = info->id;
   if ((fd = open(info->name, O_RDONLY)) == -1
       || get_header(fd, &head) == -1
-      || (prog = malloc(sizeof(char) * head.prog_size + 1)) == NULL
+      || (prog = xmalloc(sizeof(char) * head.prog_size + 1)) == NULL
       || read(fd, prog, head.prog_size + 1) == -1)
     return (-1);
   new_elem->instru = &board[info->a];

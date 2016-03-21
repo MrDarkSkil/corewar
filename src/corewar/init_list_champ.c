@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar  7 15:54:12 2016 Antoine Roig
-** Last update Mon Mar  7 15:58:00 2016 Antoine Roig
+** Last update Mon Mar 21 17:34:15 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -25,7 +25,7 @@ t_champlist	*new_champ(t_champlist *champ, int id, int cycle)
   champ->end = champ->begin;
   champ->id = id;
   champ->next = NULL;
-  champ->begin = malloc(sizeof(t_instru));
+  champ->begin = xmalloc(sizeof(t_instru));
   champ->current = champ->begin;
   champ->begin->ope.comment = "yo";
   champ->begin->ope.nbr_cycles = cycle;

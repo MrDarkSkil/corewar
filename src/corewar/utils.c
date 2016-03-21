@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar  7 15:53:27 2016 Antoine Roig
-** Last update Thu Mar 17 11:39:32 2016 Eric DESCHODT
+** Last update Mon Mar 21 17:53:18 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -18,6 +18,20 @@ void    *xmalloc(int size)
   if (!element)
     exit(EXIT_FAILURE);
   return (element);
+}
+
+int     my_strcmp(char *s1, char *s2)
+{
+  int   i;
+
+  i = 0;
+  while (s1[i] && s2[i] && s1[i] == s2[i])
+    i++;
+  if (s1[i] == '\0' && s2[i] == '\0')
+    return (0);
+  else
+    return (s1[i] - s2[i]);
+  return (0);
 }
 
 void            revert_endian(int *nb)
