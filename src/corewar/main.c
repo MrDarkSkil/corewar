@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Mon Mar 21 18:03:49 2016 Antoine Roig
+** Last update Tue Mar 22 08:38:36 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -33,54 +33,6 @@ void		printboard(unsigned char *board)
       i++;
     }
   my_printf("\n");
-}
-
-int		get_header(int fd, header_t *head)
-{
-  read(fd, head, PROG_NAME_LENGTH + COMMENT_LENGTH + (4 + 4) * 2);
-  revert_endian(&head->magic);
-  revert_endian(&head->prog_size);
-  if (head->magic != COREWAR_EXEC_MAGIC)
-    {
-      my_printf("Invalid Magic Number\n");
-      return (-1);
-    }
-  return (0);
-}
-
-int		create_champ(t_champ *new_elem,
-			     t_lcmd *info,
-			     unsigned char *board)
-{
-  int		fd;
-  char		*prog;
-  int		i;
-  header_t	head;
-  t_byte        nb;
-
-  nb.full = info->id;
-  if ((fd = open(info->name, O_RDONLY)) == -1
-      || get_header(fd, &head) == -1
-      || (prog = xmalloc(sizeof(char) * head.prog_size + 1)) == NULL
-      || read(fd, prog, head.prog_size + 1) == -1)
-    return (-1);
-  new_elem->instru = &board[info->a];
-  new_elem->start = &board[info->a];
-  new_elem->cycle = 0;
-  new_elem->cursor = info->a;
-  new_elem->size = head.prog_size;
-  new_elem->id = info->id;
-  new_elem->name = info->name;
-  new_elem->reg[0][0] = nb.byte[0];
-  new_elem->reg[0][1] = nb.byte[1];
-  new_elem->reg[0][2] = nb.byte[2];
-  new_elem->reg[0][3] = nb.byte[3];
-  i = 0;
-  while (i < head.prog_size + 1)
-    board[info->a++] = prog[i++];
-  close (fd);
-  free(prog);
-  return (0);
 }
 
 int		main(int ac, char **av)
