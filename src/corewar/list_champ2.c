@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar 21 17:39:07 2016 Antoine Roig
-** Last update Tue Mar 22 13:31:06 2016 Antoine Roig
+** Last update Tue Mar 22 14:18:49 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -55,7 +55,7 @@ void    add_vm_somewhere2(t_vm *vm, t_champ *new, int pos)
   vm->nb = vm->nb + 1;
 }
 
-void    add_vm_somewhere(t_vm *vm, t_champ *champ, int pos)
+void    add_vm_somewhere(t_vm *vm, t_champ *champ, int pos, int nb)
 {
   t_champ     *new;
 
@@ -65,7 +65,7 @@ void    add_vm_somewhere(t_vm *vm, t_champ *champ, int pos)
       exit(EXIT_FAILURE);
     }
   new = xmalloc(sizeof(*new));
-  fill_new(new, champ, ind);
+  fill_new_fork(new, champ, nb);
   new->next = NULL;
   new->prev = NULL;
   if (pos <= 0)

@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Fri Mar 18 18:34:50 2016 Antoine Roig
-** Last update Tue Mar 22 13:37:26 2016 Antoine Roig
+** Last update Tue Mar 22 14:17:41 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -25,22 +25,37 @@ void	fill_new(t_champ *new, t_champ *champ)
   new->reg[0][0] = champ->reg[0][3];
 }
 
-/* void	add_forking(t_vm *vm, t_champ *champ, int nb) */
-/* { */
-/*   int	i; */
-/*   t_champ	*tmp; */
+void	fill_new_fork(t_champ *new, t_champ *champ, int nb)
+{
+  new->instru = champ->instru;
+  new->start = champ->start;
+  new->cycle =  champ->cycle;
+  new->cursor = champ->cursor;
+  new->size = champ->size;
+  new->id = champ->id;
+  new->name = champ->name;
+  new->reg[0][0] = champ->reg[0][0];
+  new->reg[0][0] = champ->reg[0][1];
+  new->reg[0][0] = champ->reg[0][2];
+  new->reg[0][0] = champ->reg[0][3];
+}
 
-/*   i = 0; */
-/*   tmp = vm->begin; */
-/*   while (tmp) */
-/*     { */
-/*       if (my_strcmp(champ->name, tmp->name) == 0) */
-/* 	break; */
-/*       tmp = tmp->next; */
-/*       i++; */
-/*     } */
-/*   add_vm_somewhere(vm, champ, i + 1); */
-/* } */
+void	add_forking(t_vm *vm, t_champ *champ, int nb)
+{
+  int	i;
+  t_champ	*tmp;
+
+  i = 0;
+  tmp = vm->begin;
+  while (tmp)
+    {
+      if (my_strcmp(champ->name, tmp->name) == 0)
+	break;
+      tmp = tmp->next;
+      i++;
+    }
+  add_vm_somewhere(vm, champ, i + 1, nb);
+}
 
 void	add_list_end_vm(t_vm *vm, t_champ *champ)
 {
