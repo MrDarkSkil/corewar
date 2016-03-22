@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 16:45:26 2016 Léo Hubert
-** Last update Mon Mar 21 17:27:07 2016 Eric DESCHODT
+** Last update Tue Mar 22 20:30:55 2016 Léo Hubert
 */
 
 #include "compilator.h"
@@ -28,11 +28,11 @@ int	create_cor(char *file)
     return (-1);
   if ((str = get_name(get_next_line(fd))) == NULL)
     return (-1);
-  if (write(fdwrite, str, PROG_NAME_LENGTH) == -1)
+  if (write(fdwrite, str, PROG_NAME_LENGTH + 5) == -1)
     return (-1);
   if ((str = get_comment(get_next_line(fd))) == NULL)
     return (-1);
-  if (write(fdwrite, str, COMMENT_LENGTH) == -1)
+  if (write(fdwrite, str, COMMENT_LENGTH + 5) == -1)
     return (-1);
   close(fd);
   close(fdwrite);
