@@ -2,9 +2,9 @@
 -st
 -ldi
 -zjump (verifier le carry)
--sti (externe)
+-sti
 -fork
 -lld
 -lldi
--lfork
+-lfork (externe avec le fork)
 -aff

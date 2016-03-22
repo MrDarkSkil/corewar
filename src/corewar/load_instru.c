@@ -5,34 +5,19 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Mon Mar 21 17:20:25 2016 Eric DESCHODT
+** Last update Tue Mar 22 10:03:26 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
-void		decal(char in[2],
-		      t_champ *champ,
-		      t_args *arg,
-		      unsigned char *board)
+void		get_arg(t_args *arg,
+			t_champ *champ,
+			unsigned char *board,
+			int mv)
 {
-  int		mv;
   int		i;
   t_byte	tmp;
 
-  i = 0;
-  if (in[0] == 0 && in[1] == 1)
-    mv = 1;
-  else if (in[0] == 1 && in[1] == 0)
-    mv = T_DIR;
-  else if (in[0] == 1 && in[1] == 1)
-    mv = T_IND;
-  else
-    mv = T_LAB;
-  arg->type = mv;
-  if (mv == T_DIR)
-    mv = DIR_SIZE;
-  else if (mv == T_IND)
-    mv = IND_SIZE;
   arg->val = 0;
   tmp.full = 0;
   i = -1;
@@ -41,9 +26,36 @@ void		decal(char in[2],
       tmp.byte[4 - mv + i] = (*champ->instru);
       moving_PC(champ, board, 1);
     }
-  i = -1;
   revert_endian(&tmp.full);
   arg->val = tmp.full;
+}
+
+void		decal(char in[2],
+		      t_champ *champ,
+		      t_args *arg,
+		      unsigned char *board)
+{
+  int		mv;
+
+  if (in[0] == 0 && in[1] == 1)
+    mv = 1;
+  else if (in[0] == 1 && in[1] == 0)
+    mv = T_DIR;
+  else if (in[0] == 1 && in[1] == 1)
+    mv = T_IND;
+  else
+    mv = T_DIR;
+  arg->type = mv;
+  if ((champ->ope.code == 10 || champ->ope.code == 11
+       || champ->ope.code == 14) && mv == 4)
+    mv = IND_SIZE;
+  else if ((champ->ope.code != 10 && champ->ope.code != 11
+	    && champ->ope.code != 14) && mv == T_DIR)
+    mv = DIR_SIZE;
+  else if ((champ->ope.code != 10 && champ->ope.code != 11
+	    && champ->ope.code != 14) && mv == T_IND)
+    mv = IND_SIZE;
+  get_arg(arg, champ, board, mv);
 }
 
 int		convert_reg(char *nbr)
@@ -84,23 +96,6 @@ void		get_jump(t_champ *champ,
     reference->func(arg, champ);
 }
 
-void		moving_PC(t_champ *champ, unsigned char *board, int move)
-{
-  champ->cursor += move;
-  if (champ->cursor == MEM_SIZE)
-    {
-      champ->cursor = 0;
-      champ->instru = &board[0];
-    }
-  else if (champ->cursor == -1)
-    {
-      champ->cursor = MEM_SIZE - 1;
-      champ->instru = &board[MEM_SIZE - 1];
-    }
-  else
-    champ->instru += move;
-}
-
 void		load_instru(t_champ *champ,
 			    unsigned char *board)
 {
@@ -115,9 +110,7 @@ void		load_instru(t_champ *champ,
       my_printf("Ope inconnue %x\n", *(champ->instru - 1));
       champ->ope.nbr_cycles = 1;
     }
-  else if (op_tab[i].code == 11)
-    sti(champ, board);
-  else if (op_tab[i].code == 12)
+  else if (op_tab[i].code == 12 || op_tab[i].code == 15)
     forking(champ, board);
   else if (op_tab[i].code == 1)
     living(champ, board);
@@ -128,6 +121,7 @@ void		load_instru(t_champ *champ,
       my_printf("%s\n", op_tab[i].mnemonique);
       champ->ope.nbr_cycles = op_tab[i].nbr_cycles;
       champ->ope.nbr_args = op_tab[i].nbr_args;
+      champ->ope.code = op_tab[i].code;
       get_jump(champ, board, &op_tab[i]);
     }
 }
