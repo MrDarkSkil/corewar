@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Tue Mar 22 16:39:08 2016 Eric DESCHODT
+** Last update Tue Mar 22 16:44:31 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -32,7 +32,7 @@ void		find_living_champion(int result,
   start = champ;
   if (tmp.full == result)
     {
-      aff_alive(result, champ);
+      /* aff_alive(result, champ); */
       return;
     }
   if (start->next != NULL)
@@ -41,7 +41,7 @@ void		find_living_champion(int result,
     {
       if (tmp.full == result)
 	{
-	  aff_alive(result, champ);
+	  /* aff_alive(result, champ); */
 	  return;
 	}
       start = start->next;

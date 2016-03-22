@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Tue Mar 22 16:41:01 2016 Eric DESCHODT
+** Last update Tue Mar 22 16:45:11 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -40,7 +40,7 @@ int		zjump(t_champ *champ,
   t_byte	tmp;
   int		i;
 
-  my_putstr("zjump\n");
+  /* my_putstr("zjump\n"); */
   champ->ope.nbr_cycles = 20;
   i = -1;
   if (*champ->instru &  (1u << 0))

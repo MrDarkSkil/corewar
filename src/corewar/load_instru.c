@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Tue Mar 22 15:42:27 2016 Antoine Roig
+** Last update Tue Mar 22 16:49:29 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -120,7 +120,7 @@ void		load_instru(t_vm *vm, t_champ *champ,
     zjump(champ, board);
   else
     {
-      my_printf("%s\n", op_tab[i].mnemonique);
+      /* my_printf("%s\n", op_tab[i].mnemonique); */
       champ->ope.nbr_cycles = op_tab[i].nbr_cycles;
       champ->ope.nbr_args = op_tab[i].nbr_args;
       champ->ope.code = op_tab[i].code;

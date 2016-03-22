@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar 21 12:45:04 2016 Antoine Roig
-** Last update Mon Mar 21 17:18:59 2016 Eric DESCHODT
+** Last update Tue Mar 22 17:02:33 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -20,10 +20,15 @@ int	and(t_args *arg, void *champ)
     return (0);
   else
     {
-      nb1.byte[0] = ((t_champ *)champ)->reg[arg[0].val - 1][0];
-      nb1.byte[1] = ((t_champ *)champ)->reg[arg[0].val - 1][1];
-      nb1.byte[2] = ((t_champ *)champ)->reg[arg[0].val - 1][2];
-      nb1.byte[3] = ((t_champ *)champ)->reg[arg[0].val - 1][3];
+      if (arg[0].type == 1)
+	{
+	  nb1.byte[0] = ((t_champ *)champ)->reg[arg[0].val - 1][0];
+	  nb1.byte[1] = ((t_champ *)champ)->reg[arg[0].val - 1][1];
+	  nb1.byte[2] = ((t_champ *)champ)->reg[arg[0].val - 1][2];
+	  nb1.byte[3] = ((t_champ *)champ)->reg[arg[0].val - 1][3];
+	}
+      else
+	nb1.full = arg[0].val;
       nb2.byte[0] = ((t_champ *)champ)->reg[arg[1].val - 1][0];
       nb2.byte[1] = ((t_champ *)champ)->reg[arg[1].val - 1][1];
       nb2.byte[2] = ((t_champ *)champ)->reg[arg[1].val - 1][2];
