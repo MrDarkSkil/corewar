@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Tue Mar 22 08:55:43 2016 Eric DESCHODT
+** Last update Tue Mar 22 10:03:26 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -44,11 +44,16 @@ void		decal(char in[2],
   else if (in[0] == 1 && in[1] == 1)
     mv = T_IND;
   else
-    mv = T_LAB;
+    mv = T_DIR;
   arg->type = mv;
-  if (mv == T_DIR)
+  if ((champ->ope.code == 10 || champ->ope.code == 11
+       || champ->ope.code == 14) && mv == 4)
+    mv = IND_SIZE;
+  else if ((champ->ope.code != 10 && champ->ope.code != 11
+	    && champ->ope.code != 14) && mv == T_DIR)
     mv = DIR_SIZE;
-  else if (mv == T_IND)
+  else if ((champ->ope.code != 10 && champ->ope.code != 11
+	    && champ->ope.code != 14) && mv == T_IND)
     mv = IND_SIZE;
   get_arg(arg, champ, board, mv);
 }
@@ -105,9 +110,7 @@ void		load_instru(t_champ *champ,
       my_printf("Ope inconnue %x\n", *(champ->instru - 1));
       champ->ope.nbr_cycles = 1;
     }
-  else if (op_tab[i].code == 11)
-    sti(champ, board);
-  else if (op_tab[i].code == 12)
+  else if (op_tab[i].code == 12 || op_tab[i].code == 15)
     forking(champ, board);
   else if (op_tab[i].code == 1)
     living(champ, board);
@@ -118,6 +121,7 @@ void		load_instru(t_champ *champ,
       my_printf("%s\n", op_tab[i].mnemonique);
       champ->ope.nbr_cycles = op_tab[i].nbr_cycles;
       champ->ope.nbr_args = op_tab[i].nbr_args;
+      champ->ope.code = op_tab[i].code;
       get_jump(champ, board, &op_tab[i]);
     }
 }
