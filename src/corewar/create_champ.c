@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Tue Mar 22 16:19:31 2016 Eric DESCHODT
+** Last update Tue Mar 22 16:38:41 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -17,7 +17,7 @@ int		get_header(int fd, header_t *head)
   revert_endian(&head->prog_size);
   if (head->magic != COREWAR_EXEC_MAGIC)
     {
-      my_printf("Invalid Magic Number\n");
+      my_putstr("Invalid Magic Number\n");
       return (-1);
     }
   return (0);

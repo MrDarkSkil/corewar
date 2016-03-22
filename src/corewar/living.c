@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Tue Mar 22 14:11:03 2016 Eric DESCHODT
+** Last update Tue Mar 22 16:39:08 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -57,7 +57,6 @@ void		living(t_champ *champ, unsigned char *board)
   i = 0;
   tmp.full = 0;
   result = 0;
-  my_printf("Live\n");
   champ->ope.nbr_cycles = 10;
   while (i < 4)
     {

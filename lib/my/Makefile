@@ -5,7 +5,7 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 14:19:42 2016 Eric DESCHODT
-## Last update Mon Mar  7 15:09:57 2016 Eric DESCHODT
+## Last update Tue Mar 22 16:34:59 2016 Eric DESCHODT
 ##
 
 NAME	=	../libmyprintf.a
@@ -13,7 +13,7 @@ NAME	=	../libmyprintf.a
 CFLAGS  +=      -W -Wextra -Wall
 CFLAGS  +=      -ansi -pedantic
 CFLAGS  +=      -I../../include
-CFLAGS  +=      -Werror
+CFLAGS  +=      -Werror -g
 
 SRC	=	my_putchar.c \
                 noflags.c \

@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 16 14:47:43 2016 Antoine Roig
-** Last update Tue Mar 22 14:00:03 2016 Eric DESCHODT
+** Last update Tue Mar 22 16:31:32 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -29,10 +29,10 @@ void		info_champ(t_dlist *list, int i, t_lcmd *info)
 
   tmp = list->begin;
   j = 0;
+  info->id = 0;
+  info->a = 0;
   while (j < i)
     {
-      info->a = 0;
-      info->id = 0;
       if (strcmp("-a", tmp->arg) == 0)
 	{
 	  tmp = pop_list_somewhere(list, j);

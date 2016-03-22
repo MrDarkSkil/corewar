@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Tue Mar 22 14:57:35 2016 Antoine Roig
+** Last update Tue Mar 22 15:42:27 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -110,8 +110,10 @@ void		load_instru(t_vm *vm, t_champ *champ,
       my_printf("Ope inconnue %x\n", *(champ->instru - 1));
       champ->ope.nbr_cycles = 1;
     }
-  else if (op_tab[i].code == 12 || op_tab[i].code == 15)
-    forking(vm, champ, board);
+  else if (op_tab[i].code == 12)
+    forking(vm, champ, board, 1);
+  else if (op_tab[i].code == 15)
+    forking(vm, champ, board, 0);
   else if (op_tab[i].code == 1)
     living(champ, board);
   else if (op_tab[i].code == 9)

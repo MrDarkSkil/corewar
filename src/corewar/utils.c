@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar  7 15:53:27 2016 Antoine Roig
-** Last update Mon Mar 21 17:53:18 2016 Antoine Roig
+** Last update Tue Mar 22 16:33:10 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -14,6 +14,7 @@ void    *xmalloc(int size)
 {
   void  *element;
 
+  element = NULL;
   element = malloc(size);
   if (!element)
     exit(EXIT_FAILURE);

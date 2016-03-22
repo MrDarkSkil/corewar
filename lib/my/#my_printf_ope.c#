@@ -21,7 +21,6 @@ void		printf_decimal(t_format_id *stock,
   char		sign;
 
   sign = 0;
-  tmp = 0;
   nbr = va_arg(*pa, int);
   tmp = nbr;
   i = 0;
