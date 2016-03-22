@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar 21 17:39:07 2016 Antoine Roig
-** Last update Tue Mar 22 14:18:49 2016 Antoine Roig
+** Last update Tue Mar 22 14:51:25 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -55,7 +55,7 @@ void    add_vm_somewhere2(t_vm *vm, t_champ *new, int pos)
   vm->nb = vm->nb + 1;
 }
 
-void    add_vm_somewhere(t_vm *vm, t_champ *champ, int pos, int nb)
+void    add_vm_somewhere(t_vm *vm, t_champ *champ, t_decal_nb decal_nb, unsigned char *board)
 {
   t_champ     *new;
 
@@ -65,13 +65,13 @@ void    add_vm_somewhere(t_vm *vm, t_champ *champ, int pos, int nb)
       exit(EXIT_FAILURE);
     }
   new = xmalloc(sizeof(*new));
-  fill_new_fork(new, champ, nb);
+  fill_new_fork(new, champ, decal_nb.nb, board);
   new->next = NULL;
   new->prev = NULL;
-  if (pos <= 0)
+  if (decal_nb.decal <= 0)
     add_list_begin_vm(vm, new);
-  else if (pos >= vm->nb)
+  else if (decal_nb.decal >= vm->nb)
     add_list_end_vm(vm, new);
   else
-    add_vm_somewhere2(vm, new, pos);
+    add_vm_somewhere2(vm, new, decal_nb.decal);
 }

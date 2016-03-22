@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Tue Mar 22 14:18:05 2016 Antoine Roig
+** Last update Tue Mar 22 15:04:28 2016 Antoine Roig
 */
 
 #ifndef COREWAR_H_
@@ -68,6 +68,12 @@ typedef struct          s_lcmd
   int                   id;
 }                       t_lcmd;
 
+typedef struct		s_decal_nb
+{
+  int			decal;
+  int			nb;
+}			t_decal_nb;
+
 void			my_puterror(char *str);
 
 char			*my_memeset(char *str, char c, int len);
@@ -84,7 +90,7 @@ void			find_living_champion(int result, t_champ *champ);
 
 void			living(t_champ *champ, unsigned char *board);
 
-void			load_instru(t_champ *champ, unsigned char *board);
+void			load_instru(t_vm *vm, t_champ *champ, unsigned char *board);
 
 void			revert_endian(int *nb);
 
@@ -96,8 +102,8 @@ void			printboard(unsigned char *board);
 
 /* VM fonctions */
 
-int			sti(t_champ *champ, unsigned char *board);
-int			forking(t_champ *champ, unsigned char *board);
+int			sti(t_args *arg, void *champ);
+int			forking(t_vm *vm, t_champ *champ, unsigned char *board);
 int			ld(t_args *arg, void *champ);
 int			add(t_args *arg, void *champ);
 int			or(t_args *arg, void *champ);
@@ -166,13 +172,12 @@ t_list                  *pop_list_end(t_dlist *);
 t_list                  *pop_list_somewhere(t_dlist *, int);
 t_list                  *pop_list_somewhere2(t_dlist *, int);
 
-void	fill_new_fork(t_champ *new, t_champ *champ, int nb);
 void    fill_new(t_champ *new, t_champ *champ);
+void    fill_new_fork(t_champ *new, t_champ *champ, int nb, unsigned char *board);
 void    add_list_begin_vm(t_vm *list, t_champ *champ);
 void    add_vm_somewhere2(t_vm *vm, t_champ *new, int pos);
-void    add_vm_somewhere(t_vm *vm, t_champ *champ, int pos, int nb);
-/* void	add_forking(t_vm *vm, t_champ *champ); */
-
+void    add_vm_somewhere(t_vm *vm, t_champ *champ, t_decal_nb decal_nb, unsigned char *board);
+void	add_forking(t_vm *vm, t_champ *champ, int nb, unsigned char* board);
 int     my_strcmp(char *s1, char *s2);
 
 #endif /* !COREWAR_H */

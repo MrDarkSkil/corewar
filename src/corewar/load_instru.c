@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Tue Mar 22 10:03:26 2016 Eric DESCHODT
+** Last update Tue Mar 22 14:57:35 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -96,7 +96,7 @@ void		get_jump(t_champ *champ,
     reference->func(arg, champ);
 }
 
-void		load_instru(t_champ *champ,
+void		load_instru(t_vm *vm, t_champ *champ,
 			    unsigned char *board)
 {
   int		i;
@@ -111,7 +111,7 @@ void		load_instru(t_champ *champ,
       champ->ope.nbr_cycles = 1;
     }
   else if (op_tab[i].code == 12 || op_tab[i].code == 15)
-    forking(champ, board);
+    forking(vm, champ, board);
   else if (op_tab[i].code == 1)
     living(champ, board);
   else if (op_tab[i].code == 9)

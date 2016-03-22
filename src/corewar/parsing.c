@@ -5,14 +5,14 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 16 14:47:43 2016 Antoine Roig
-** Last update Tue Mar 22 13:56:39 2016 Antoine Roig
+** Last update Tue Mar 22 14:00:03 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
-void	fill_list(t_dlist *list, char **av)
+void		fill_list(t_dlist *list, char **av)
 {
-  int	y;
+  int		y;
 
   y = 1;
   while (av[y])
@@ -22,7 +22,7 @@ void	fill_list(t_dlist *list, char **av)
     }
 }
 
-void	info_champ(t_dlist *list, int i, t_lcmd *info)
+void		info_champ(t_dlist *list, int i, t_lcmd *info)
 {
   t_list	*tmp;
   int		j;
@@ -59,7 +59,7 @@ void	info_champ(t_dlist *list, int i, t_lcmd *info)
     }
 }
 
-void	find_dump(t_dlist *list, t_vm *vm)
+void		find_dump(t_dlist *list, t_vm *vm)
 {
   t_list	*tmp;
   int		i;
@@ -80,7 +80,7 @@ void	find_dump(t_dlist *list, t_vm *vm)
     }
 }
 
-void	find_champ(t_dlist *list, t_vm *vm, unsigned char *board)
+void		find_champ(t_dlist *list, t_vm *vm, unsigned char *board)
 {
   t_list	*tmp;
   int		i;
@@ -92,7 +92,7 @@ void	find_champ(t_dlist *list, t_vm *vm, unsigned char *board)
   new_elem = xmalloc(sizeof(t_champ));
   while (tmp)
     {
-      if (strcmp(&tmp->arg[strlen(tmp->arg) - 4], ".cor") == 0)
+      if (my_strcmp(&tmp->arg[strlen(tmp->arg) - 4], ".cor") == 0)
 	{
 	  info = xmalloc(sizeof(t_lcmd));
 	  info->name = tmp->arg;

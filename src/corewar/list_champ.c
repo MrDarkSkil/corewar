@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Fri Mar 18 18:34:50 2016 Antoine Roig
-** Last update Tue Mar 22 14:17:41 2016 Antoine Roig
+** Last update Tue Mar 22 14:49:15 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -20,14 +20,19 @@ void	fill_new(t_champ *new, t_champ *champ)
   new->id = champ->id;
   new->name = champ->name;
   new->reg[0][0] = champ->reg[0][0];
-  new->reg[0][0] = champ->reg[0][1];
-  new->reg[0][0] = champ->reg[0][2];
-  new->reg[0][0] = champ->reg[0][3];
+  new->reg[0][1] = champ->reg[0][1];
+  new->reg[0][2] = champ->reg[0][2];
+  new->reg[0][3] = champ->reg[0][3];
 }
 
-void	fill_new_fork(t_champ *new, t_champ *champ, int nb)
+void	fill_new_fork(t_champ *new, t_champ *champ, int nb, unsigned char *board)
 {
+  int	i;
+
+  i = -1;
   new->instru = champ->instru;
+  while (++i < nb)
+    moving_PC(new, board, 1);
   new->start = champ->start;
   new->cycle =  champ->cycle;
   new->cursor = champ->cursor;
@@ -40,11 +45,12 @@ void	fill_new_fork(t_champ *new, t_champ *champ, int nb)
   new->reg[0][0] = champ->reg[0][3];
 }
 
-void	add_forking(t_vm *vm, t_champ *champ, int nb)
+void	add_forking(t_vm *vm, t_champ *champ, int nb, unsigned char *board)
 {
   int	i;
   t_champ	*tmp;
-
+  t_decal_nb	decal_nb;
+	
   i = 0;
   tmp = vm->begin;
   while (tmp)
@@ -54,7 +60,9 @@ void	add_forking(t_vm *vm, t_champ *champ, int nb)
       tmp = tmp->next;
       i++;
     }
-  add_vm_somewhere(vm, champ, i + 1, nb);
+  decal_nb.decal = i +1;
+  decal_nb.nb = nb;
+  add_vm_somewhere(vm, champ, decal_nb, board);
 }
 
 void	add_list_end_vm(t_vm *vm, t_champ *champ)

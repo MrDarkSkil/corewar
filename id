@@ -1,0 +1,11 @@
+src/corewar/create_champ.c:    board[info->a++ % MEM_SIZE] = prog[i++];
+src/corewar/create_champ.c:  new_elem->instru = &board[info->a];
+src/corewar/create_champ.c:  new_elem->start = &board[info->a];
+src/corewar/create_champ.c:  new_elem->cursor = info->a;
+src/corewar/create_champ.c:  new_elem->id = info->id;
+src/corewar/create_champ.c:  new_elem->name = info->name;
+src/corewar/create_champ.c:  if ((fd = open(info->name, O_RDONLY)) == -1
+src/corewar/create_champ.c:  nb.full = info->id;
+src/corewar/parsing.c:	  info->a = my_getnbr(tmp->arg);
+src/corewar/parsing.c:	  info->id = my_getnbr(tmp->arg);
+src/corewar/parsing.c:	  info->name = tmp->arg;

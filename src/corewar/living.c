@@ -5,11 +5,19 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Mon Mar 21 17:14:33 2016 Eric DESCHODT
+** Last update Tue Mar 22 14:11:03 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
+void		aff_alive(int result, t_champ *champ)
+{
+  champ->alive = 1;
+  revert_endian(&result);
+  my_putstr("Le champion (");
+  my_put_nbr(result);
+  my_putstr(") est en vie\n");
+}
 void		find_living_champion(int result,
 				     t_champ *champ)
 {
@@ -24,7 +32,7 @@ void		find_living_champion(int result,
   start = champ;
   if (tmp.full == result)
     {
-      my_printf("Le champion (%d) est en vie\n", result);
+      aff_alive(result, champ);
       return;
     }
   if (start->next != NULL)
@@ -33,7 +41,7 @@ void		find_living_champion(int result,
     {
       if (tmp.full == result)
 	{
-	  my_printf("Le champion (%d) est en vie\n", result);
+	  aff_alive(result, champ);
 	  return;
 	}
       start = start->next;
@@ -57,7 +65,6 @@ void		living(t_champ *champ, unsigned char *board)
       moving_PC(champ, board, 1);
       i++;
     }
-  revert_endian(&tmp.full);
   result = tmp.full;
   find_living_champion(result, champ);
 }
