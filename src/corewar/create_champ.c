@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Tue Mar 22 16:38:41 2016 Eric DESCHODT
+** Last update Tue Mar 22 16:54:02 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -49,6 +49,24 @@ void		champ_info(t_champ *new_elem,
   new_elem->name = info->name;
 }
 
+t_champ	*pad_reg(t_champ * new_elem)
+{
+  int	y;
+  int	x;
+
+  y = 1;
+  while (y < REG_NUMBER)
+    {
+      x = 0;
+      while (x < REG_SIZE)
+	{
+	  new_elem->reg[y][x] = 0;
+	  x++;
+	}
+      y++;
+    }
+}
+
 int		create_champ(t_champ *new_elem,
 			     t_lcmd *info,
 			     unsigned char *board)
@@ -72,6 +90,7 @@ int		create_champ(t_champ *new_elem,
   new_elem->reg[0][1] = nb.byte[1];
   new_elem->reg[0][2] = nb.byte[2];
   new_elem->reg[0][3] = nb.byte[3];
+  new_elem = pad_ref(new_elem);
   new_elem->board = board;
   close (fd);
   free(prog);
