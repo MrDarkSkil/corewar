@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar 21 17:39:07 2016 Antoine Roig
-** Last update Mon Mar 21 17:56:18 2016 Antoine Roig
+** Last update Tue Mar 22 13:31:06 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -65,7 +65,7 @@ void    add_vm_somewhere(t_vm *vm, t_champ *champ, int pos)
       exit(EXIT_FAILURE);
     }
   new = xmalloc(sizeof(*new));
-  fill_new(new, champ);
+  fill_new(new, champ, ind);
   new->next = NULL;
   new->prev = NULL;
   if (pos <= 0)

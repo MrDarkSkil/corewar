@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Mon Mar 21 17:53:17 2016 Antoine Roig
+** Last update Tue Mar 22 13:31:22 2016 Antoine Roig
 */
 
 #ifndef COREWAR_H_
@@ -170,7 +170,7 @@ void    fill_new(t_champ *new, t_champ *champ);
 void    add_list_begin_vm(t_vm *list, t_champ *champ);
 void    add_vm_somewhere2(t_vm *vm, t_champ *new, int pos);
 void    add_vm_somewhere(t_vm *vm, t_champ *champ, int pos);
-void	add_forking(t_vm *vm, t_champ *champ);
+/* void	add_forking(t_vm *vm, t_champ *champ); */
 
 int     my_strcmp(char *s1, char *s2);
 

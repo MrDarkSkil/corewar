@@ -5,19 +5,21 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar 21 15:26:10 2016 Eric DESCHODT
-** Last update Mon Mar 21 16:47:11 2016 Eric DESCHODT
+** Last update Tue Mar 22 13:40:03 2016 Antoine Roig
 */
 
 #include "corewar.h"
 
 int		forking(t_champ *champ, unsigned char *board)
 {
-  int           i;
+  t_byte	uni;
 
   my_printf("Fork\n");
   champ->ope.nbr_cycles = 800;
-  i = -1;
-  while (++i < 2)
-    moving_PC(champ, board, 1);
+  uni.byte[3] = (*champ->instru++);
+  uni.byte[4] = (*champ->instru);   
+  revert_endian(&uni.full);
+  /* uni.full %= IDX_M0D; */
+  /* add_forking(vm, champ, uni.full); */
   return (0);
 }

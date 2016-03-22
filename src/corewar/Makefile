@@ -5,7 +5,7 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:18:01 2016 Eric DESCHODT
-## Last update Mon Mar 21 17:51:43 2016 Antoine Roig
+## Last update Tue Mar 22 13:38:21 2016 Antoine Roig
 ##
 
 NAME		=		../../corewar
@@ -19,7 +19,6 @@ SRC		=		main.c			\
 				parsing.c		\
 				utils_list.c		\
 				list_champ.c		\
-				list_champ2.c		\
 				pop_list.c		\
 				add_list.c		\
 				zjump.c			\
