@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 16 14:47:43 2016 Antoine Roig
-** Last update Tue Mar 22 13:35:51 2016 Eric DESCHODT
+** Last update Tue Mar 22 14:00:03 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -31,6 +31,8 @@ void		info_champ(t_dlist *list, int i, t_lcmd *info)
   j = 0;
   while (j < i)
     {
+      info->a = 0;
+      info->id = 0;
       if (strcmp("-a", tmp->arg) == 0)
 	{
 	  tmp = pop_list_somewhere(list, j);
@@ -44,6 +46,8 @@ void		info_champ(t_dlist *list, int i, t_lcmd *info)
 	  tmp = pop_list_somewhere(list, j);
 	  tmp = pop_list_somewhere(list, j);
 	  info->id = my_getnbr(tmp->arg);
+	  puts("he");
+	  printf("-%d--\n", info->id);
 	  i -= 2;
 	  tmp = list->begin;
 	}
@@ -93,6 +97,11 @@ void		find_champ(t_dlist *list, t_vm *vm, unsigned char *board)
 	  info = xmalloc(sizeof(t_lcmd));
 	  info->name = tmp->arg;
 	  info_champ(list, i, info);
+	  if ((info->id) == 0)
+	    {
+	      if (vm->nb < 4)
+		info->id = vm->nb + 1;
+	    }
 	  if (create_champ(new_elem, info, board) == -1)
 	    exit(0);
 	  add_list_end_vm(vm, new_elem);

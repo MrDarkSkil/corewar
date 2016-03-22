@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Fri Mar 18 18:34:50 2016 Antoine Roig
-** Last update Tue Mar 22 13:38:30 2016 Eric DESCHODT
+** Last update Tue Mar 22 14:01:43 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -25,28 +25,22 @@ void	fill_new(t_champ *new, t_champ *champ)
   new->reg[0][3] = champ->reg[0][3];
 }
 
-void	add_forking(t_vm *vm, t_champ *champ)
-{
-  int	i;
-  t_champ	*tmp;
+/* void	add_forking(t_vm *vm, t_champ *champ, int nb) */
+/* { */
+/*   int	i; */
+/*   t_champ	*tmp; */
 
-  i = 0;
-  tmp = vm->begin;
-      printf("%s\n", champ->name);
-      printf("%s\n", tmp->name);
-
-  while (tmp)
-    {
-      if (my_strcmp(champ->name, tmp->name) == 0)
-	{
-	  puts("he");
-	  break;
-	}
-      tmp = tmp->next;
-      i++;
-    }
-  add_vm_somewhere(vm, champ, i + 1);
-}
+/*   i = 0; */
+/*   tmp = vm->begin; */
+/*   while (tmp) */
+/*     { */
+/*       if (my_strcmp(champ->name, tmp->name) == 0) */
+/* 	break; */
+/*       tmp = tmp->next; */
+/*       i++; */
+/*     } */
+/*   add_vm_somewhere(vm, champ, i + 1); */
+/* } */
 
 void	add_list_end_vm(t_vm *vm, t_champ *champ)
 {
