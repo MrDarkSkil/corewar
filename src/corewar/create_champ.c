@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Tue Mar 22 16:54:02 2016 Antoine Roig
+** Last update Tue Mar 22 16:55:32 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -65,6 +65,7 @@ t_champ	*pad_reg(t_champ * new_elem)
 	}
       y++;
     }
+  return (new_elem);
 }
 
 int		create_champ(t_champ *new_elem,
@@ -90,7 +91,7 @@ int		create_champ(t_champ *new_elem,
   new_elem->reg[0][1] = nb.byte[1];
   new_elem->reg[0][2] = nb.byte[2];
   new_elem->reg[0][3] = nb.byte[3];
-  new_elem = pad_ref(new_elem);
+  new_elem = pad_reg(new_elem);
   new_elem->board = board;
   close (fd);
   free(prog);
