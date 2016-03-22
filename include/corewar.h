@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Tue Mar 22 15:04:28 2016 Antoine Roig
+** Last update Tue Mar 22 15:42:46 2016 Antoine Roig
 */
 
 #ifndef COREWAR_H_
@@ -103,7 +103,7 @@ void			printboard(unsigned char *board);
 /* VM fonctions */
 
 int			sti(t_args *arg, void *champ);
-int			forking(t_vm *vm, t_champ *champ, unsigned char *board);
+int			forking(t_vm *vm, t_champ *champ, unsigned char *board, int bool);
 int			ld(t_args *arg, void *champ);
 int			add(t_args *arg, void *champ);
 int			or(t_args *arg, void *champ);
