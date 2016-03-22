@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Mon Mar 21 17:14:33 2016 Eric DESCHODT
+** Last update Tue Mar 22 13:59:21 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -57,7 +57,7 @@ void		living(t_champ *champ, unsigned char *board)
       moving_PC(champ, board, 1);
       i++;
     }
-  revert_endian(&tmp.full);
+  /* revert_endian(&tmp.full); */
   result = tmp.full;
   find_living_champion(result, champ);
 }

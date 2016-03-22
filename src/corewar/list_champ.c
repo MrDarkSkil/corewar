@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Fri Mar 18 18:34:50 2016 Antoine Roig
-** Last update Mon Mar 21 18:01:21 2016 Antoine Roig
+** Last update Tue Mar 22 13:38:30 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -20,9 +20,9 @@ void	fill_new(t_champ *new, t_champ *champ)
   new->id = champ->id;
   new->name = champ->name;
   new->reg[0][0] = champ->reg[0][0];
-  new->reg[0][0] = champ->reg[0][1];
-  new->reg[0][0] = champ->reg[0][2];
-  new->reg[0][0] = champ->reg[0][3];
+  new->reg[0][1] = champ->reg[0][1];
+  new->reg[0][2] = champ->reg[0][2];
+  new->reg[0][3] = champ->reg[0][3];
 }
 
 void	add_forking(t_vm *vm, t_champ *champ)
