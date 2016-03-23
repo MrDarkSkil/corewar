@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Tue Mar 22 16:26:43 2016 Eric DESCHODT
+** Last update Wed Mar 23 10:44:26 2016 Antoine Roig
 */
 
 #ifndef COREWAR_H_
@@ -172,7 +172,7 @@ t_list                  *pop_list_begin(t_dlist *);
 t_list                  *pop_list_end(t_dlist *);
 t_list                  *pop_list_somewhere(t_dlist *, int);
 t_list                  *pop_list_somewhere2(t_dlist *, int);
-
+void			kill_champ(t_vm *vm);
 void    fill_new(t_champ *new, t_champ *champ);
 void    fill_new_fork(t_champ *new, t_champ *champ, int nb, unsigned char *board);
 void    add_list_begin_vm(t_vm *list, t_champ *champ);
