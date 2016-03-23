@@ -5,7 +5,7 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:18:01 2016 Eric DESCHODT
-## Last update Wed Mar 23 13:29:27 2016 Antoine Roig
+## Last update Wed Mar 23 16:25:10 2016 Antoine Roig
 ##
 
 NAME		=		corewar
@@ -27,6 +27,8 @@ SRC		=		src/main.c		\
 				src/zjump.c		\
 				src/sti.c		\
 				src/add.c		\
+				src/ldi.c		\
+				src/lldi.c		\
 				src/or.c		\
 				src/xor.c		\
 				src/and.c		\

@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Fri Mar 18 18:34:50 2016 Antoine Roig
-** Last update Wed Mar 23 13:38:46 2016 Antoine Roig
+** Last update Wed Mar 23 16:11:57 2016 Antoine Roig
 */
 
 #include "corewar.h"
