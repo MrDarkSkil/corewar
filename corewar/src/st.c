@@ -5,12 +5,12 @@
 ** Login   <julian_r@epitech.net>
 ** 
 ** Started on  Wed Mar 23 13:27:00 2016 Juliani Renaud
-** Last update Wed Mar 23 16:28:04 2016 Juliani Renaud
+** Last update Wed Mar 23 16:41:40 2016 Juliani Renaud
 */
 
 #include "corewar.h"
 
-void		st_2_pos(t_args *arg, t_champ *champ, unsigned char *board, t_byte *uni)
+void		st_2_pos(t_args *arg, t_champ *champ, unsigned char *board, t_byte uni)
 {
   int		i;
 
@@ -39,7 +39,7 @@ void		st_2_pos(t_args *arg, t_champ *champ, unsigned char *board, t_byte *uni)
     }
 }
 
-void		st_2_neg(t_args *arg, t_champ *champ, unsigned char *board, t_byte *uni)
+void		st_2_neg(t_args *arg, t_champ *champ, unsigned char *board, t_byte uni)
 {
   int		i;
 
@@ -88,7 +88,7 @@ void		st(t_args *arg, void *_champ, unsigned char *board)
 	  champ->reg[arg[2].val][3] = uni.byte[3];
 	}
       else
-	return(0);
+	return;
     }
   else if (arg[1].type == 2 || arg[1].type == 4)
     {
