@@ -5,10 +5,20 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sun Mar 20 23:34:15 2016 Léo Hubert
-** Last update Tue Mar 22 20:35:20 2016 Léo Hubert
+** Last update Wed Mar 23 11:21:50 2016 Léo Hubert
 */
 
 #include "compilator.h"
+
+char	*remove_space(char *str)
+{
+  int	i;
+
+  i = 0;
+  while (str[i] == ' ' && str[i] != '\0')
+    i++;
+  return (&str[i]);
+}
 
 char	*parse_name(char *str)
 {
@@ -50,6 +60,7 @@ char	*get_name(char *str)
    str = parse_name(str);
   if (my_strlen(str) > 0)
     {
+      str = remove_space(str);
       str[my_strlen(str) -1] = '\0';
       return (&str[1]);
     }
@@ -65,6 +76,7 @@ char	*get_comment(char *str)
   str = parse_comment(str);
   if (my_strlen(str) > 0)
     {
+      str = remove_space(str);
       str[my_strlen(str) -1] = '\0';
       return (&str[1]);
     }

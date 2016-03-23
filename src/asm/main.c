@@ -5,15 +5,15 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 16:45:26 2016 Léo Hubert
-** Last update Wed Mar 23 10:41:00 2016 Léo Hubert
+** Last update Wed Mar 23 11:43:07 2016 Léo Hubert
 */
 
-#include "compilator.h"
+#include		"compilator.h"
 
-int	create_cor(char *file)
+int			create_cor(char *file)
 {
-  int	fd;
-  int	fdwrite;
+  int			fd;
+  int			fdwrite;
 
   if (((fd = open(file, O_RDONLY)) == -1 )||
       (fdwrite = open(my_strfusion(take_begin(file, '.'), ".cor"),
@@ -27,23 +27,23 @@ int	create_cor(char *file)
   return (0);
 }
 
-int	main(int ac, char **av)
+int			main(int ac, char **av)
 {
-  int	i;
-  int	res;
+  int			i;
+  int			res;
 
   i = 1;
   if (ac > 1)
     {
       res = create_cor(av[i]);
       if (res == -1)
-	return (my_putstr("Error champion not OK"));
+	return (my_putstr("Error champion not OK\n"));
       else if (res == -2)
-	return (my_putstr("File Not Found or Error when create outfile "));
+	return (my_putstr("File Not Found or Error when create outfile \n"));
     }
   else if (ac == 1)
     {
-      my_putstr("Error aguments\nMettre message appropriè. (sans fautes :p)");
+      my_putstr("Error aguments\nMettre message appropriè. (sans fautes :p)\n");
     }
   return (0);
 }
