@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 **
 ** Started on  Thu Mar 17 12:50:43 2016 Eric DESCHODT
-** Last update Wed Mar 23 09:28:50 2016 Eric DESCHODT
+** Last update Wed Mar 23 14:32:44 2016 Juliani Renaud
 */
 
 #ifndef _OP_H_
@@ -39,7 +39,6 @@ typedef union           u_byte
 }                       t_byte;
 
 typedef struct          s_args
-
 {
   args_type_t           type;
   int			val;
