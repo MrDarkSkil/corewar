@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 **
 ** Started on  Thu Mar 17 12:50:43 2016 Eric DESCHODT
-** Last update Wed Mar 23 13:36:52 2016 Léo Hubert
+** Last update Wed Mar 23 23:20:35 2016 Léo Hubert
 */
 
 #ifndef _OP_H_
@@ -39,7 +39,6 @@ typedef union           u_byte
 }                       t_byte;
 
 typedef struct          s_args
-
 {
   args_type_t           type;
   int			val;
@@ -69,9 +68,9 @@ extern op_t op_tab[];
 typedef struct	header_s
 {
    int		magic;
-   char		prog_name[PROG_NAME_LENGTH+1];
+   char		prog_name[PROG_NAME_LENGTH + 1];
    int		prog_size;
-   char		comment[COMMENT_LENGTH+1];
+   char		comment[COMMENT_LENGTH + 1];
 }		header_t;
 
 # define CYCLE_TO_DIE		1536
