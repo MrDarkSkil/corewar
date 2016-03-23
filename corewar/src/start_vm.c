@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Wed Mar 23 10:53:45 2016 Eric DESCHODT
+** Last update Wed Mar 23 13:44:21 2016 Antoine Roig
 */
 
 #include "corewar.h"

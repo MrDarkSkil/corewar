@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 23 13:26:45 2016 Antoine Roig
-** Last update Wed Mar 23 13:41:02 2016 Antoine Roig
+** Last update Wed Mar 23 13:44:37 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -16,7 +16,6 @@ t_list	*parsing2(t_list *tmp, int *j)
   (*j)++;
   return (tmp);
 }
-
 
 void	fill_info(t_lcmd *info, char *name)
 {

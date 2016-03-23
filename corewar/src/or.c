@@ -5,45 +5,41 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar 21 12:48:24 2016 Antoine Roig
-** Last update Wed Mar 23 09:22:14 2016 Eric DESCHODT
+** Last update Wed Mar 23 14:18:37 2016 Antoine Roig
 */
 
 #include "corewar.h"
 
+void or2(void *champ, t_byte *nb, t_args *arg)
+{
+  t_byte	nb3;
+
+  nb3.full = (nb[0].full | nb[1].full);
+  ((t_champ *)champ)->reg[arg[2].val][0] = nb3.byte[0];
+  ((t_champ *)champ)->reg[arg[2].val][1] = nb3.byte[1];
+  ((t_champ *)champ)->reg[arg[2].val][2] = nb3.byte[2];
+  ((t_champ *)champ)->reg[arg[2].val][3] = nb3.byte[3];
+}
+
 int	or(t_args *arg, void *champ, unsigned char *board)
 {
-  t_byte	nb1;
-  t_byte	nb2;
-  t_byte        nb3;
+  t_byte	nb[2];
+  int		i;
 
   (void)board;
-  if (arg[2].type != 1)
-    return (0);
-  else
+  i = -1;
+  while (++i < 2)
     {
-      if (arg[0].type == 1)
+      if (arg[i].type == 1)
 	{
-	  nb1.byte[0] = ((t_champ *)champ)->reg[arg[0].val - 1][0];
-	  nb1.byte[1] = ((t_champ *)champ)->reg[arg[0].val - 1][1];
-	  nb1.byte[2] = ((t_champ *)champ)->reg[arg[0].val - 1][2];
-	  nb1.byte[3] = ((t_champ *)champ)->reg[arg[0].val - 1][3];
+	  nb[i].byte[0] = ((t_champ *)champ)->reg[arg[i].val - 1][0];
+	  nb[i].byte[1] = ((t_champ *)champ)->reg[arg[i].val - 1][1];
+	  nb[i].byte[2] = ((t_champ *)champ)->reg[arg[i].val - 1][2];
+	  nb[i].byte[3] = ((t_champ *)champ)->reg[arg[i].val - 1][3];
 	}
       else
-	nb1.full = arg[0].val;
-      if (arg[1].type == 1)
-	{
-	  nb2.byte[0] = ((t_champ *)champ)->reg[arg[1].val - 1][0];
-	  nb2.byte[1] = ((t_champ *)champ)->reg[arg[1].val - 1][1];
-	  nb2.byte[2] = ((t_champ *)champ)->reg[arg[1].val - 1][2];
-	  nb2.byte[3] = ((t_champ *)champ)->reg[arg[1].val - 1][3];
-	}
-      else
-	nb2.full = arg[1].val;
-      nb3.full = (nb1.full | nb2.full);
-      ((t_champ *)champ)->reg[arg[2].val][0] = nb3.byte[0];
-      ((t_champ *)champ)->reg[arg[2].val][1] = nb3.byte[1];
-      ((t_champ *)champ)->reg[arg[2].val][2] = nb3.byte[2];
-      ((t_champ *)champ)->reg[arg[2].val][3] = nb3.byte[3];
+	nb[i].full = arg[i].val;
+      or2(champ, nb, arg);
     }
   swap_carry(((t_champ *)champ));
   return (0);
