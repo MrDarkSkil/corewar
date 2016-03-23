@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar 21 12:45:04 2016 Antoine Roig
-** Last update Wed Mar 23 14:44:45 2016 Eric DESCHODT
+** Last update Wed Mar 23 16:42:05 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -32,6 +32,8 @@ int	and(t_args *arg, void *champ, unsigned char *board)
     {
       if (arg[i].type == 1)
 	{
+	  if (arg[i].val <= 0 || arg[o].val > REG_NUMBER)
+	    return (0);
 	  nb[i].byte[0] = ((t_champ *)champ)->reg[arg[i].val - 1][0];
 	  nb[i].byte[1] = ((t_champ *)champ)->reg[arg[i].val - 1][1];
 	  nb[i].byte[2] = ((t_champ *)champ)->reg[arg[i].val - 1][2];
