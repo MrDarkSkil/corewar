@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Sat Mar 19 21:41:30 2016 Antoine Roig
-** Last update Tue Mar 22 17:11:10 2016 Antoine Roig
+** Last update Wed Mar 23 09:21:02 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -18,12 +18,13 @@ void	swap_carry(t_champ *champ)
     champ->carry = 1;
 }
 
-int	add(t_args *arg, void *champ)
+int	add(t_args *arg, void *champ, unsigned char *board)
 {
   t_byte	nb1;
   t_byte	nb2;
   t_byte        nb3;
 
+  (void)board;
   if (arg[0].type != 1 || arg[1].type != 1 || arg[2].type != 1)
     return (0);
   else

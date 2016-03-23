@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Tue Mar 22 15:01:33 2016 Antoine Roig
+** Last update Wed Mar 23 10:43:39 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -28,6 +28,8 @@ void            init_alive(t_vm *vm)
 int		execute_champ(t_vm *vm, t_champ *champ,
 			      unsigned char *board)
 {
+  my_putstr("NEW LIST\n");
+  show_list_vm(vm);
   if (champ->cycle == 0)
     load_instru(vm, champ, board);
   if (champ->cycle == champ->ope.nbr_cycles)

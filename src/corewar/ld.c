@@ -5,14 +5,15 @@
 ** Login   <descho_e@epitech.net>
 **
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Mon Mar 21 17:10:20 2016 Eric DESCHODT
+** Last update Wed Mar 23 09:27:45 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
-int		ld(t_args *arg, void *champ)
+int		ld(t_args *arg, void *champ, unsigned char *board)
 {
   (void)arg;
   (void)champ;
+  (void)board;
   return (0);
 }

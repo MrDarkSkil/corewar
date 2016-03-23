@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Tue Mar 22 16:26:43 2016 Eric DESCHODT
+** Last update Wed Mar 23 09:30:58 2016 Eric DESCHODT
 */
 
 #ifndef COREWAR_H_
@@ -35,7 +35,6 @@ typedef struct		s_champ
   int			alive;
   op_t			ope;
   char			carry;
-  unsigned char		*board;
   struct s_champ	*next;
   struct s_champ	*prev;
 }			t_champ;
@@ -103,14 +102,17 @@ void			printboard(unsigned char *board);
 
 /* VM fonctions */
 
-int			sti(t_args *arg, void *champ);
-int			forking(t_vm *vm, t_champ *champ, unsigned char *board, int bool);
-int			ld(t_args *arg, void *champ);
-int			add(t_args *arg, void *champ);
-int			or(t_args *arg, void *champ);
-int			xor(t_args *arg, void *champ);
-int			and(t_args *arg, void *champ);
-int			sub(t_args *arg, void *champ);
+int			sti(t_args *arg, void *champ, unsigned char *board);
+int			forking(t_vm *vm,
+				t_champ *champ,
+				unsigned char *board,
+				int bool);
+int			ld(t_args *arg, void *champ, unsigned char *board);
+int			add(t_args *arg, void *champ, unsigned char *board);
+int			or(t_args *arg, void *champ, unsigned char *board);
+int			xor(t_args *arg, void *champ, unsigned char *board);
+int			and(t_args *arg, void *champ, unsigned char *board);
+int			sub(t_args *arg, void *champ, unsigned char *board);
 int			zjump(t_champ *champ,
 			      unsigned char *board);
 void			moving_PC(t_champ *champ,

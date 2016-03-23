@@ -5,17 +5,18 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Sun Mar 20 01:35:42 2016 Antoine Roig
-** Last update Mon Mar 21 17:23:13 2016 Eric DESCHODT
+** Last update Wed Mar 23 09:20:50 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
-int	sub(t_args *arg, void *champ)
+int	sub(t_args *arg, void *champ, unsigned char *board)
 {
   t_byte	nb1;
   t_byte	nb2;
   t_byte        nb3;
 
+  (void)board;
   if (arg[0].type != 1 || arg[1].type != 1 || arg[2].type != 1)
     return (0);
   else

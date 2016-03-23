@@ -5,17 +5,18 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar 21 12:48:24 2016 Antoine Roig
-** Last update Tue Mar 22 17:22:06 2016 Antoine Roig
+** Last update Wed Mar 23 09:22:14 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
-int	or(t_args *arg, void *champ)
+int	or(t_args *arg, void *champ, unsigned char *board)
 {
   t_byte	nb1;
   t_byte	nb2;
   t_byte        nb3;
 
+  (void)board;
   if (arg[2].type != 1)
     return (0);
   else
