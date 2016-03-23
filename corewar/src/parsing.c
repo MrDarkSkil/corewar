@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 16 14:47:43 2016 Antoine Roig
-** Last update Wed Mar 23 13:31:26 2016 Antoine Roig
+** Last update Wed Mar 23 13:41:49 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -34,11 +34,9 @@ void		info_champ(t_dlist *list, int i, t_lcmd *info, char *name)
   t_list	*tmp;
   int		j;
 
-  info->name = name;
+  fill_info(info, name);
   tmp = list->begin;
   j = 0;
-  info->id = 0;
-  info->a = 0;
   while (j < i)
     {
       if (my_strcmp("-a", tmp->arg) == 0)
