@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 17:53:01 2016 Léo Hubert
-** Last update Wed Mar 23 16:04:57 2016 Léo Hubert
+** Last update Wed Mar 23 23:50:29 2016 Léo Hubert
 */
 
 #ifndef _COMPILATOR
@@ -18,15 +18,8 @@
 #include	"get_next_line.h"
 #include	"my.h"
 
-typedef struct s_ation
-{
-  int		ins;
-  int		param;
-}		t_action;
-
 typedef struct s_asm
 {
-  t_action	*action;
   char		*ins;
   char		*param;
   int		first;
