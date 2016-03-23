@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Wed Mar 23 12:28:20 2016 Eric DESCHODT
+** Last update Wed Mar 23 13:34:08 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -102,6 +102,7 @@ void		load_instru(t_vm *vm, t_champ *champ,
   int		i;
 
   i = 0;
+  printf("chis\n");
   while (op_tab[i].code != *champ->instru && op_tab[i].code != 0)
     i++;
   moving_PC(champ, board, 1);
