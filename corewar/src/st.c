@@ -5,7 +5,7 @@
 ** Login   <julian_r@epitech.net>
 ** 
 ** Started on  Wed Mar 23 13:27:00 2016 Juliani Renaud
-** Last update Wed Mar 23 17:37:29 2016 Eric DESCHODT
+** Last update Wed Mar 23 18:19:38 2016 Juliani Renaud
 */
 
 #include "corewar.h"
@@ -65,13 +65,28 @@ void		st_2_neg(t_args *arg, t_champ *champ, unsigned char *board, t_byte uni)
       i++;
     }
   i = 0;
-  
-
   while (i < (arg[1].val + REG_SIZE))
     {
       moving_PC(champ, board, 1);
       i++;
     }
+}
+
+void		st_reg(t_args *arg, void *_champ, unsigned char *board, t_byte uni)
+{
+  if (arg[1].val >= 1 && arg[1].val < REG_NUMBER)
+    {
+      uni.byte[0] = champ->reg[arg[0].val][0];
+      uni.byte[1] = champ->reg[arg[0].val][1];
+      uni.byte[2] = champ->reg[arg[0].val][2];
+      uni.byte[3] = champ->reg[arg[0].val][3];
+      champ->reg[arg[2].val][0] = uni.byte[0];
+      champ->reg[arg[2].val][1] = uni.byte[1];
+      champ->reg[arg[2].val][2] = uni.byte[2];
+      champ->reg[arg[2].val][3] = uni.byte[3];
+    }
+  else
+    return (0);
 }
 
 int		st(t_args *arg, void *_champ, unsigned char *board)
@@ -81,24 +96,9 @@ int		st(t_args *arg, void *_champ, unsigned char *board)
 
   champ = _champ;
   if (arg[1].type == 1)
-    {
-      if (arg[1].val >= 1 && arg[1].val < REG_NUMBER)
-	{
-	  uni.byte[0] = champ->reg[arg[0].val][0];
-	  uni.byte[1] = champ->reg[arg[0].val][1];
-	  uni.byte[2] = champ->reg[arg[0].val][2];
-	  uni.byte[3] = champ->reg[arg[0].val][3];
-	  champ->reg[arg[2].val][0] = uni.byte[0];
-	  champ->reg[arg[2].val][1] = uni.byte[1];
-	  champ->reg[arg[2].val][2] = uni.byte[2];
-	  champ->reg[arg[2].val][3] = uni.byte[3];
-	}
-      else
-	return (0);
-    }
+    st_reg(arg, champ, board, uni);
   else if (arg[1].type == 2 || arg[1].type == 4)
     {
-
       if (arg[1].val >= 0)
 	st_2_pos(arg, champ, board, uni);
       else
