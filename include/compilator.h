@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 17:53:01 2016 Léo Hubert
-** Last update Sun Mar 20 23:27:19 2016 Léo Hubert
+** Last update Wed Mar 23 10:42:10 2016 Léo Hubert
 */
 
 #ifndef _COMPILATOR
@@ -31,5 +31,6 @@ char	*take_after(char *str, char c);
 char	*take_begin(char *str, char c);
 int	my_strcmp(char *s1, char *s2);
 int	my_strcmp_2(char *s1, char *s2);
+int	create_header(int fd, int fdwrite);
 
 #endif /* _COMPILATOR */
