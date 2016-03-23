@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Wed Mar 23 09:32:37 2016 Eric DESCHODT
+** Last update Wed Mar 23 13:15:57 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -82,7 +82,6 @@ int		create_champ(t_champ *new_elem,
       || get_header(fd, &head) == -1
       || (prog = xmalloc(sizeof(char) * head.prog_size + 1)) == NULL
       || (rd = read(fd, prog, head.prog_size + 1)) == -1)
-      /* || rd != head.prog_size + 1) */
     return (-1);
   champ_info(new_elem, board, info, head);
   champ_memory(head, board, info, prog);

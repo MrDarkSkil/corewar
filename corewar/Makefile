@@ -5,7 +5,7 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:18:01 2016 Eric DESCHODT
-## Last update Wed Mar 23 12:37:01 2016 Eric DESCHODT
+## Last update Wed Mar 23 13:29:27 2016 Antoine Roig
 ##
 
 NAME		=		corewar
@@ -17,6 +17,7 @@ SRC		=		src/main.c		\
 				src/living.c		\
 				src/load_instru.c	\
 				src/parsing.c		\
+				src/parsing2.c		\
 				src/utils_list.c	\
 				src/list_champ.c	\
 				src/list_champ2.c	\

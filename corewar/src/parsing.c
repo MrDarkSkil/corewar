@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 16 14:47:43 2016 Antoine Roig
-** Last update Wed Mar 23 12:22:52 2016 Eric DESCHODT
+** Last update Wed Mar 23 13:31:26 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -22,11 +22,19 @@ void		fill_list(t_dlist *list, char **av)
     }
 }
 
-void		info_champ(t_dlist *list, int i, t_lcmd *info)
+t_list	*double_pop(t_dlist *list, int j, t_list *tmp)
+{
+  tmp = pop_list_somewhere(list, j);
+  tmp = pop_list_somewhere(list, j);
+  return (tmp);
+}
+
+void		info_champ(t_dlist *list, int i, t_lcmd *info, char *name)
 {
   t_list	*tmp;
   int		j;
 
+  info->name = name;
   tmp = list->begin;
   j = 0;
   info->id = 0;
@@ -35,25 +43,20 @@ void		info_champ(t_dlist *list, int i, t_lcmd *info)
     {
       if (my_strcmp("-a", tmp->arg) == 0)
 	{
-	  tmp = pop_list_somewhere(list, j);
-	  tmp = pop_list_somewhere(list, j);
+	  tmp = double_pop(list, j, tmp);
 	  info->a = my_getnbr(tmp->arg);
 	  i -= 2;
 	  tmp = list->begin;
 	}
       else if (my_strcmp("-n", tmp->arg) == 0)
 	{
-	  tmp = pop_list_somewhere(list, j);
-	  tmp = pop_list_somewhere(list, j);
+	  tmp = double_pop(list, j, tmp);
 	  info->id = my_getnbr(tmp->arg);
 	  i -= 2;
 	  tmp = list->begin;
 	}
       else
-	{
-	  tmp = tmp->next;
-	  j++;
-	}
+	tmp = parsing2(tmp, &j);
     }
 }
 
@@ -78,14 +81,12 @@ void		find_dump(t_dlist *list, t_vm *vm)
     }
 }
 
-void		find_champ(t_dlist *list, t_vm *vm, unsigned char *board)
+void		find_champ(t_dlist *list, t_vm *vm, unsigned char *board, int i)
 {
   t_list	*tmp;
-  int		i;
   t_lcmd	*info;
   t_champ	*new_elem;
 
-  i = 0;
   tmp = list->begin;
   new_elem = xmalloc(sizeof(t_champ));
   while (tmp)
@@ -93,13 +94,9 @@ void		find_champ(t_dlist *list, t_vm *vm, unsigned char *board)
       if (my_strcmp(&tmp->arg[my_strlen(tmp->arg) - 4], ".cor") == 0)
 	{
 	  info = xmalloc(sizeof(t_lcmd));
-	  info->name = tmp->arg;
-	  info_champ(list, i, info);
-	  if ((info->id) == 0)
-	    {
-	      if (vm->nb < 4)
-		info->id = vm->nb + 1;
-	    }
+	  info_champ(list, i, info, tmp->arg);
+	  if ((info->id) == 0 && vm->nb < 4)
+	    info->id = vm->nb + 1;
 	  if (create_champ(new_elem, info, board) == -1)
 	    exit(0);
 	  add_list_end_vm(vm, new_elem);
