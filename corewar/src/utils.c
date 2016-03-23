@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar  7 15:53:27 2016 Antoine Roig
-** Last update Tue Mar 22 16:33:10 2016 Eric DESCHODT
+** Last update Wed Mar 23 12:29:47 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -52,8 +52,12 @@ void            revert_endian(int *nb)
 
 void            print_info(header_t *head)
 {
-  my_printf("%d\n", head->magic);
-  my_printf("%s\n", head->prog_name);
-  my_printf("%d\n", head->prog_size);
-  my_printf("%s\n", head->comment);
+  my_put_nbr(head->magic);
+  my_putchar('\n');
+  my_putstr(head->prog_name);
+  my_putchar('\n');
+  my_put_nbr(head->prog_size);
+  my_putchar('\n');
+  my_putstr(head->comment);
+  my_putchar('\n');
 }

@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Sun Oct 11 22:15:40 2015 Roig Antoine
-** Last update Fri Mar 18 18:36:52 2016 Antoine Roig
+** Last update Wed Mar 23 12:24:43 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -16,7 +16,7 @@ t_list	*pop_list_begin(t_dlist *list)
 
   if (!list)
     {
-      printf("pop_list_begin : list NULL\n");
+      my_putstr("pop_list_begin : list NULL\n");
       exit(EXIT_FAILURE);
     }
   if (list->begin == NULL || list->end == NULL)
@@ -58,7 +58,7 @@ t_list  *pop_list_somewhere(t_dlist *list, int pos)
 {
   if (!list)
     {
-      printf("pop_list_begin : list NULL\n");
+      my_putstr("pop_list_begin : list NULL\n");
       exit(EXIT_FAILURE);
     }
   if (list->begin == NULL || list->end == NULL)
@@ -77,7 +77,7 @@ t_list  *pop_list_end(t_dlist *list)
 
   if (!list)
     {
-      printf("pop_list_begin : list NULL\n");
+      my_putstr("pop_list_begin : list NULL\n");
       exit(EXIT_FAILURE);
     }
   if (list->begin == NULL || list->end == NULL)

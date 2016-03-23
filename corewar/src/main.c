@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Wed Mar 23 09:12:43 2016 Eric DESCHODT
+** Last update Wed Mar 23 12:27:06 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -29,10 +29,12 @@ void		printboard(unsigned char *board)
   i = 0;
   while (i < MEM_SIZE)
     {
-      my_printf("%s%x ", (board[i] < 16) ? "0" : "",  board[i]);
+      if (board[i] < 16)
+	my_putchar(' ');
+      my_put_nbr_base(board[i], "0123456789abcdef");
       i++;
     }
-  my_printf("\n");
+  my_putchar('\n');
 }
 
 int		main(int ac, char **av)

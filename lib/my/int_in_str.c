@@ -1,14 +1,14 @@
 /*
-** my_printf.c for  in /home/descho_e/year_2015_2016/System_Unix/PSU_2015_my_printf
+** int_in_str.c for  in /home/descho_e/year_2015_2016/C_Prog_Elem/CPE_2015_corewar
 ** 
 ** Made by Eric DESCHODT
 ** Login   <descho_e@epitech.net>
 ** 
-** Started on  Mon Nov  2 14:52:58 2015 Eric DESCHODT
-** Last update Fri Feb 12 13:09:09 2016 Eric DESCHODT
+** Started on  Wed Mar 23 12:35:05 2016 Eric DESCHODT
+** Last update Wed Mar 23 12:35:07 2016 Eric DESCHODT
 */
 
-#include "myprintf.h"
+#include "my.h"
 
 char		*int_in_str(int nbr, int size)
 {

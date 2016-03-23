@@ -1,14 +1,14 @@
 /*
-** my_put_float.c for  in /home/descho_e/year_2015_2016/System_Unix/PSU_2015_my_printf
+** my_put_float.c for  in /home/descho_e/year_2015_2016/C_Prog_Elem/CPE_2015_corewar
 ** 
 ** Made by Eric DESCHODT
 ** Login   <descho_e@epitech.net>
 ** 
-** Started on  Thu Nov 12 16:13:12 2015 Eric DESCHODT
-** Last update Fri Feb 12 13:11:23 2016 Eric DESCHODT
+** Started on  Wed Mar 23 12:34:53 2016 Eric DESCHODT
+** Last update Wed Mar 23 12:34:54 2016 Eric DESCHODT
 */
 
-#include "myprintf.h"
+#include "my.h"
 
 void		my_put_float(long double nb, int size)
 {

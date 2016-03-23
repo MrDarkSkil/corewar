@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 17:53:01 2016 Léo Hubert
-** Last update Wed Mar 23 10:42:10 2016 Léo Hubert
+** Last update Wed Mar 23 12:31:32 2016 Eric DESCHODT
 */
 
 #ifndef _COMPILATOR
@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include "op.h"
 #include "get_next_line.h"
-#include "myprintf.h"
+#include "my.h"
 
 char	*take_begin(char *str, char c);
 char	*parse_name(char *str);

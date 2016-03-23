@@ -5,10 +5,10 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Wed Oct  7 12:26:47 2015 Eric DESCHODT
-** Last update Fri Feb 12 13:07:31 2016 Eric DESCHODT
+** Last update Wed Mar 23 12:17:54 2016 Eric DESCHODT
 */
 
-#include "myprintf.h"
+#include "my.h"
 
 int     sizeofstr(int nbr, char *base)
 {

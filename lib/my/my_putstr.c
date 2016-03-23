@@ -5,10 +5,10 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Tue Oct  6 09:32:59 2015 Eric DESCHODT
-** Last update Fri Feb 12 13:10:30 2016 Eric DESCHODT
+** Last update Wed Mar 23 12:20:18 2016 Eric DESCHODT
 */
 
-#include "myprintf.h"
+#include "my.h"
 
 int	my_putstr(char *str)
 {

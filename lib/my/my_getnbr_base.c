@@ -5,10 +5,10 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Wed Oct 14 09:14:12 2015 Eric DESCHODT
-** Last update Fri Feb 12 13:10:54 2016 Eric DESCHODT
+** Last update Wed Mar 23 12:18:14 2016 Eric DESCHODT
 */
 
-#include "myprintf.h"
+#include "my.h"
 
 int	det_sign(char *str)
 {

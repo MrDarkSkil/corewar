@@ -5,18 +5,17 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 14:19:42 2016 Eric DESCHODT
-## Last update Tue Mar 22 16:34:59 2016 Eric DESCHODT
+## Last update Wed Mar 23 12:17:16 2016 Eric DESCHODT
 ##
 
-NAME	=	../libmyprintf.a
+NAME	=	../libmy.a
 
 CFLAGS  +=      -W -Wextra -Wall
 CFLAGS  +=      -ansi -pedantic
 CFLAGS  +=      -I../../include
-CFLAGS  +=      -Werror -g
+CFLAGS  +=      -Werror
 
 SRC	=	my_putchar.c \
-                noflags.c \
                 my_getnbr.c \
                 my_revstr.c \
                 my_putstr.c \
@@ -26,11 +25,6 @@ SRC	=	my_putchar.c \
                 my_strlen.c \
                 my_getnbr_base.c \
                 my_showstr.c \
-                my_memset.c \
-                my_printf.c \
-                my_printf_flags.c \
-                my_printf_ope.c \
-                my_printf_ope2.c \
                 int_in_str.c \
                 my_put_nbr_base.c
 

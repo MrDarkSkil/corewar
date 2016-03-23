@@ -5,10 +5,10 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Wed Oct 14 09:27:08 2015 Eric DESCHODT
-** Last update Fri Feb 12 13:11:32 2016 Eric DESCHODT
+** Last update Wed Mar 23 12:20:29 2016 Eric DESCHODT
 */
 
-#include "myprintf.h"
+#include "my.h"
 
 char	*my_revstr(char *str)
 {

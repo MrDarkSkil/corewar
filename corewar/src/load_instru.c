@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Wed Mar 23 09:19:48 2016 Eric DESCHODT
+** Last update Wed Mar 23 12:28:20 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -107,7 +107,7 @@ void		load_instru(t_vm *vm, t_champ *champ,
   moving_PC(champ, board, 1);
   if (op_tab[i].code == 0)
     {
-      my_printf("Ope inconnue %x\n", *(champ->instru - 1));
+      my_putstr("Unknowed command\n");
       champ->ope.nbr_cycles = 1;
     }
   else if (op_tab[i].code == 12)
@@ -120,7 +120,8 @@ void		load_instru(t_vm *vm, t_champ *champ,
     zjump(champ, board);
   else
     {
-      my_printf("%s\n", op_tab[i].mnemonique);
+      my_putstr(op_tab[i].mnemonique);
+      my_putchar('\n');
       champ->ope.nbr_cycles = op_tab[i].nbr_cycles;
       champ->ope.nbr_args = op_tab[i].nbr_args;
       champ->ope.code = op_tab[i].code;

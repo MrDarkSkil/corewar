@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 16 14:47:43 2016 Antoine Roig
-** Last update Tue Mar 22 16:31:32 2016 Eric DESCHODT
+** Last update Wed Mar 23 12:22:52 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -33,7 +33,7 @@ void		info_champ(t_dlist *list, int i, t_lcmd *info)
   info->a = 0;
   while (j < i)
     {
-      if (strcmp("-a", tmp->arg) == 0)
+      if (my_strcmp("-a", tmp->arg) == 0)
 	{
 	  tmp = pop_list_somewhere(list, j);
 	  tmp = pop_list_somewhere(list, j);
@@ -41,13 +41,11 @@ void		info_champ(t_dlist *list, int i, t_lcmd *info)
 	  i -= 2;
 	  tmp = list->begin;
 	}
-      else if (strcmp("-n", tmp->arg) == 0)
+      else if (my_strcmp("-n", tmp->arg) == 0)
 	{
 	  tmp = pop_list_somewhere(list, j);
 	  tmp = pop_list_somewhere(list, j);
 	  info->id = my_getnbr(tmp->arg);
-	  puts("he");
-	  printf("-%d--\n", info->id);
 	  i -= 2;
 	  tmp = list->begin;
 	}
@@ -68,7 +66,7 @@ void		find_dump(t_dlist *list, t_vm *vm)
   tmp = list->begin;
   while (tmp)
     {
-      if (strcmp(tmp->arg, "-dump") == 0)
+      if (my_strcmp(tmp->arg, "-dump") == 0)
 	{
 	  tmp = pop_list_somewhere(list, i);
 	  tmp = pop_list_somewhere(list, i);
@@ -92,7 +90,7 @@ void		find_champ(t_dlist *list, t_vm *vm, unsigned char *board)
   new_elem = xmalloc(sizeof(t_champ));
   while (tmp)
     {
-      if (my_strcmp(&tmp->arg[strlen(tmp->arg) - 4], ".cor") == 0)
+      if (my_strcmp(&tmp->arg[my_strlen(tmp->arg) - 4], ".cor") == 0)
 	{
 	  info = xmalloc(sizeof(t_lcmd));
 	  info->name = tmp->arg;

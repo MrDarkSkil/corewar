@@ -5,10 +5,10 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Tue Oct  6 09:28:57 2015 Eric DESCHODT
-** Last update Wed Feb 17 09:25:26 2016 Eric DESCHODT
+** Last update Wed Mar 23 12:20:07 2016 Eric DESCHODT
 */
 
-#include "myprintf.h"
+#include "my.h"
 
 void	aff_nbr(int nbr, int pow)
 {

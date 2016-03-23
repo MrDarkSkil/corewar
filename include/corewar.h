@@ -5,21 +5,19 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Wed Mar 23 10:53:04 2016 Eric DESCHODT
+** Last update Wed Mar 23 12:21:18 2016 Eric DESCHODT
 */
 
 #ifndef COREWAR_H_
 # define COREWAR_H_
 
-# include <stdio.h>
-# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
 # include "op.h"
-# include "myprintf.h"
+# include "my.h"
 # include "get_next_line.h"
 
 typedef struct		s_champ

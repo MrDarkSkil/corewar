@@ -1,14 +1,14 @@
 /*
-** my_memset.c for  in /home/descho_e/year_2015_2016/System_Unix/PSU_2015_my_printf
+** my_memset.c for  in /home/descho_e/year_2015_2016/C_Prog_Elem/CPE_2015_corewar
 ** 
 ** Made by Eric DESCHODT
 ** Login   <descho_e@epitech.net>
 ** 
-** Started on  Tue Nov  3 14:16:58 2015 Eric DESCHODT
-** Last update Fri Feb 12 13:07:56 2016 Eric DESCHODT
+** Started on  Wed Mar 23 12:35:18 2016 Eric DESCHODT
+** Last update Wed Mar 23 12:35:20 2016 Eric DESCHODT
 */
 
-#include "myprintf.h"
+#include "my.h"
 
 void		my_memset(char *str,
 			  int size,

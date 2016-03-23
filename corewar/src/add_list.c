@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Sun Oct 11 20:25:22 2015 Roig Antoine
-** Last update Fri Mar 18 21:28:46 2016 Antoine Roig
+** Last update Wed Mar 23 12:25:16 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -16,7 +16,7 @@ void	add_list_end(t_dlist *list, char *arg)
 
   if (!list)
     {
-      printf("add_list_end : list is NULL\nExit program\n");
+      my_putstr("add_list_end : list is NULL\nExit program\n");
       exit(EXIT_FAILURE);
     }
   new = xmalloc(sizeof(*new));

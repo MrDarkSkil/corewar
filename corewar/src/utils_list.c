@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Sun Oct 11 22:13:44 2015 Roig Antoine
-** Last update Fri Mar 18 18:36:37 2016 Antoine Roig
+** Last update Wed Mar 23 12:23:40 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -17,7 +17,8 @@ void	show_list(t_dlist *list)
   tmp = list->begin;
   while (tmp != NULL)
     {
-      printf("%s\n", (tmp->arg));
+      my_putstr(tmp->arg);
+      my_putchar('\n');
       tmp = tmp->next;
     }
 }

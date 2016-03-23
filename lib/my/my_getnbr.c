@@ -5,10 +5,10 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Wed Oct 14 09:19:37 2015 Eric DESCHODT
-** Last update Sun Feb 14 14:50:31 2016 Eric DESCHODT
+** Last update Wed Mar 23 12:18:28 2016 Eric DESCHODT
 */
 
-#include "myprintf.h"
+#include "my.h"
 
 int	det_signbis(char *str)
 {
