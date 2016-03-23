@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 16:45:26 2016 Léo Hubert
-** Last update Wed Mar 23 11:43:07 2016 Léo Hubert
+** Last update Wed Mar 23 16:12:41 2016 Léo Hubert
 */
 
 #include		"compilator.h"
@@ -14,6 +14,7 @@ int			create_cor(char *file)
 {
   int			fd;
   int			fdwrite;
+  int			error;
 
   if (((fd = open(file, O_RDONLY)) == -1 )||
       (fdwrite = open(my_strfusion(take_begin(file, '.'), ".cor"),
@@ -22,6 +23,8 @@ int			create_cor(char *file)
     return (-2);
   if (create_header(fd, fdwrite) == -1)
     return (-1);
+  if ((error = write_instructions(fd, fdwrite)) != 0)
+    return (error);
   close(fd);
   close(fdwrite);
   return (0);
@@ -43,7 +46,7 @@ int			main(int ac, char **av)
     }
   else if (ac == 1)
     {
-      my_putstr("Error aguments\nMettre message appropriè. (sans fautes :p)\n");
+      my_putstr("Error aguments\n");
     }
   return (0);
 }

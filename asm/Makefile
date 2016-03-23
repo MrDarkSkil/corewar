@@ -5,7 +5,7 @@
 ## Login   <julian_r@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:27:46 2016 Juliani Renaud
-## Last update Wed Mar 23 12:02:54 2016 Eric DESCHODT
+## Last update Wed Mar 23 23:57:22 2016 Léo Hubert
 ##
 
 NAME	=	asm
@@ -13,17 +13,24 @@ NAME	=	asm
 SRC	=	src/main.c				\
 		src/file_my.c				\
 		src/parse_header.c			\
+		src/write_instructions.c		\
+		src/utils.c				\
+		src/instructions_file.c			\
 		src/header.c				\
+		src/linked_list.c			\
 		src/my_takestr.c			\
 		src/my_strcmp.c				\
+		src/op.c				\
 		../lib/get_next_line/get_next_line.c
 
 OBJ	=	$(SRC:.c=.o)
 
-CFLAGS	+=	-Werror -Wextra -Wall
-CFLAGS	+=	-pedantic -ansi
+#CFLAGS	+=	-Werror -Wextra -Wall
+#CFLAGS	+=	-pedantic -ansi
 CFLAGS	+=	-I../include
-CFLAGS	+=	-lmy -l../lib
+
+LFLAGS          =               -lmy -L../lib
+
 
 CC	=	gcc
 
@@ -32,7 +39,7 @@ RM	=	rm -rf
 all	:	$(NAME)
 
 $(NAME)	:	$(OBJ)
-		$(CC) -o $(NAME) $(OBJ)
+		$(CC) -o $(NAME) $(OBJ) $(LFLAGS)
 
 clean	:
 		$(RM) $(OBJ)

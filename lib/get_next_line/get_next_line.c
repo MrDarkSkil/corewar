@@ -1,11 +1,11 @@
 /*
 ** get_next_line.c for  in /home/descho_e/year_2015_2016/C_Prog_Elem/CPE_2015_getnextline/maintest
-** 
+**
 ** Made by Eric DESCHODT
 ** Login   <descho_e@epitech.net>
-** 
+**
 ** Started on  Mon Jan  4 10:11:52 2016 Eric DESCHODT
-** Last update Mon Mar  7 14:46:25 2016 Eric DESCHODT
+** Last update Wed Mar 23 15:28:55 2016 Léo Hubert
 */
 
 #include "get_next_line.h"
@@ -59,7 +59,7 @@ int		add(char *s, char *stock, const int fd)
   if ((find == 0) && (lecture = read(fd, &s[size(stock)], READ_SIZE)) != -1)
     (&s[size(stock)])[lecture] = '\0';
   if (lecture == 0 && find == 0 && on == 0 && i != 0)
-      stock[0] = (on++ * 0);
+    stock[0] = (on++ * 0);
   return ((lecture == 0 && find == 0 && on == 0 && i == 0) ? (-1)
 	  : ((lecture == 0 && find == 0 && on == 0) ? (-2) : (lecture)));
 }

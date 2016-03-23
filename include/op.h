@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 **
 ** Started on  Thu Mar 17 12:50:43 2016 Eric DESCHODT
-** Last update Wed Mar 23 21:33:51 2016 Eric DESCHODT
+** Last update Wed Mar 23 23:20:35 2016 Léo Hubert
 */
 
 #ifndef _OP_H_
