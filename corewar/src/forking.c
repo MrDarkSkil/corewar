@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar 21 15:26:10 2016 Eric DESCHODT
-** Last update Wed Mar 23 10:45:09 2016 Eric DESCHODT
+** Last update Wed Mar 23 13:14:34 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -22,7 +22,7 @@ int		forking(t_vm *vm,
   uni.byte[0] = 0;
   uni.byte[1] = 0;
   uni.byte[2] = (*champ->instru++);
-  uni.byte[3] = (*champ->instru);   
+  uni.byte[3] = (*champ->instru);
   revert_endian(&uni.full);
   if (bool == 1)
     {

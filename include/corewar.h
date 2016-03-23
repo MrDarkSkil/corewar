@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Wed Mar 23 13:30:26 2016 Eric DESCHODT
+** Last update Wed Mar 23 13:40:04 2016 Eric DESCHODT
 */
 
 #ifndef COREWAR_H_
@@ -129,14 +129,14 @@ int			create_champ(t_champ *new_elem,
 
 void			find_champ(t_dlist *list,
 				   t_vm *vm,
-				   unsigned char *board);
+				   unsigned char *board, int i);
 
 void			find_dump(t_dlist *list,
 				  t_vm *vm);
 
 void			info_champ(t_dlist *list,
 				   int i,
-				   t_lcmd *info);
+				   t_lcmd *info, char *name);
 
 void			fill_list(t_dlist *list,
 				  char **av);
@@ -182,5 +182,5 @@ void    add_vm_somewhere2(t_vm *vm, t_champ *new, int pos);
 void    add_vm_somewhere(t_vm *vm, t_champ *champ, t_decal_nb decal_nb, unsigned char *board);
 void	add_forking(t_vm *vm, t_champ *champ, int nb, unsigned char* board);
 int     my_strcmp(char *s1, char *s2);
-
+t_list  *parsing2(t_list *tmp, int *j);
 #endif /* !COREWAR_H */
