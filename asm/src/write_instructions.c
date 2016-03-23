@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Wed Mar 23 13:41:19 2016 Léo Hubert
-** Last update Wed Mar 23 23:56:50 2016 Léo Hubert
+** Last update Thu Mar 24 00:32:03 2016 Léo Hubert
 */
 
 #include		"compilator.h"
@@ -38,7 +38,7 @@ int			check_arg(char *str)
   return (-1);
 }
 
-int			check_param(char *str)
+int			check_param(char *ins, char *param)
 {
   return (1);
 }
@@ -97,11 +97,13 @@ int			write_instructions(int fd, int fdwrite)
 	  param = remove_space(param);
 	  if (check_arg(ins) != 1)
 	    return (-1);
-	  if (check_param(param) != 1)
+	  if (check_param(ins, param) != 1)
 	    return (-1);
 	  my_asm = add_action(my_asm, ins, param);
 	}
     }
+  my_asm = my_asm->next;
+  my_putstr(my_asm->ins);
   if (instructions_file(fdwrite, my_asm) == -1)
     return (-1);
   return (0);
