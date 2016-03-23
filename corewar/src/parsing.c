@@ -5,11 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 16 14:47:43 2016 Antoine Roig
-<<<<<<< HEAD
-** Last update Wed Mar 23 22:26:45 2016 Antoine Roig
-=======
-** Last update Wed Mar 23 22:27:47 2016 Eric DESCHODT
->>>>>>> 4748ad7ecd76930036bb8ff6f24eb66a01c8a8aa
+** Last update Wed Mar 23 23:34:03 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -98,8 +94,6 @@ void		find_champ(t_dlist *list, t_vm *vm, unsigned char *board, int i)
 	{
 	  info = xmalloc(sizeof(t_lcmd));
 	  info_champ(list, i, info, tmp->arg);
-	  if ((info->id) == 0 && vm->nb < 4)
-	    info->id = vm->nb + 1;
 	  if (create_champ(new_elem, info, board) == -1)
 	    exit(0);
 	  add_list_end_vm(vm, new_elem);

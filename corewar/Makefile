@@ -5,7 +5,7 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:18:01 2016 Eric DESCHODT
-## Last update Wed Mar 23 23:01:30 2016 Antoine Roig
+## Last update Thu Mar 24 00:24:19 2016 Antoine Roig
 ##
 
 NAME		=		corewar
@@ -27,6 +27,8 @@ SRC		=		src/main.c		\
 				src/zjump.c		\
 				src/sti.c		\
 				src/syntax.c		\
+				src/syntax2.c		\
+				src/syntax3.c		\
 				src/add.c		\
 				src/ldi.c		\
 				src/lldi.c		\
@@ -42,6 +44,7 @@ SRC		=		src/main.c		\
 				src/st.c		\
 				src/lld.c		\
 				src/aff.c		\
+				src/my_strdup.c		\
 				src/debug.c
 
 OBJ		=		$(SRC:.c=.o)

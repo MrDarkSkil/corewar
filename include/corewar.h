@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Wed Mar 23 23:01:50 2016 Antoine Roig
+** Last update Thu Mar 24 00:24:07 2016 Antoine Roig
 ** Last update Wed Mar 23 22:14:07 2016 Eric DESCHODT
 */
 
@@ -219,4 +219,12 @@ void			fill_info(t_lcmd *info, char *name);
 
 void			unknown_ope(t_champ *champ, t_vm *vm);
 void			print_ope(char *name);
+
+char			*my_strdup(char *);
+int             is_nbr(char *str);
+int	valid_n(char *nb);
+int	valid_a(char *nb);
+char	*is_cor(char *name);
+int	check_dump(t_dlist *list);
+int	check_para(t_dlist *list);
 #endif /* !COREWAR_H */
