@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Wed Mar 23 16:24:27 2016 Antoine Roig
+** Last update Wed Mar 23 21:57:16 2016 Antoine Roig
 */
 
 #ifndef COREWAR_H_
@@ -186,4 +186,5 @@ void	add_forking(t_vm *vm, t_champ *champ, int nb, unsigned char* board);
 int     my_strcmp(char *s1, char *s2);
 t_list  *parsing2(t_list *tmp, int *j);
 void    fill_info(t_lcmd *info, char *name);
+int	syntax(t_dlist *list);
 #endif /* !COREWAR_H */
