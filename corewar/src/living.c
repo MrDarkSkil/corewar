@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Wed Mar 23 09:14:19 2016 Eric DESCHODT
+** Last update Wed Mar 23 16:40:12 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -30,14 +30,10 @@ void		find_living_champion(int result,
     tmp.byte[i] = champ->reg[0][i];
   revert_endian(&tmp.full);
   start = champ;
-  if (tmp.full == result)
-    {
-      aff_alive(result, champ);
-      return;
-    }
-  if (start->next != NULL)
-    start = start->next;
-  while (start != champ)
+
+  while (start->prev != NULL)
+    start = start->prev;
+  while (start != NULL)
     {
       if (tmp.full == result)
 	{
