@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Wed Mar 23 13:15:57 2016 Antoine Roig
+** Last update Wed Mar 23 21:37:06 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -91,6 +91,8 @@ int		create_champ(t_champ *new_elem,
   new_elem->reg[0][2] = nb.byte[2];
   new_elem->reg[0][3] = nb.byte[3];
   new_elem = pad_reg(new_elem);
+  new_elem->name = head.prog_name;
+  new_elem->carry = 0;
   close (fd);
   free(prog);
   return (0);

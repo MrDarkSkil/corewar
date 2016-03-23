@@ -5,12 +5,15 @@
 ** Login   <julian_r@epitech.net>
 ** 
 ** Started on  Wed Mar 23 13:27:00 2016 Juliani Renaud
-** Last update Wed Mar 23 18:19:38 2016 Juliani Renaud
+** Last update Wed Mar 23 22:19:20 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
-void		st_2_pos(t_args *arg, t_champ *champ, unsigned char *board, t_byte uni)
+void		st_2_pos(t_args *arg,
+			 t_champ *champ,
+			 unsigned char *board,
+			 t_byte uni)
 {
   int		i;
 
@@ -20,12 +23,9 @@ void		st_2_pos(t_args *arg, t_champ *champ, unsigned char *board, t_byte uni)
   uni.byte[1] = champ->reg[arg[0].val - 1][1];
   uni.byte[2] = champ->reg[arg[0].val - 1][2];
   uni.byte[3] = champ->reg[arg[0].val - 1][3];
-  i = 0;
-  while (i < arg[1].val)
-    {
-      moving_PC(champ, board, 1);
-      i++;
-    }
+  i = -1;
+  while (++i < arg[1].val)
+    moving_PC(champ, board, 1);
   i = 0;
   while (i < REG_SIZE)
     {
@@ -33,15 +33,15 @@ void		st_2_pos(t_args *arg, t_champ *champ, unsigned char *board, t_byte uni)
       moving_PC(champ, board, 1);
       i++;
     }
-  i = 0;
-  while (i < (arg[1].val + REG_SIZE))
-    {
-      moving_PC(champ, board, -1);
-      i++;
-    }
+  i = -1;
+  while (++i < (arg[1].val + REG_SIZE))
+    moving_PC(champ, board, -1);
 }
 
-void		st_2_neg(t_args *arg, t_champ *champ, unsigned char *board, t_byte uni)
+void		st_2_neg(t_args *arg,
+			 t_champ *champ,
+			 unsigned char *board,
+			 t_byte uni)
 {
   int		i;
 
@@ -64,15 +64,14 @@ void		st_2_neg(t_args *arg, t_champ *champ, unsigned char *board, t_byte uni)
       moving_PC(champ, board, 1);
       i++;
     }
-  i = 0;
-  while (i < (arg[1].val + REG_SIZE))
-    {
-      moving_PC(champ, board, 1);
-      i++;
-    }
+  i = -1;
+  while (++i < (arg[1].val + REG_SIZE))
+    moving_PC(champ, board, 1);
 }
 
-void		st_reg(t_args *arg, void *_champ, unsigned char *board, t_byte uni)
+void		st_reg(t_args *arg,
+		       t_champ *champ,
+		       t_byte uni)
 {
   if (arg[1].val >= 1 && arg[1].val < REG_NUMBER)
     {
@@ -85,18 +84,19 @@ void		st_reg(t_args *arg, void *_champ, unsigned char *board, t_byte uni)
       champ->reg[arg[2].val][2] = uni.byte[2];
       champ->reg[arg[2].val][3] = uni.byte[3];
     }
-  else
-    return (0);
 }
 
-int		st(t_args *arg, void *_champ, unsigned char *board)
+int		st(t_args *arg,
+		   void *_champ,
+		   unsigned char *board)
 {
   t_champ	*champ;
   t_byte	uni;
 
   champ = _champ;
+  swap_carry(champ);
   if (arg[1].type == 1)
-    st_reg(arg, champ, board, uni);
+    st_reg(arg, champ, uni);
   else if (arg[1].type == 2 || arg[1].type == 4)
     {
       if (arg[1].val >= 0)

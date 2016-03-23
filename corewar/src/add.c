@@ -5,12 +5,12 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Sat Mar 19 21:41:30 2016 Antoine Roig
-** Last update Wed Mar 23 14:24:07 2016 Antoine Roig
+** Last update Wed Mar 23 21:41:23 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
-void	swap_carry(t_champ *champ)
+void		swap_carry(t_champ *champ)
 {
   if (champ->carry == 1)
     champ->carry = 0;
@@ -18,13 +18,18 @@ void	swap_carry(t_champ *champ)
     champ->carry = 1;
 }
 
-int	add(t_args *arg, void *champ, unsigned char *board)
+int		add(t_args *arg, void *champ, unsigned char *board)
 {
   t_byte	nb1;
   t_byte	nb2;
   t_byte        nb3;
 
   (void)board;
+  swap_carry(((t_champ *)champ));
+  if ((arg[0].val < 1 || arg[0].val >= REG_NUMBER)
+      || (arg[1].val < 1 || arg[1].val >= REG_NUMBER)
+      || (arg[2].val < 1 || arg[2].val >= REG_NUMBER))
+    return (0);
   nb1.byte[0] = ((t_champ *)champ)->reg[arg[0].val - 1][0];
   nb1.byte[1] = ((t_champ *)champ)->reg[arg[0].val - 1][1];
   nb1.byte[2] = ((t_champ *)champ)->reg[arg[0].val - 1][2];
@@ -38,6 +43,5 @@ int	add(t_args *arg, void *champ, unsigned char *board)
   ((t_champ *)champ)->reg[arg[2].val][1] = nb3.byte[1];
   ((t_champ *)champ)->reg[arg[2].val][2] = nb3.byte[2];
   ((t_champ *)champ)->reg[arg[2].val][3] = nb3.byte[3];
-  swap_carry(((t_champ *)champ));
-  return (0);
+   return (0);
 }
