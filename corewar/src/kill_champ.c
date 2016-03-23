@@ -5,14 +5,14 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 23 10:10:39 2016 Antoine Roig
-** Last update Wed Mar 23 10:50:03 2016 Antoine Roig
+** Last update Wed Mar 23 22:26:23 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
-t_champ  *pop_vm_begin(t_vm *vm)
+t_champ		*pop_vm_begin(t_vm *vm)
 {
-  t_champ        *tmp;
+  t_champ       *tmp;
 
   if (!vm)
     {
@@ -36,9 +36,9 @@ t_champ  *pop_vm_begin(t_vm *vm)
   return (tmp);
 }
 
-t_champ  *pop_vm_end(t_vm *vm)
+t_champ		*pop_vm_end(t_vm *vm)
 {
-  t_champ        *tmp;
+  t_champ       *tmp;
 
   if (!vm)
     {
@@ -62,9 +62,9 @@ t_champ  *pop_vm_end(t_vm *vm)
   return (tmp);
 }
 
-t_champ  *pop_vm_somewhere2(t_vm *vm, int pos)
+t_champ		*pop_vm_somewhere2(t_vm *vm, int pos)
 {
-  t_champ        *tmp;
+  t_champ       *tmp;
 
   tmp = vm->begin;
   while (pos != 0)
@@ -80,9 +80,9 @@ t_champ  *pop_vm_somewhere2(t_vm *vm, int pos)
   return (tmp);
 }
 
-t_champ  *pop_vm_somewhere(t_vm *vm, int pos)
+t_champ	       *pop_vm_somewhere(t_vm *vm, int pos)
 {
-  t_champ        *tmp;
+  t_champ      *tmp;
 
   if (!vm)
     {
@@ -100,7 +100,7 @@ t_champ  *pop_vm_somewhere(t_vm *vm, int pos)
   return (tmp);
 }
 
-void	kill_champ(t_vm *vm)
+void		kill_champ(t_vm *vm)
 {
   t_champ	*tmp;
   int		i;
@@ -111,7 +111,7 @@ void	kill_champ(t_vm *vm)
     {
       if (tmp->alive == 0)
 	{
-	  tmp =  pop_vm_somewhere(vm, i);
+	  tmp = pop_vm_somewhere(vm, i);
 	  free(tmp);
 	  return;
 	}

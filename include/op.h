@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 **
 ** Started on  Thu Mar 17 12:50:43 2016 Eric DESCHODT
-** Last update Wed Mar 23 14:32:44 2016 Juliani Renaud
+** Last update Wed Mar 23 21:33:51 2016 Eric DESCHODT
 */
 
 #ifndef _OP_H_
@@ -68,9 +68,9 @@ extern op_t op_tab[];
 typedef struct	header_s
 {
    int		magic;
-   char		prog_name[PROG_NAME_LENGTH+1];
+   char		prog_name[PROG_NAME_LENGTH + 1];
    int		prog_size;
-   char		comment[COMMENT_LENGTH+1];
+   char		comment[COMMENT_LENGTH + 1];
 }		header_t;
 
 # define CYCLE_TO_DIE		1536

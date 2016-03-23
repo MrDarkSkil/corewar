@@ -5,19 +5,19 @@
 ** Login   <descho_e@epitech.net>
 **
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Wed Mar 23 22:01:45 2016 Eric DESCHODT
+** Last update Wed Mar 23 22:02:27 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
-void		pos_ld(t_args *arg,
+void		pos_lld(t_args *arg,
 		       t_champ *champ,
 		       unsigned char *board)
 {
  int		i;
 
   i = -1;
-  while (++i < arg[0].val % IDX_MOD)
+  while (++i < arg[0].val)
     moving_PC(champ, board, 1);
   i = -1;
   while (++i < REG_SIZE)
@@ -26,11 +26,11 @@ void		pos_ld(t_args *arg,
       moving_PC(champ, board, 1);
     }
   i = -1;
-  while (++i < REG_SIZE + arg[0].val % IDX_MOD)
+  while (++i < REG_SIZE + arg[0].val)
     moving_PC(champ, board, -1);
 }
 
-void		neg_ld(t_args *arg,
+void		neg_lld(t_args *arg,
 		       t_champ * champ,
 		       unsigned char *board)
 {
@@ -38,7 +38,7 @@ void		neg_ld(t_args *arg,
 
   i = -1;
   arg[0].val = - arg[0].val;
-  while (++i < arg[0].val % IDX_MOD)
+  while (++i < arg[0].val)
     moving_PC(champ, board, -1);
   i = -1;
   while (++i < REG_SIZE)
@@ -47,11 +47,11 @@ void		neg_ld(t_args *arg,
       moving_PC(champ, board, 1);
     }
   i = -1;
-  while (++i < arg[0].val % IDX_MOD - REG_SIZE)
+  while (++i < arg[0].val - REG_SIZE)
     moving_PC(champ, board, 1);
 }
 
-int		ld(t_args *arg,
+int		lld(t_args *arg,
 		   void *_champ,
 		   unsigned char *board)
 {
@@ -62,8 +62,8 @@ int		ld(t_args *arg,
   if (arg[1].val <= 0 || arg[1].val > 15)
     return (0);
   if (arg[0].val > 0)
-    pos_ld(arg, champ, board);
+    pos_lld(arg, champ, board);
   else
-    neg_ld(arg, champ, board);
+    neg_lld(arg, champ, board);
   return (0);
 }

@@ -5,7 +5,8 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Wed Mar 23 21:57:16 2016 Antoine Roig
+** Last update Wed Mar 23 23:01:50 2016 Antoine Roig
+** Last update Wed Mar 23 22:14:07 2016 Eric DESCHODT
 */
 
 #ifndef COREWAR_H_
@@ -45,6 +46,7 @@ typedef struct		s_vm
   t_champ		*end;
   int			nb;
   int                   dump;
+  char			debug;
 }			t_vm;
 
 typedef struct          s_list
@@ -110,11 +112,15 @@ int			forking(t_vm *vm,
 int			ldi(t_args *arg, void *champ, unsigned char *board);
 int			lldi(t_args *arg, void *champ, unsigned char *board);
 int			ld(t_args *arg, void *champ, unsigned char *board);
+int			lld(t_args *arg, void *_champ, unsigned char *board);
+int			st(t_args *arg, void *champ, unsigned char *board);
 int			add(t_args *arg, void *champ, unsigned char *board);
 int			or(t_args *arg, void *champ, unsigned char *board);
 int			xor(t_args *arg, void *champ, unsigned char *board);
 int			and(t_args *arg, void *champ, unsigned char *board);
 int			sub(t_args *arg, void *champ, unsigned char *board);
+int			aff(t_args *arg, void *champ, unsigned char *board);
+
 int			zjump(t_champ *champ,
 			      unsigned char *board);
 void			moving_PC(t_champ *champ,
@@ -187,4 +193,30 @@ int     my_strcmp(char *s1, char *s2);
 t_list  *parsing2(t_list *tmp, int *j);
 void    fill_info(t_lcmd *info, char *name);
 int	syntax(t_dlist *list);
+void			fill_new(t_champ *new, t_champ *champ);
+void			fill_new_fork(t_champ *new,
+				      t_champ *champ,
+				      int nb,
+				      unsigned char *board);
+void			add_list_begin_vm(t_vm *list,
+					  t_champ *champ);
+void			add_vm_somewhere2(t_vm *vm,
+					  t_champ *new,
+					  int pos);
+void			add_vm_somewhere(t_vm *vm,
+					 t_champ *champ,
+					 t_decal_nb decal_nb,
+					 unsigned char *board);
+void			add_forking(t_vm *vm,
+				    t_champ *champ,
+				    int nb,
+				    unsigned char* board);
+int			my_strcmp(char *s1, char *s2);
+t_list			*parsing2(t_list *tmp, int *j);
+void			fill_info(t_lcmd *info, char *name);
+
+/* debug */
+
+void			unknown_ope(t_champ *champ, t_vm *vm);
+void			print_ope(char *name);
 #endif /* !COREWAR_H */

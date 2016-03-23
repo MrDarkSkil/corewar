@@ -5,7 +5,7 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:18:01 2016 Eric DESCHODT
-## Last update Wed Mar 23 21:53:42 2016 Antoine Roig
+## Last update Wed Mar 23 23:01:30 2016 Antoine Roig
 ##
 
 NAME		=		corewar
@@ -38,7 +38,11 @@ SRC		=		src/main.c		\
 				src/forking.c		\
 				src/create_champ.c	\
 				src/movingPC.c		\
-				src/info_champ.c
+				src/info_champ.c	\
+				src/st.c		\
+				src/lld.c		\
+				src/aff.c		\
+				src/debug.c
 
 OBJ		=		$(SRC:.c=.o)
 

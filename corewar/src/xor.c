@@ -5,12 +5,12 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar 21 12:55:15 2016 Antoine Roig
-** Last update Wed Mar 23 16:47:00 2016 Antoine Roig
+** Last update Wed Mar 23 22:19:08 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
-void xor2(void *champ, t_byte *nb, t_args *arg)
+void		xor2(void *champ, t_byte *nb, t_args *arg)
 {
   t_byte	nb3;
 
@@ -21,7 +21,7 @@ void xor2(void *champ, t_byte *nb, t_args *arg)
   ((t_champ *)champ)->reg[arg[2].val][3] = nb3.byte[3];
 }
 
-int	xor(t_args *arg, void *champ, unsigned char *board)
+int		xor(t_args *arg, void *champ, unsigned char *board)
 {
   t_byte	nb[2];
   int		i;
@@ -30,11 +30,13 @@ int	xor(t_args *arg, void *champ, unsigned char *board)
   swap_carry(((t_champ *)champ));
   i = -1;
   if (arg[2].val <= 0 || arg[2].val > REG_NUMBER)
-    return (0);	  
+    return (0);
   while (++i < 2)
     {
       if (arg[i].type == 1)
 	{
+          if (arg[i].val <= 0 || arg[i].val > REG_NUMBER)
+            return (0);
 	  nb[i].byte[0] = ((t_champ *)champ)->reg[arg[i].val - 1][0];
 	  nb[i].byte[1] = ((t_champ *)champ)->reg[arg[i].val - 1][1];
 	  nb[i].byte[2] = ((t_champ *)champ)->reg[arg[i].val - 1][2];
