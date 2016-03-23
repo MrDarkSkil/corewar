@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Wed Mar 23 13:44:21 2016 Antoine Roig
+** Last update Wed Mar 23 18:27:29 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -30,7 +30,7 @@ int		execute_champ(t_vm *vm, t_champ *champ,
 {
   if (champ->cycle == 0)
     load_instru(vm, champ, board);
-  if (champ->cycle == champ->ope.nbr_cycles)
+  else if (champ->cycle == champ->ope.nbr_cycles)
     champ->cycle = 0;
   else
     champ->cycle++;
@@ -45,7 +45,7 @@ int		all_champ(t_vm *vm,
 
   i = 0;
   tmp = vm->begin;
-  while (i < vm->nb)
+  while (i < vm->nb && tmp != NULL)
     {
       execute_champ(vm, tmp, board);
       tmp = tmp->next;

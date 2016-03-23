@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Wed Mar 23 17:32:50 2016 Eric DESCHODT
+** Last update Wed Mar 23 18:12:17 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -100,7 +100,8 @@ void		load_instru(t_vm *vm, t_champ *champ,
 			    unsigned char *board)
 {
   int		i;
-
+ 
+  (void)vm;
   i = 0;
   while (op_tab[i].code != *champ->instru && op_tab[i].code != 0)
     i++;
