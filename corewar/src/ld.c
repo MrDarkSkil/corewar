@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 **
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Wed Mar 23 16:22:28 2016 Eric DESCHODT
+** Last update Wed Mar 23 16:55:17 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -33,7 +33,6 @@ int		ld(t_args *arg,
 	  champ->reg[arg[1].val - 1][i] = *champ->instru;
 	  moving_PC(champ, board, 1);
 	}
-      printf("chips\n");
       i = -1;
       while (++i < REG_SIZE + arg[0].val % IDX_MOD)
 	moving_PC(champ, board, -1);

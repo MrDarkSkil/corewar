@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Wed Mar 23 15:08:45 2016 Eric DESCHODT
+** Last update Wed Mar 23 17:32:50 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -93,7 +93,7 @@ void		get_jump(t_champ *champ,
       	decal(in, champ, &arg[j++], board);
     }
   if (reference->func != NULL)
-    reference->func(arg, champ, board);
+      reference->func(arg, champ, board);
 }
 
 void		load_instru(t_vm *vm, t_champ *champ,
@@ -107,7 +107,8 @@ void		load_instru(t_vm *vm, t_champ *champ,
   moving_PC(champ, board, 1);
   if (op_tab[i].code == 0)
     {
-      my_putstr("Unknowed command\n");
+      my_put_nbr_base(*(champ->instru - 1), "0123456789abcdef");
+      my_putstr(" Unknown command\n");
       champ->ope.nbr_cycles = 1;
     }
   else if (op_tab[i].code == 12)

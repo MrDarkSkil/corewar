@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Wed Mar 23 16:24:27 2016 Antoine Roig
+** Last update Wed Mar 23 16:51:44 2016 Eric DESCHODT
 */
 
 #ifndef COREWAR_H_
@@ -110,6 +110,7 @@ int			forking(t_vm *vm,
 int			ldi(t_args *arg, void *champ, unsigned char *board);
 int			lldi(t_args *arg, void *champ, unsigned char *board);
 int			ld(t_args *arg, void *champ, unsigned char *board);
+int			st(t_args *arg, void *champ, unsigned char *board);
 int			add(t_args *arg, void *champ, unsigned char *board);
 int			or(t_args *arg, void *champ, unsigned char *board);
 int			xor(t_args *arg, void *champ, unsigned char *board);
