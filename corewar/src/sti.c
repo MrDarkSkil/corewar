@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Wed Mar 23 10:37:55 2016 Eric DESCHODT
+** Last update Wed Mar 23 15:20:40 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -17,7 +17,9 @@ void		decal_sti(int decal,
 {
   int		i;
 
+  (void)arg;
   i = -1;
+
   while (++i < decal - 2)
     moving_PC(champ, board, 1);
   i = -1;
@@ -40,13 +42,12 @@ int		sti(t_args *arg, void *_champ, unsigned char *board)
 
   champ = _champ;
   back = 1;
-  decal = 0;
   i = 0;
   while (++i < 3)
     {
       if (arg[i].type == 1)
 	{
-	  decal += convert_reg(champ->reg[arg[i].val - 1]);
+	  decal = convert_reg(champ->reg[arg[i].val - 1]);
 	  back += 1;
 	}
       else
@@ -55,6 +56,6 @@ int		sti(t_args *arg, void *_champ, unsigned char *board)
 	  back +=2;
 	}
     }
-  decal_sti(decal - back, board, champ, arg);
+  decal_sti(decal - back - 2, board, champ, arg);
   return (0);
 }
