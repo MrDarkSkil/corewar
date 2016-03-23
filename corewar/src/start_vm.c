@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Wed Mar 23 18:27:29 2016 Eric DESCHODT
+** Last update Wed Mar 23 22:34:42 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -59,17 +59,24 @@ int		start_vm(t_vm *vm,
 {
   int		end;
   int		start;
+  int		var;
 
+  var = 0;
   end = CYCLE_TO_DIE;
-  while (end > 0)
+  while (end > 0 && vm->nb > 0)
     {
       start = end;
       init_alive(vm);
       while (start > 0)
 	{
+	  if (vm->dump != 0)
+	    var++;
 	  all_champ(vm, board);
 	  start--;
+	  if (vm->dump != 0 && vm->dump == var)
+	    return (0);
 	}
+      kill_champ(vm);
       end -= CYCLE_DELTA;
     }
   return (0);
