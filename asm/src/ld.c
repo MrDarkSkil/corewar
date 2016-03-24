@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Wed Mar 23 23:54:53 2016 Léo Hubert
-** Last update Thu Mar 24 18:06:20 2016 Eric DESCHODT
+** Last update Thu Mar 24 18:32:08 2016 Eric DESCHODT
 */
 
 # include		"compilator.h"
@@ -90,4 +90,22 @@ int                     and(char *param,
   if ((get_args(&arg[2], &nb, &i, tmp)) != 2)
     tmp++;
   return (and2(fdwrite, nb, arg));
+}
+
+int                     zjump(char *param,
+			      int fdwrite,
+			      char code)
+{
+  char			*tmp;
+  short int		nb;
+
+  if (write(fdwrite, &code, 1) == -1)
+    return (-1);
+  tmp = param;
+  tmp++;
+  nb = my_getnbr(param);
+  nb = swap_shnbr(nb);
+  if (write(fdwrite, &nb, 2) == -1)
+    return (-1);
+  return (3);
 }
