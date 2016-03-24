@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 **
 ** Started on  Thu Mar 17 12:50:43 2016 Eric DESCHODT
-** Last update Thu Mar 24 01:21:13 2016 Eric DESCHODT
+** Last update Thu Mar 24 02:26:15 2016 Eric DESCHODT
 */
 
 #ifndef _OP_H_
@@ -53,7 +53,7 @@ typedef struct  op_s
   int           nbr_cycles;
   char          *comment;
   int		(*func)(t_args *, void *, unsigned char *);
-  int		(*wfunc)(char *, char, int, char);
+  int		(*wfunc)(char *, int, char);
 }		op_t;
 
 # define IND_SIZE		2

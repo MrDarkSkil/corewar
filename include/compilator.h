@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 17:53:01 2016 Léo Hubert
-** Last update Thu Mar 24 01:28:02 2016 Eric DESCHODT
+** Last update Thu Mar 24 03:03:01 2016 Eric DESCHODT
 */
 
 #ifndef _COMPILATOR
@@ -26,6 +26,12 @@ typedef struct s_asm
   struct s_asm	*next;
   struct s_asm	*prev;
 }		t_asm;
+
+typedef struct	s_uni
+{
+  short int	full;
+  char		byte[2]
+}		t_uni;
 
 void            *xmalloc(int size);
 char		*take_begin(char	*str,
@@ -56,6 +62,6 @@ int		write_instructions(int	fd,
 				   int	fdwrite);
 char		*remove_space(char	*str);
 
-int             live(char *param, char nbr_args, int fdwrite, char code);
-
+int             live(char *param, int fdwrite, char code);
+int             sti(char *param, int fdwrite, char code);
 #endif /* _COMPILATOR */
