@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sun Mar 20 23:35:03 2016 Léo Hubert
-** Last update Thu Mar 24 14:55:29 2016 Eric DESCHODT
+** Last update Thu Mar 24 18:39:00 2016 Eric DESCHODT
 */
 
 #include "compilator.h"
@@ -26,7 +26,6 @@ short int       swap_shnbr(short int nbr)
   new_nbr = ((nbr >> 16) &0xff) | ((nbr << 8) &0xff00);
   return (new_nbr);
 }
-
 
 int	my_strlen(char *str)
 {
