@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Wed Mar 23 13:41:19 2016 Léo Hubert
-** Last update Thu Mar 24 00:32:03 2016 Léo Hubert
+** Last update Thu Mar 24 03:02:38 2016 Léo Hubert
 */
 
 #include		"compilator.h"
@@ -38,9 +38,290 @@ int			check_arg(char *str)
   return (-1);
 }
 
+int			count_cee(char **tab)
+{
+  int			i;
+
+  i = -1;
+  if (tab != NULL)
+    while (tab[++i]);
+  return (i);
+}
+
+int			is_num(char *nbr)
+{
+  int			i;
+
+  i = 0;
+  if (nbr != NULL)
+    {
+      while (nbr[i])
+	{
+	  if (!(nbr[i] >= '0' && nbr[i] <= '9'))
+	    return (-1);
+	  i++;
+	}
+    }
+  return (0);
+}
+
+int			check_live(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 1 || params[0][0] != '%'
+      || is_num(&params[0][1]) == -1
+      || my_getnbr(&params[0][1]) < 1
+      || my_getnbr(&params[0][1]) > 256)
+    return (-1);
+  return (1);
+}
+
+int			check_ld(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 2)
+    return (-1);
+  return (1);
+}
+
+int			check_st(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 2)
+    return (-1);
+  if (params[0][0] != 'r' || is_num(&params[0][1]) == -1
+      || my_getnbr(&params[0][1]) < 1
+      || my_getnbr(&params[0][1]) > 16)
+    return (-1);
+  return (1);
+}
+
+int			check_add(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 3)
+    return (-1);
+  if (params[0][0] != 'r'
+      || is_num(&params[0][1]) == -1
+      || my_getnbr(&params[0][1]) < 1
+      || my_getnbr(&params[0][1]) > 16
+      || params[1][0] != 'r'
+      || is_num(&params[1][1]) == -1
+      || my_getnbr(&params[1][1]) < 1
+      || my_getnbr(&params[1][1]) > 16
+      || params[2][0] != 'r'
+      || is_num(&params[2][1]) == -1
+      || my_getnbr(&params[2][1]) < 1
+      || my_getnbr(&params[2][1]) > 16)
+    return (-1);
+  return (1);
+}
+
+int			check_sub(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 3)
+    return (-1);
+  if (params[0][0] != 'r'
+      || is_num(&params[0][1]) == -1
+      || my_getnbr(&params[0][1]) < 1
+      || my_getnbr(&params[0][1]) > 16
+      || params[1][0] != 'r'
+      || is_num(&params[1][1]) == -1
+      || my_getnbr(&params[1][1]) < 1
+      || my_getnbr(&params[1][1]) > 16
+      || params[2][0] != 'r'
+      || is_num(&params[2][1]) == -1
+      || my_getnbr(&params[2][1]) < 1
+      || my_getnbr(&params[2][1]) > 16)
+    return (-1);
+  return (1);
+}
+
+int			check_and(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 3)
+    return (-1);
+  if (params[2][0] != 'r' || is_num(&params[2][1]) == -1
+      || my_getnbr(&params[2][1]) < 1
+      || my_getnbr(&params[2][1]) > 16)
+    return (-1);
+  return (1);
+}
+
+int			check_or(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 3)
+    return (-1);
+  if (params[2][0] != 'r' || is_num(&params[2][1]) == -1
+      || my_getnbr(&params[2][1]) < 1
+      || my_getnbr(&params[2][1]) > 16)
+    return (-1);
+  return (1);
+}
+
+int			check_xor(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 3)
+    return (-1);
+  if (params[2][0] != 'r' || is_num(&params[2][1]) == -1
+      || my_getnbr(&params[2][1]) < 1
+      || my_getnbr(&params[2][1]) > 16)
+    return (-1);
+  return (1);
+}
+
+int			check_zjmp(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 1)
+    return (-1);
+  return (1);
+}
+
+int			check_ldi(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 3)
+    return (-1);
+  if (params[2][0] != 'r' || is_num(&params[2][1]) == -1
+      || my_getnbr(&params[2][1]) < 1
+      || my_getnbr(&params[2][1]) > 16)
+    return (-1);
+  return (1);
+}
+
+int			check_sti(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 3)
+    return (-1);
+  if (params[0][0] != 'r' || is_num(&params[0][1]) == -1
+      || my_getnbr(&params[0][1]) < 1
+      || my_getnbr(&params[0][1]) > 16)
+    return (-1);
+  return (1);
+}
+
+int			check_fork(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 1)
+    return (-1);
+  return (1);
+}
+
+int			check_lld(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 2)
+    return (-1);
+  return (1);
+}
+
+int			check_lldi(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 3)
+    return (-1);
+  if (params[2][0] != 'r' || is_num(&params[2][1]) == -1
+      || my_getnbr(&params[2][1]) < 1
+      || my_getnbr(&params[2][1]) > 16)
+    return (-1);
+  return (1);
+}
+
+int			check_lfork(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 1)
+    return (-1);
+  return (1);
+}
+
+int			check_aff(char *param)
+{
+  char			**params;
+
+  params = my_str_to_wordtab(param, SEPARATOR_CHAR);
+  if (count_cee(params) != 1)
+    return (-1);
+  if (params[0][0] != 'r' || is_num(&params[0][1]) == -1
+      || my_getnbr(&params[0][1]) < 1
+      || my_getnbr(&params[0][1]) > 16)
+    return (-1);
+  return (1);
+}
+
+
+int			init_ptIns(int (*ptIns[17])(char *param))
+{
+  ptIns[0] = check_live;
+  ptIns[1] = check_ld;
+  ptIns[2] = check_st;
+  ptIns[3] = check_add;
+  ptIns[4] = check_sub;
+  ptIns[5] = check_and;
+  ptIns[6] = check_or;
+  ptIns[7] = check_xor;
+  ptIns[8] = check_zjmp;
+  ptIns[9] = check_ldi;
+  ptIns[10] = check_sti;
+  ptIns[11] = check_fork;
+  ptIns[12] = check_lld;
+  ptIns[13] = check_lldi;
+  ptIns[14] = check_lfork;
+  ptIns[15] = check_aff;
+  ptIns[16] = NULL;
+  return (0);
+}
+
 int			check_param(char *ins, char *param)
 {
-  return (1);
+  int	(*ptIns[17])(char *param);
+  int	i;
+
+  i = -1;
+  init_ptIns(ptIns);
+  while (op_tab[++i].mnemonique)
+    {
+      if (my_strcmp(op_tab[i].mnemonique, ins) == 0)
+	return (ptIns[i](param));
+    }
+  return (-1);
 }
 
 char			*my_strdup(char *str)
@@ -103,7 +384,6 @@ int			write_instructions(int fd, int fdwrite)
 	}
     }
   my_asm = my_asm->next;
-  my_putstr(my_asm->ins);
   if (instructions_file(fdwrite, my_asm) == -1)
     return (-1);
   return (0);
