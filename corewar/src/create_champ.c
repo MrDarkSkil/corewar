@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Thu Mar 24 01:32:57 2016 Antoine Roig
+** Last update Thu Mar 24 01:48:17 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -40,10 +40,10 @@ void		champ_info(t_champ *new_elem,
 			   t_lcmd *info,
 			   header_t head)
 {
+  new_elem->cursor = info->a;
   new_elem->instru = &board[info->a];
   new_elem->start = &board[info->a];
   new_elem->cycle = 0;
-  new_elem->cursor = info->a;
   new_elem->size = head.prog_size;
   new_elem->id = info->id;
   new_elem->name = info->name;

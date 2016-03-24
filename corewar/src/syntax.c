@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 23 20:47:49 2016 Antoine Roig
-** Last update Thu Mar 24 01:25:58 2016 Antoine Roig
+** Last update Thu Mar 24 02:02:53 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -81,7 +81,7 @@ int	find_a(t_dlist *list)
       if (my_strcmp(tmp->arg, "-a") == 0 && valid_a(tmp->next->arg) == 0)
 	{
 	  a++;
-	  tmp2 = tmp->next->next;
+	  tmp2 = tmp->next->nex
 	  while (my_strcmp(is_cor(tmp2->arg), ".cor") != 0)
 	    {
 	      find_a2(tmp, &a, &n, &d);
