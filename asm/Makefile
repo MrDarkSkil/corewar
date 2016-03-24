@@ -5,7 +5,7 @@
 ## Login   <julian_r@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:27:46 2016 Juliani Renaud
-## Last update Thu Mar 24 03:19:28 2016 Léo Hubert
+## Last update Thu Mar 24 15:14:29 2016 Eric DESCHODT
 ##
 
 NAME	=	asm
@@ -22,6 +22,9 @@ SRC	=	src/main.c				\
 		src/my_takestr.c			\
 		src/my_strcmp.c				\
 		src/op.c				\
+		src/ld.c				\
+		src/sti.c				\
+		src/living.c				\
 		../lib/get_next_line/get_next_line.c
 
 OBJ	=	$(SRC:.c=.o)
