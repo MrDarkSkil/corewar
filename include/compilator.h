@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 17:53:01 2016 Léo Hubert
-** Last update Thu Mar 24 03:03:01 2016 Eric DESCHODT
+** Last update Thu Mar 24 03:10:50 2016 Eric DESCHODT
 */
 
 #ifndef _COMPILATOR
@@ -30,7 +30,7 @@ typedef struct s_asm
 typedef struct	s_uni
 {
   short int	full;
-  char		byte[2]
+  char		byte[2];
 }		t_uni;
 
 void            *xmalloc(int size);

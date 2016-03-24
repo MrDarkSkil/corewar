@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Wed Mar 23 23:54:53 2016 Léo Hubert
-** Last update Thu Mar 24 03:01:21 2016 Eric DESCHODT
+** Last update Thu Mar 24 03:11:57 2016 Eric DESCHODT
 */
 
 # include		"compilator.h"
@@ -27,16 +27,14 @@ int			live(char *param,
 
 short int		swap_shortnbr(short int nbr)
 {
-  short int		new_nbr;
-  char			test[2];
   char			swap;
+  t_uni			new_nbr;
 
-  (short int)test = nbr;
-  swap = test[0];
-  test[0] = test[1];
-  test[1] = swap;
-  new_nbr = (short int)test;
-  return (new_nbr);
+  new_nbr.full = nbr;
+  swap = new_nbr.byte[0];
+  new_nbr.byte[0] = new_nbr.byte[1];
+  new_nbr.byte[1] = swap;
+  return (new_nbr.full);
 }
 
 
@@ -74,7 +72,6 @@ int			sti(char *param,
 			    int fdwrite,
 			    char code)
 {
-
   char			nb;
   int			i;
   char			*tmp;
@@ -95,8 +92,8 @@ int			sti(char *param,
     tmp++;
   tmp++;
   agregate(&nb, &i, tmp, &arg[2]);
-  arg[1] = swap_shortnbr(arg[1]);
-  arg[2] = swap_shortnbr(arg[2]);
+  /* arg[1] = swap_shortnbr(arg[1]); */
+  /* arg[2] = swap_shortnbr(arg[2]); */
   if ((write(fdwrite, &nb, 1) == -1)
       || (write(fdwrite, &arg[0], 1) == -1)
       || (write(fdwrite, &arg[1], 2) == -1)
