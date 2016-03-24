@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 17:53:01 2016 Léo Hubert
-** Last update Thu Mar 24 03:21:20 2016 Léo Hubert
+** Last update Thu Mar 24 15:01:25 2016 Eric DESCHODT
 */
 
 #ifndef _COMPILATOR
@@ -18,7 +18,7 @@
 # include	"get_next_line.h"
 # include	"my.h"
 
-typedef struct s_asm
+typedef struct	s_asm
 {
   char		*ins;
   char		*param;
@@ -27,12 +27,13 @@ typedef struct s_asm
   struct s_asm	*prev;
 }		t_asm;
 
-typedef struct	s_uni
+typedef struct	s_arg
 {
-  short int	full;
-  char		byte[2];
-}		t_uni;
+  int		value;
+  int		size;
+}		t_arg;
 
+short int       swap_shnbr(short int nbr);
 void            *xmalloc(int size);
 char		*take_begin(char	*str,
 			    char	c);
@@ -62,8 +63,12 @@ int		write_instructions(int	fd,
 				   int	fdwrite);
 char		*remove_space(char	*str);
 
+int             agregate(char *nb, int *i, char *tmp);
+
+int             get_args(t_arg *arg, char *nb, int *i, char *tmp);
 int             live(char *param, int fdwrite, char code);
 int             sti(char *param, int fdwrite, char code);
+int             ld(char *param, int fdwrite, char code);
 int		countword(char *str, char caract);
 int		current(char *str, char caract);
 char		**my_str_to_wordtab(char *str, char caract);
