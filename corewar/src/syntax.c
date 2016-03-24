@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 23 20:47:49 2016 Antoine Roig
-** Last update Thu Mar 24 00:23:48 2016 Antoine Roig
+** Last update Thu Mar 24 01:27:27 2016 Juliani Renaud
 */
 
 #include "corewar.h"
@@ -20,7 +20,6 @@ void	find_n2(t_list *tmp2, int *a, int *n, int *d)
     (*n)++;
   if (my_strcmp(tmp2->arg, "-dump") == 0)
     (*d)++;
-  tmp2 = tmp2->next;
 }
 
 int	find_n(t_dlist *list)
@@ -42,7 +41,10 @@ int	find_n(t_dlist *list)
 	  n++;
 	  tmp2 = tmp->next->next;
 	  while (my_strcmp(is_cor(tmp2->arg), ".cor") != 0)
-	    find_n2(tmp2, &a, &n, &d);
+	    {
+	      find_n2(tmp2, &a, &n, &d);
+	      tmp2 = tmp2->next;
+	    }
 	  return (0);
 	}
       tmp = tmp->next;
@@ -60,7 +62,6 @@ void	find_a2(t_list *tmp2, int *a, int *n, int *d)
     (*n)++;
   if (my_strcmp(tmp2->arg, "-dump") == 0)
     (*d)++;
-  tmp2 = tmp2->next;
 }
 
 int	find_a(t_dlist *list)
@@ -82,7 +83,10 @@ int	find_a(t_dlist *list)
 	  a++;
 	  tmp2 = tmp->next->next;
 	  while (my_strcmp(is_cor(tmp2->arg), ".cor") != 0)
-	    find_a2(tmp, &a, &n, &d);
+	    {
+	      find_a2(tmp, &a, &n, &d);
+	      tmp2 = tmp2->next;
+	    }
 	  return (0);
 	}
       tmp = tmp->next;
