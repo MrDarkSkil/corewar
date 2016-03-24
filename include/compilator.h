@@ -5,18 +5,18 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 17:53:01 2016 Léo Hubert
-** Last update Wed Mar 23 23:50:29 2016 Léo Hubert
+** Last update Thu Mar 24 01:28:02 2016 Eric DESCHODT
 */
 
 #ifndef _COMPILATOR
-#define _COMPILATOR
+# define _COMPILATOR
 
-#include	<sys/stat.h>
-#include	<fcntl.h>
-#include	<stdlib.h>
-#include	"op.h"
-#include	"get_next_line.h"
-#include	"my.h"
+# include	<sys/stat.h>
+# include	<fcntl.h>
+# include	<stdlib.h>
+# include	"op.h"
+# include	"get_next_line.h"
+# include	"my.h"
 
 typedef struct s_asm
 {
@@ -27,6 +27,7 @@ typedef struct s_asm
   struct s_asm	*prev;
 }		t_asm;
 
+void            *xmalloc(int size);
 char		*take_begin(char	*str,
 			    char	c);
 char		*parse_name(char	*str);
@@ -54,5 +55,7 @@ t_asm		*add_action(t_asm	*list,
 int		write_instructions(int	fd,
 				   int	fdwrite);
 char		*remove_space(char	*str);
+
+int             live(char *param, char nbr_args, int fdwrite, char code);
 
 #endif /* _COMPILATOR */

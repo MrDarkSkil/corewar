@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sun Mar 20 23:34:15 2016 Léo Hubert
-** Last update Wed Mar 23 16:11:21 2016 Léo Hubert
+** Last update Thu Mar 24 01:27:09 2016 Eric DESCHODT
 */
 
 #include "compilator.h"
@@ -15,7 +15,7 @@ char	*remove_space(char *str)
   int	i;
 
   i = 0;
-  while (str[i] == ' ' || str[i] == '\t' && str[i] != '\0')
+  while (str[i] == ' ' || (str[i] == '\t' && str[i] != '\0'))
     i++;
   return (&str[i]);
 }

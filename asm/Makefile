@@ -5,7 +5,7 @@
 ## Login   <julian_r@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:27:46 2016 Juliani Renaud
-## Last update Wed Mar 23 23:57:22 2016 Léo Hubert
+## Last update Thu Mar 24 01:28:23 2016 Eric DESCHODT
 ##
 
 NAME	=	asm
@@ -25,8 +25,9 @@ SRC	=	src/main.c				\
 
 OBJ	=	$(SRC:.c=.o)
 
-#CFLAGS	+=	-Werror -Wextra -Wall
-#CFLAGS	+=	-pedantic -ansi
+#CFLAGS  +=	-Werror
+CFLAGS	+=	-Wextra -Wall
+CFLAGS	+=	-pedantic -ansi
 CFLAGS	+=	-I../include
 
 LFLAGS          =               -lmy -L../lib
