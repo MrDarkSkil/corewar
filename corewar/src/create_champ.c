@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Thu Mar 24 01:48:17 2016 Antoine Roig
+** Last update Thu Mar 24 03:13:11 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -40,14 +40,22 @@ void		champ_info(t_champ *new_elem,
 			   t_lcmd *info,
 			   header_t head)
 {
-  new_elem->cursor = info->a;
-  new_elem->instru = &board[info->a];
-  new_elem->start = &board[info->a];
+  if (info->p == 0 && info->a == 0)
+    new_elem->cursor = MEM_SIZE * 0;
+  else if (info->p == 1 && info->a == 0)
+    new_elem->cursor = MEM_SIZE / 2;
+  else if (info->p == 2 && info->a == 0)
+    new_elem->cursor = MEM_SIZE / 4;
+  else if (info->p == 3 && info->a == 0)
+    new_elem->cursor = MEM_SIZE - (MEM_SIZE / 4);
+  else
+    new_elem->cursor = info->a;
+  new_elem->start = &board[new_elem->cursor];
+  new_elem->instru = &board[new_elem->cursor];
   new_elem->cycle = 0;
   new_elem->size = head.prog_size;
   new_elem->id = info->id;
   new_elem->name = info->name;
-  new_elem->cursor = info->a;
 }
 
 t_champ	*pad_reg(t_champ * new_elem)

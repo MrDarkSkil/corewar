@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 16 14:47:43 2016 Antoine Roig
-** Last update Thu Mar 24 01:28:03 2016 Antoine Roig
+** Last update Thu Mar 24 02:39:54 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -85,7 +85,9 @@ void		find_champ(t_dlist *list, t_vm *vm, unsigned char *board, int i)
   t_list	*tmp;
   t_lcmd	*info;
   t_champ	*new_elem;
+  int		j;
 
+  j = 0;
   tmp = list->begin;
   new_elem = xmalloc(sizeof(t_champ));
   while (tmp)
@@ -93,6 +95,7 @@ void		find_champ(t_dlist *list, t_vm *vm, unsigned char *board, int i)
       if (my_strcmp(&tmp->arg[my_strlen(tmp->arg) - 4], ".cor") == 0)
 	{
 	  info = xmalloc(sizeof(t_lcmd));
+	  info->p = j++;
 	  info_champ(list, i, info, tmp->arg);
 	  if (create_champ(new_elem, info, board) == -1)
 	    exit(0);

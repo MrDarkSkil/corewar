@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 23 20:47:49 2016 Antoine Roig
-** Last update Thu Mar 24 02:10:41 2016 Antoine Roig
+** Last update Thu Mar 24 03:10:07 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -13,7 +13,10 @@
 void	find_n2(t_list *tmp2, int *a, int *n, int *d)
 {
   if ((*a) > 1 || (*n) > 1 || (*d) > 1)
+    {
+      printf("a = %d n = %d d = %d" , *a, *n, *d);
       exit(0);
+    }
   if (my_strcmp(tmp2->arg, "-a") == 0)
       (*a)++;
   if (my_strcmp(tmp2->arg, "-n") == 0)
@@ -30,15 +33,17 @@ int	find_n(t_dlist *list)
   int		d;
   t_list        *tmp2;
 
-  a = 0;
-  n = 0;
-  d = 0;
   tmp = list->begin;
+  n = 0;
+  a = 0;
+  d = 0;
   while (tmp)
     {
       if (my_strcmp(tmp->arg, "-n") == 0 && valid_n(tmp->next->arg) == 0)
 	{
 	  n++;
+	  tmp = tmp->next->next;
+	  tmp2 = tmp;
 	  while (my_strcmp(is_cor(tmp2->arg), ".cor") != 0)
 	    {
 	      find_n2(tmp2, &a, &n, &d);
@@ -71,15 +76,17 @@ int	find_a(t_dlist *list)
   int		d;
   t_list        *tmp2;
 
-  a = 0;
-  n = 0;
-  d = 0;
   tmp = list->begin;
   while (tmp)
     {
+      a = 0;
+      n = 0;
+      d = 0;
       if (my_strcmp(tmp->arg, "-a") == 0 && valid_a(tmp->next->arg) == 0)
 	{
 	  a++;
+	  tmp = tmp->next->next;
+	  tmp2 = tmp;
 	  while (my_strcmp(is_cor(tmp2->arg), ".cor") != 0)
 	    {
 	      find_a2(tmp, &a, &n, &d);
