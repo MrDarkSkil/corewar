@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 17:53:01 2016 Léo Hubert
-** Last update Thu Mar 24 03:10:50 2016 Eric DESCHODT
+** Last update Thu Mar 24 03:21:20 2016 Léo Hubert
 */
 
 #ifndef _COMPILATOR
@@ -64,4 +64,7 @@ char		*remove_space(char	*str);
 
 int             live(char *param, int fdwrite, char code);
 int             sti(char *param, int fdwrite, char code);
+int		countword(char *str, char caract);
+int		current(char *str, char caract);
+char		**my_str_to_wordtab(char *str, char caract);
 #endif /* _COMPILATOR */
