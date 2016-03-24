@@ -5,11 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-<<<<<<< HEAD
-** Last update Wed Mar 23 22:20:02 2016 Antoine Roig
-=======
-** Last update Wed Mar 23 22:07:32 2016 Eric DESCHODT
->>>>>>> 4748ad7ecd76930036bb8ff6f24eb66a01c8a8aa
+** Last update Thu Mar 24 00:27:20 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -41,6 +37,53 @@ void		printboard(unsigned char *board)
   my_putchar('\n');
 }
 
+void	id_champ2(t_vm *vm, char *tab)
+{
+  int	i;
+  t_champ *tmp;
+
+  tmp = vm->begin;
+  while (tmp)
+    {
+      if (tmp->id == 0)
+  	{
+  	  i = -1;
+  	  while (tab[++i])
+	    if (tab[i] != 'x')
+	      {
+		tmp->id = tab[i] - 48;
+		tab[i] = 'x';
+		break;
+	      }
+  	}
+      tmp = tmp->next;
+    }
+}
+
+void	id_champ(t_vm *vm)
+{
+  char		*tab;
+  t_champ	*tmp;
+  int		i;
+
+  tmp = vm->begin;
+  tab = xmalloc(sizeof(char) * 5);
+  tab[0] = '1';
+  tab[1] = '2';
+  tab[2] = '3';
+  tab[3] = '4';
+  tab[4] = '\0';
+  while (tmp)
+    {
+      i = -1;
+      while (tab[++i])
+	if (tmp->id == tab[i] - 48)
+	  tab[i] = 'x';
+      tmp = tmp->next;
+    }
+  id_champ2(vm, tab);
+}
+
 int		main(int ac, char **av)
 {
   unsigned char	board[MEM_SIZE];
@@ -59,10 +102,10 @@ int		main(int ac, char **av)
   vm = new_vm(vm);
   fill_list(list, av);
   syntax(list);
-  puts("cool");
-  exit(0);
   find_dump(list, vm);
   find_champ(list, vm, board, 0);
+  id_champ(vm);
+  cursor_champ(vm);
   vm->debug = 1;
   init_alive(vm);
   start_vm(vm, board);
