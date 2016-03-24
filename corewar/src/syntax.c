@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 23 20:47:49 2016 Antoine Roig
-** Last update Thu Mar 24 02:02:53 2016 Antoine Roig
+** Last update Thu Mar 24 02:10:41 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -19,7 +19,7 @@ void	find_n2(t_list *tmp2, int *a, int *n, int *d)
   if (my_strcmp(tmp2->arg, "-n") == 0)
       (*n)++;
   if (my_strcmp(tmp2->arg, "-dump") == 0)
-      (*d)++;
+    (*d)++;
 }
 
 int	find_n(t_dlist *list)
@@ -39,7 +39,6 @@ int	find_n(t_dlist *list)
       if (my_strcmp(tmp->arg, "-n") == 0 && valid_n(tmp->next->arg) == 0)
 	{
 	  n++;
-	  tmp2 = tmp->next->next;
 	  while (my_strcmp(is_cor(tmp2->arg), ".cor") != 0)
 	    {
 	      find_n2(tmp2, &a, &n, &d);
@@ -81,7 +80,6 @@ int	find_a(t_dlist *list)
       if (my_strcmp(tmp->arg, "-a") == 0 && valid_a(tmp->next->arg) == 0)
 	{
 	  a++;
-	  tmp2 = tmp->next->nex
 	  while (my_strcmp(is_cor(tmp2->arg), ".cor") != 0)
 	    {
 	      find_a2(tmp, &a, &n, &d);
