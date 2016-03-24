@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar 21 17:39:07 2016 Antoine Roig
-** Last update Wed Mar 23 12:36:30 2016 Eric DESCHODT
+** Last update Thu Mar 24 01:10:18 2016 Antoine Roig
 */
 
 #include <stdio.h>
@@ -25,7 +25,7 @@ void    show_list_vm(t_vm *vm)
       printf("id = %d\n", (tmp_v->id));
       printf("name = %s\n", (tmp_v->name));
       printf("cycle = %d\n", (tmp_v->cycle));
-      printf("cursor =%d\n", (tmp_v->cursor));
+      printf("cursor = %d\n", (tmp_v->cursor));
       printf("size = %d\n", (tmp_v->size));
       printf("alive = %d\n", (tmp_v->alive));
       write(1, "\n\n", 1);

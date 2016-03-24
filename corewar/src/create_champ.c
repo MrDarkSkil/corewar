@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Wed Mar 23 23:50:23 2016 Antoine Roig
+** Last update Thu Mar 24 01:32:57 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -47,6 +47,7 @@ void		champ_info(t_champ *new_elem,
   new_elem->size = head.prog_size;
   new_elem->id = info->id;
   new_elem->name = info->name;
+  new_elem->cursor = info->a;
 }
 
 t_champ	*pad_reg(t_champ * new_elem)

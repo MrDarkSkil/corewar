@@ -5,7 +5,11 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 23 20:47:49 2016 Antoine Roig
+<<<<<<< HEAD
 ** Last update Thu Mar 24 01:27:27 2016 Juliani Renaud
+=======
+** Last update Thu Mar 24 01:25:58 2016 Antoine Roig
+>>>>>>> 1a4315de2bc3e8fbb6684ea8a6bf71feef67453d
 */
 
 #include "corewar.h"
@@ -13,13 +17,17 @@
 void	find_n2(t_list *tmp2, int *a, int *n, int *d)
 {
   if ((*a) > 1 || (*n) > 1 || (*d) > 1)
-    exit(0);
+      exit(0);
   if (my_strcmp(tmp2->arg, "-a") == 0)
-    (*a)++;
+      (*a)++;
   if (my_strcmp(tmp2->arg, "-n") == 0)
-    (*n)++;
+      (*n)++;
   if (my_strcmp(tmp2->arg, "-dump") == 0)
+<<<<<<< HEAD
     (*d)++;
+=======
+      (*d)++;
+>>>>>>> 1a4315de2bc3e8fbb6684ea8a6bf71feef67453d
 }
 
 int	find_n(t_dlist *list)
