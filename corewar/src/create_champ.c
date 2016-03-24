@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Thu Mar 24 03:13:11 2016 Antoine Roig
+** Last update Thu Mar 24 03:22:16 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -32,7 +32,14 @@ void		champ_memory(header_t head,
 
   i = 0;
   while (i < head.prog_size + 1)
-    board[info->a++ % MEM_SIZE] = prog[i++];
+    {
+      if (board[info->a++ % MEM_SIZE] != 0)
+	{
+	  puts("pas la place");
+	  exit(0);
+	}
+      board[info->a++ % MEM_SIZE] = prog[i++];
+    }
 }
 
 void		champ_info(t_champ *new_elem,

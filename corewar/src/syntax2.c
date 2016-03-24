@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Thu Mar 24 00:10:31 2016 Antoine Roig
-** Last update Thu Mar 24 03:10:15 2016 Antoine Roig
+** Last update Thu Mar 24 14:56:35 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -27,6 +27,10 @@ int             is_nbr(char *str)
 
 int	valid_n(char *nb)
 {
+  if (!nb)
+    return (1);
+  if (is_nbr(nb) != 0)
+    return (1);
   if (my_getnbr(nb) >= 1 && my_getnbr(nb) <= 4)
     return (0);
   else
@@ -35,7 +39,11 @@ int	valid_n(char *nb)
 
 int	valid_a(char *nb)
 {
-  if (my_getnbr(nb) >= 1 && my_getnbr(nb) <= MEM_SIZE)
+  if (!nb)
+    return (1);
+  if (is_nbr(nb) != 0)
+    return (1);
+  if (my_getnbr(nb) >= 0 && my_getnbr(nb) <= MEM_SIZE)
     return (0);
   else
     return (1);

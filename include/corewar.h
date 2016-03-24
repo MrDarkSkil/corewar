@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Thu Mar 24 02:36:29 2016 Antoine Roig
+** Last update Thu Mar 24 14:26:53 2016 Antoine Roig
 ** Last update Wed Mar 23 22:14:07 2016 Eric DESCHODT
 */
 
@@ -228,4 +228,9 @@ int	valid_a(char *nb);
 char	*is_cor(char *name);
 int	check_dump(t_dlist *list);
 int	check_para(t_dlist *list);
+int	check_paral(t_dlist *list);
+void	find_n2(t_list *, int *, int *, int *);
+void	find_a2(t_list *, int *, int *, int *);
+void	search_cor_a(t_list *tmp2, int *a, int *n, int *d);
+void	search_cor_n(t_list *tmp2, int *a, int *n, int *d);
 #endif /* !COREWAR_H */
