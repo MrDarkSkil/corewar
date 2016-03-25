@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 17:53:01 2016 Léo Hubert
-** Last update Thu Mar 24 18:47:01 2016 Eric DESCHODT
+** Last update Fri Mar 25 08:51:37 2016 Eric DESCHODT
 */
 
 #ifndef _COMPILATOR
@@ -71,6 +71,7 @@ int             sti(char *param, int fdwrite, char code);
 int             ld(char *param, int fdwrite, char code);
 int             and(char *param, int fdwrite, char code);
 int             zjump(char *param, int fdwrite, char code);
+int             aff(char *param, int fdwrite, char code);
 int		countword(char *str, char caract);
 int		current(char *str, char caract);
 char		**my_str_to_wordtab(char *str, char caract);

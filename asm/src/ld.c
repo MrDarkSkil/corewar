@@ -5,10 +5,10 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Wed Mar 23 23:54:53 2016 Léo Hubert
-** Last update Thu Mar 24 18:32:08 2016 Eric DESCHODT
+** Last update Fri Mar 25 08:48:19 2016 Eric DESCHODT
 */
 
-# include		"compilator.h"
+#include "compilator.h"
 
 int			get_args(t_arg *arg,
 				 char *nb,

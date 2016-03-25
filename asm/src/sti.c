@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Wed Mar 23 23:54:53 2016 Léo Hubert
-** Last update Thu Mar 24 15:25:56 2016 Eric DESCHODT
+** Last update Fri Mar 25 08:50:56 2016 Eric DESCHODT
 */
 
 # include		"compilator.h"
@@ -53,4 +53,21 @@ int			sti(char *param,
   tmp++;
   agregate(&nb, &i, tmp);
   return (sti2(arg, fdwrite, tmp, nb));
+}
+
+int			aff(char *param,
+			    int fdwrite,
+			    char code)
+{
+  t_arg                 arg;
+  char                  *tmp;
+
+  if (write(fdwrite, &code, 1) == -1)
+    return (-1);
+  tmp = param;
+  tmp++;
+  arg.value = my_getnbr(tmp);
+  if (write(fdwrite, &arg.value, 1) == -1)
+    return (-1);
+  return (2);
 }
