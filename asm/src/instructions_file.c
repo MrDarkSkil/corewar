@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Wed Mar 23 23:54:53 2016 Léo Hubert
-** Last update Thu Mar 24 18:48:59 2016 Eric DESCHODT
+** Last update Fri Mar 25 17:16:56 2016 Eric DESCHODT
 */
 
 # include		"compilator.h"
@@ -51,7 +51,7 @@ int			check_start(int fdwrite, t_asm *my_asm)
     i++;
   if (op_tab[i].code == 0 ||
       (op_tab[i].wfunc != NULL &&
-       (size += op_tab[i].wfunc
+       (size = op_tab[i].wfunc
 	(my_asm->param, fdwrite, op_tab[i].code)) == -1))
     return (-1);
   return (size);
@@ -61,8 +61,10 @@ int			instructions_file(int fdwrite, t_asm *my_asm)
 {
   int			i;
   int			size;
+  int			tmp;
 
   i = 0;
+  tmp = 0;
   size = check_start(fdwrite, my_asm);
   my_asm = my_asm->next;
   while (my_asm->first == 0)
@@ -73,10 +75,13 @@ int			instructions_file(int fdwrite, t_asm *my_asm)
 	i++;
       if (op_tab[i].code == 0
 	  || (op_tab[i].wfunc != NULL
-	      && (size += op_tab[i].wfunc
+	      && (tmp = op_tab[i].wfunc
 		  (my_asm->param, fdwrite, op_tab[i].code)) == -1))
 	return (-1);
+      size += tmp;
       my_asm = my_asm->next;
     }
+  printf("%d\n", size);
+  exit(0);
   return (size);
 }

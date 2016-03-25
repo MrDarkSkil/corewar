@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Wed Mar 23 23:54:53 2016 Léo Hubert
-** Last update Fri Mar 25 08:48:19 2016 Eric DESCHODT
+** Last update Fri Mar 25 17:23:45 2016 Eric DESCHODT
 */
 
 #include "compilator.h"
@@ -60,7 +60,7 @@ int			and2(int fdwrite, int nb, t_arg arg[3])
       || (write(fdwrite, &arg[1].value, arg[1].size) == -1)
       || (write(fdwrite, &arg[2].value, arg[2].size) == -1))
     return (-1);
-  return (5);
+  return (arg[0].size + arg[1].size + arg[2].size + 2);
 }
 
 int                     and(char *param,
