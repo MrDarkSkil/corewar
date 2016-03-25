@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Wed Mar 23 23:54:53 2016 Léo Hubert
-** Last update Fri Mar 25 17:16:56 2016 Eric DESCHODT
+** Last update Fri Mar 25 18:08:19 2016 Léo Hubert
 */
 
 # include		"compilator.h"
@@ -81,7 +81,5 @@ int			instructions_file(int fdwrite, t_asm *my_asm)
       size += tmp;
       my_asm = my_asm->next;
     }
-  printf("%d\n", size);
-  exit(0);
   return (size);
 }

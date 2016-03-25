@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Wed Mar 23 13:41:19 2016 Léo Hubert
-** Last update Fri Mar 25 16:30:34 2016 Léo Hubert
+** Last update Fri Mar 25 18:11:51 2016 Léo Hubert
 */
 
 #include		"compilator.h"
@@ -383,15 +383,16 @@ int			write_size(int fdwrite, int size)
 {
   int			set;
 
-  set = 4 + PROG_NAME_LENGTH;
+  set = 8 + PROG_NAME_LENGTH;
   size = swap_nbr(size);
   if (lseek(fdwrite, set, SEEK_SET) == -1
-      || write(fdwrite, &size, 8) == -1)
+      || write(fdwrite, &size, 4) == -1)
     return (-1);
   return (0);
 }
 
 int			write_instructions(int fd, int fdwrite)
+
 {
   char			*tmp;
   char			*ins;
