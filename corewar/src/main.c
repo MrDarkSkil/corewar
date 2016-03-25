@@ -5,42 +5,15 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Fri Mar 25 13:39:35 2016 Eric DESCHODT
+** Last update Fri Mar 25 14:21:04 2016 Antoine Roig
 */
 
 #include "corewar.h"
 
-void		init_board(unsigned char *board)
+void		id_champ2(t_vm *vm, char *tab)
 {
   int		i;
-
-  i = 0;
-  while (i < MEM_SIZE)
-    {
-      board[i] = 0;
-      i++;
-    }
-}
-
-void		printboard(unsigned char *board)
-{
-  int		i;
-
-  i = 0;
-  while (i < MEM_SIZE)
-    {
-      if (board[i] < 16)
-	my_putchar(' ');
-      my_put_nbr_base(board[i], "0123456789abcdef");
-      i++;
-    }
-  my_putchar('\n');
-}
-
-void	id_champ2(t_vm *vm, char *tab)
-{
-  int	i;
-  t_champ *tmp;
+  t_champ	*tmp;
 
   tmp = vm->begin;
   while (tmp)
@@ -86,14 +59,30 @@ void	id_champ(t_vm *vm)
 
 void		check_debug(t_dlist *list, t_vm *vm)
 {
- if (my_strcmp(list->begin->arg, "-debug") == 0)
-    {
-      pop_list_begin(list);
-      vm->debug = 1;
-    }
-  else
-    vm->debug = 0;
+  list = list;
+  vm = vm;
 }
+
+void		champ_id_reg(t_vm *vm)
+{
+  t_champ	*tmp;
+  t_byte	nb;
+  int		i;
+
+  tmp = vm->begin;
+  while (tmp != NULL)
+    {
+      nb.full = tmp->id;
+      i = 0;
+      while (i < REG_SIZE)
+	{
+	  tmp->reg[0][i] = nb.byte[i];
+	  i++;
+	}
+      tmp = tmp->next;
+    }
+}
+
 int		main(int ac, char **av)
 {
   unsigned char	board[MEM_SIZE];
@@ -116,6 +105,8 @@ int		main(int ac, char **av)
   find_dump(list, vm);
   find_champ(list, vm, board, 0);
   id_champ(vm);
+  champ_id_reg(vm);
+  show_list_vm(vm);
   init_alive(vm);
   start_vm(vm, board);
   return (0);
