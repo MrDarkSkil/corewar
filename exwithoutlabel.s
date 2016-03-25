@@ -1,4 +1,4 @@
-.name "zorkl"
+.name "zork"
 .comment "just a basic living prog"
 .extend
 
@@ -8,5 +8,3 @@
 	zjmp	%-5
 	
 .code 42 DE AD C0 DE 12 34 61 34 61 23 61
-
-

@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Wed Mar 23 13:41:19 2016 Léo Hubert
-** Last update Thu Mar 24 03:02:38 2016 Léo Hubert
+** Last update Fri Mar 25 14:48:37 2016 Léo Hubert
 */
 
 #include		"compilator.h"
@@ -384,7 +384,8 @@ int			write_instructions(int fd, int fdwrite)
 	}
     }
   my_asm = my_asm->next;
-  if (instructions_file(fdwrite, my_asm) == -1)
-    return (-1);
+  my_put_nbr(instructions_file(fdwrite, my_asm));
+  /* if (instructions_file(fdwrite, my_asm) == -1) */
+  /*   return (-1); */
   return (0);
 }
