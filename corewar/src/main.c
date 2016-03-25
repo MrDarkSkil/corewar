@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Fri Mar 25 13:39:35 2016 Eric DESCHODT
+** Last update Fri Mar 25 13:46:16 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -111,7 +111,7 @@ int		main(int ac, char **av)
   vm = NULL;
   vm = new_vm(vm);
   fill_list(list, av);
-  check_debug(list, vm);
+  /* check_debug(list, vm); */
   syntax(list);
   find_dump(list, vm);
   find_champ(list, vm, board, 0);

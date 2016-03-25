@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Fri Mar 25 13:27:36 2016 Eric DESCHODT
+** Last update Fri Mar 25 13:49:00 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -34,10 +34,10 @@ void		champ_memory(header_t head,
   while (i < head.prog_size + 1)
     {
       if (board[info->a % MEM_SIZE] != 0)
-	{
-	  my_putstr("Not enough space\n");
-	  exit(0);
-	}
+      	{
+      	  my_putstr("Not enough space\n");
+      	  exit(0);
+      	}
       board[info->a++ % MEM_SIZE] = prog[i++];
     }
 }
