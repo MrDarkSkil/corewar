@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Wed Mar 23 13:41:19 2016 Léo Hubert
-** Last update Thu Mar 24 03:02:38 2016 Léo Hubert
+** Last update Fri Mar 25 16:30:34 2016 Léo Hubert
 */
 
 #include		"compilator.h"
@@ -358,33 +358,69 @@ char			*parse_action(char *str, int select)
   return ("error");
 }
 
+
+char			*remove_all_space(char *str)
+{
+  int			i;
+  int			ibis;
+  char			*result;
+
+  i = -1;
+  ibis = 0;
+  result = xmalloc(sizeof(char) * my_strlen(str));
+  while (str[ibis] != '\0')
+    {
+      if (str[ibis] != ' ' && str[ibis] != '\t')
+	result[++i] = str[ibis];
+      ibis++;
+
+    }
+  result[++i] = '\0';
+  return (result);
+}
+
+int			write_size(int fdwrite, int size)
+{
+  int			set;
+
+  set = 4 + PROG_NAME_LENGTH;
+  size = swap_nbr(size);
+  if (lseek(fdwrite, set, SEEK_SET) == -1
+      || write(fdwrite, &size, 8) == -1)
+    return (-1);
+  return (0);
+}
+
 int			write_instructions(int fd, int fdwrite)
 {
   char			*tmp;
   char			*ins;
   char			*param;
   t_asm			*my_asm;
+  int			size;
+  int			i;
 
-  (void)fdwrite;
   my_asm = NULL;
+  i = 2;
   while ((tmp = get_next_line(fd)))
     {
+      i++;
       if (tmp != NULL && tmp[0] != '.' && all_space(tmp) != 0)
 	{
 	  tmp = remove_space(tmp);
 	  ins = parse_action(tmp, 0);
 	  param = parse_action(tmp, 1);
-	  ins = remove_space(ins);
-	  param = remove_space(param);
-	  if (check_arg(ins) != 1)
-	    return (-1);
-	  if (check_param(ins, param) != 1)
-	    return (-1);
+	  ins = remove_all_space(ins);
+	  param = remove_all_space(param);
+	  if (check_arg(ins) != 1 ||
+	      check_param(ins, param) != 1)
+	    return (error_line(i));
 	  my_asm = add_action(my_asm, ins, param);
 	}
     }
   my_asm = my_asm->next;
-  if (instructions_file(fdwrite, my_asm) == -1)
+  if ((size = instructions_file(fdwrite, my_asm)) == -1
+      || write_size(fdwrite, size) == -1)
     return (-1);
   return (0);
 }

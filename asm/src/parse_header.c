@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sun Mar 20 23:34:15 2016 Léo Hubert
-** Last update Thu Mar 24 01:27:09 2016 Eric DESCHODT
+** Last update Fri Mar 25 15:31:07 2016 Léo Hubert
 */
 
 #include "compilator.h"
@@ -31,7 +31,7 @@ char	*parse_name(char *str)
     return (NULL);
   while (str[++i])
     result[i] = str[i];
-  while (++i <= PROG_NAME_LENGTH)
+  while (++i < PROG_NAME_LENGTH)
     result[i] = 0;
   return (result);
 }
@@ -47,7 +47,7 @@ char	*parse_comment(char *str)
     return (NULL);
   while (str[++i])
     result[i] = str[i];
-  while (++i <= COMMENT_LENGTH)
+  while (++i < COMMENT_LENGTH)
     result[i] = 0;
   return (result);
 }

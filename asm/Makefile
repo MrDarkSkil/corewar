@@ -5,7 +5,7 @@
 ## Login   <julian_r@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:27:46 2016 Juliani Renaud
-## Last update Fri Mar 25 11:56:38 2016 Eric DESCHODT
+## Last update Fri Mar 25 16:31:26 2016 Léo Hubert
 ##
 
 NAME	=	asm
@@ -14,6 +14,7 @@ SRC	=	src/main.c				\
 		src/file_my.c				\
 		src/parse_header.c			\
 		src/write_instructions.c		\
+		src/error.c				\
 		src/utils.c				\
 		src/instructions_file.c			\
 		src/header.c				\
