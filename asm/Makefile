@@ -5,7 +5,7 @@
 ## Login   <julian_r@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:27:46 2016 Juliani Renaud
-## Last update Thu Mar 24 15:14:29 2016 Eric DESCHODT
+## Last update Fri Mar 25 11:56:38 2016 Eric DESCHODT
 ##
 
 NAME	=	asm
@@ -24,6 +24,7 @@ SRC	=	src/main.c				\
 		src/op.c				\
 		src/ld.c				\
 		src/sti.c				\
+		src/ldi.c				\
 		src/living.c				\
 		../lib/get_next_line/get_next_line.c
 
