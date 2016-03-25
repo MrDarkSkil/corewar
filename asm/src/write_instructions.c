@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Wed Mar 23 13:41:19 2016 Léo Hubert
-** Last update Fri Mar 25 14:48:37 2016 Léo Hubert
+** Last update Fri Mar 25 15:39:13 2016 Léo Hubert
 */
 
 #include		"compilator.h"
@@ -358,14 +358,35 @@ char			*parse_action(char *str, int select)
   return ("error");
 }
 
+
+char			*remove_all_space(char *str)
+{
+  int			i;
+  int			ibis;
+  char			*result;
+
+  i = -1;
+  ibis = 0;
+  result = xmalloc(sizeof(char) * my_strlen(str));
+  while (str[ibis] != '\0')
+    {
+      if (str[ibis] != ' ' && str[ibis] != '\t')
+	result[++i] = str[ibis];
+      ibis++;
+
+    }
+  result[++i] = '\0';
+  return (result);
+}
+
 int			write_instructions(int fd, int fdwrite)
 {
   char			*tmp;
   char			*ins;
   char			*param;
   t_asm			*my_asm;
+  int			size;
 
-  (void)fdwrite;
   my_asm = NULL;
   while ((tmp = get_next_line(fd)))
     {
@@ -374,8 +395,8 @@ int			write_instructions(int fd, int fdwrite)
 	  tmp = remove_space(tmp);
 	  ins = parse_action(tmp, 0);
 	  param = parse_action(tmp, 1);
-	  ins = remove_space(ins);
-	  param = remove_space(param);
+	  ins = remove_all_space(ins);
+	  param = remove_all_space(param);
 	  if (check_arg(ins) != 1)
 	    return (-1);
 	  if (check_param(ins, param) != 1)
@@ -384,8 +405,8 @@ int			write_instructions(int fd, int fdwrite)
 	}
     }
   my_asm = my_asm->next;
-  my_put_nbr(instructions_file(fdwrite, my_asm));
-  /* if (instructions_file(fdwrite, my_asm) == -1) */
-  /*   return (-1); */
+  if ((size = instructions_file(fdwrite, my_asm)) == -1)
+    return (-1);
+  /* HEADER WRITE SIZE */
   return (0);
 }
