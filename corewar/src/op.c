@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Thu Mar 17 12:57:29 2016 Eric DESCHODT
-** Last update Thu Mar 24 01:17:28 2016 Eric DESCHODT
+** Last update Fri Mar 25 13:35:02 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -14,7 +14,7 @@ op_t    op_tab[] =
   {
     {"live", 1, {T_DIR}, 1, 10, "alive", NULL, NULL},
     {"ld", 2, {T_DIR | T_IND, T_REG}, 2, 5, "load", &ld, NULL},
-    {"st", 2, {T_REG, T_IND | T_REG}, 3, 5, "store", &st, NULL,},
+    {"st", 2, {T_REG, T_IND | T_REG}, 3, 5, "store", &st, NULL},
     {"add", 3, {T_REG, T_REG, T_REG}, 4, 10, "addition", &add, NULL},
     {"sub", 3, {T_REG, T_REG, T_REG}, 5, 10, "soustraction", &sub, NULL},
     {"and", 3, {T_REG | T_DIR | T_IND, T_REG | T_IND | T_DIR, T_REG}, 6, 6,

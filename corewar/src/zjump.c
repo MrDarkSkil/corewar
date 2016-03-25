@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Wed Mar 23 21:53:40 2016 Eric DESCHODT
+** Last update Fri Mar 25 13:32:45 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -35,12 +35,14 @@ void		zjump_move(t_champ *champ,
 }
 
 int		zjump(t_champ *champ,
-		      unsigned char *board)
+		      unsigned char *board,
+		      t_vm *vm)
 {
   t_byte	tmp;
   int		i;
 
-  my_putstr("zjump\n");
+  if (vm->debug == 1)
+    my_putstr("zjump\n");
   champ->ope.nbr_cycles = 20;
   if (champ->carry == 0)
     return (0);

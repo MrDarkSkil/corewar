@@ -5,14 +5,12 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Fri Mar 25 13:12:23 2016 Antoine Roig
+** Last update Fri Mar 25 13:31:38 2016 Eric DESCHODT
 ** Last update Wed Mar 23 22:14:07 2016 Eric DESCHODT
 */
 
 #ifndef COREWAR_H_
 # define COREWAR_H_
-
-#include <stdio.h>
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -130,7 +128,8 @@ int			sub(t_args *arg, void *champ, unsigned char *board);
 int			aff(t_args *arg, void *champ, unsigned char *board);
 
 int			zjump(t_champ *champ,
-			      unsigned char *board);
+			      unsigned char *board,
+			      t_vm *vm);
 void			moving_PC(t_champ *champ,
 				  unsigned char *board,
 				  int move);
@@ -191,16 +190,19 @@ t_list                  *pop_list_end(t_dlist *);
 t_list                  *pop_list_somewhere(t_dlist *, int);
 t_list                  *pop_list_somewhere2(t_dlist *, int);
 void			kill_champ(t_vm *vm);
-void    fill_new(t_champ *new, t_champ *champ);
-void    fill_new_fork(t_champ *new, t_champ *champ, int nb, unsigned char *board);
-void    add_list_begin_vm(t_vm *list, t_champ *champ);
-void    add_vm_somewhere2(t_vm *vm, t_champ *new, int pos);
-void    add_vm_somewhere(t_vm *vm, t_champ *champ, t_decal_nb decal_nb, unsigned char *board);
-void	add_forking(t_vm *vm, t_champ *champ, int nb, unsigned char* board);
-int     my_strcmp(char *s1, char *s2);
-t_list  *parsing2(t_list *tmp, int *j);
-void    fill_info(t_lcmd *info, char *name);
-int	syntax(t_dlist *list);
+void			fill_new(t_champ *new, t_champ *champ);
+void			fill_new_fork(t_champ *new, t_champ *champ, int nb, unsigned char *board);
+void			add_list_begin_vm(t_vm *list, t_champ *champ);
+void			add_vm_somewhere2(t_vm *vm, t_champ *new, int pos);
+void			add_vm_somewhere(t_vm *vm,
+					 t_champ *champ,
+					 t_decal_nb decal_nb,
+					 unsigned char *board);
+void			add_forking(t_vm *vm, t_champ *champ, int nb, unsigned char* board);
+int			my_strcmp(char *s1, char *s2);
+t_list			*parsing2(t_list *tmp, int *j);
+void			fill_info(t_lcmd *info, char *name);
+int			syntax(t_dlist *list);
 void			fill_new(t_champ *new, t_champ *champ);
 void			fill_new_fork(t_champ *new,
 				      t_champ *champ,
@@ -229,18 +231,18 @@ void			unknown_ope(t_champ *champ, t_vm *vm);
 void			print_ope(char *name);
 
 char			*my_strdup(char *);
-int             is_nbr(char *str);
-int	valid_n(char *nb);
-int	valid_a(char *nb);
-char	*is_cor(char *name);
-int	check_dump(t_dlist *list);
-int	check_para(t_dlist *list);
-int	check_paral(t_dlist *list);
-void	find_n2(t_list *, int *, int *, int *);
-void	find_a2(t_list *, int *, int *, int *);
-void	search_cor_a(t_list *tmp2, int *a, int *n, int *d);
-void	search_cor_n(t_list *tmp2, int *a, int *n, int *d);
-int     is_nbr_dump(char *str);
-void	init_var(t_var *var);
-t_list		*inifind(t_dlist *list, int *j);
+int			is_nbr(char *str);
+int			valid_n(char *nb);
+int			valid_a(char *nb);
+char			*is_cor(char *name);
+int			check_dump(t_dlist *list);
+int			check_para(t_dlist *list);
+int			check_paral(t_dlist *list);
+void			find_n2(t_list *, int *, int *, int *);
+void			find_a2(t_list *, int *, int *, int *);
+void			search_cor_a(t_list *tmp2, int *a, int *n, int *d);
+void			search_cor_n(t_list *tmp2, int *a, int *n, int *d);
+int			is_nbr_dump(char *str);
+void			init_var(t_var *var);
+t_list			*inifind(t_dlist *list, int *j);
 #endif /* !COREWAR_H */

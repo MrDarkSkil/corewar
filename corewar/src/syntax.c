@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 23 20:47:49 2016 Antoine Roig
-** Last update Fri Mar 25 13:01:32 2016 Antoine Roig
+** Last update Fri Mar 25 13:20:04 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -56,7 +56,6 @@ int	find_n(t_dlist *list)
 
 void	find_a2(t_list *tmp2, int *a, int *n, int *d)
 {
-  printf("%d %d %d\n", *a, *n, *d);
   if ((*a) > 1 || (*n) > 1 || (*d) > 1)
     {
       my_putstr("To much arguments.\n");

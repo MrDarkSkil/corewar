@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 16 14:47:43 2016 Antoine Roig
-** Last update Fri Mar 25 13:12:34 2016 Antoine Roig
+** Last update Fri Mar 25 13:35:50 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -22,14 +22,17 @@ void		fill_list(t_dlist *list, char **av)
     }
 }
 
-t_list	*double_pop(t_dlist *list, int j, t_list *tmp)
+t_list		*double_pop(t_dlist *list, int j, t_list *tmp)
 {
   tmp = pop_list_somewhere(list, j);
   tmp = pop_list_somewhere(list, j);
   return (tmp);
 }
 
-void		info_champ(t_dlist *list, int i, t_lcmd *info, char *name)
+void		info_champ(t_dlist *list,
+			   int i,
+			   t_lcmd *info,
+			   char *name)
 {
   t_list	*tmp;
   int		j;
@@ -83,15 +86,16 @@ void		find_dump(t_dlist *list, t_vm *vm)
   vm->dump = 0;
 }
 
-void		find_champ(t_dlist *list, t_vm *vm, unsigned char *board, int i)
+void		find_champ(t_dlist *list,
+			   t_vm *vm,
+			   unsigned char *board,
+			   int i)
 {
   t_list	*tmp;
   t_lcmd	*info;
   t_champ	*new_elem;
   int		j;
 
-  /* j = 0; */
-  /* tmp = list->begin; */
   tmp = inifind(list, &j);
   new_elem = xmalloc(sizeof(t_champ));
   while (tmp)

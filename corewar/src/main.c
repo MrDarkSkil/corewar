@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Fri Mar 25 12:40:00 2016 Antoine Roig
+** Last update Fri Mar 25 13:39:35 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -84,6 +84,16 @@ void	id_champ(t_vm *vm)
   id_champ2(vm, tab);
 }
 
+void		check_debug(t_dlist *list, t_vm *vm)
+{
+ if (my_strcmp(list->begin->arg, "-debug") == 0)
+    {
+      pop_list_begin(list);
+      vm->debug = 1;
+    }
+  else
+    vm->debug = 0;
+}
 int		main(int ac, char **av)
 {
   unsigned char	board[MEM_SIZE];
@@ -101,19 +111,11 @@ int		main(int ac, char **av)
   vm = NULL;
   vm = new_vm(vm);
   fill_list(list, av);
-  printf("%s\n", list->begin->arg);
-  if (my_strcmp(list->begin->arg, "-debug") == 0)
-    {
-      pop_list_begin(list);
-      vm->debug = 1;
-    }
-  else
-    vm->debug = 0;
+  check_debug(list, vm);
   syntax(list);
   find_dump(list, vm);
   find_champ(list, vm, board, 0);
   id_champ(vm);
-  show_list_vm(vm);
   init_alive(vm);
   start_vm(vm, board);
   return (0);

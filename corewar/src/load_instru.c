@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Wed Mar 23 22:16:00 2016 Eric DESCHODT
+** Last update Fri Mar 25 13:34:15 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -114,7 +114,7 @@ void		load_instru(t_vm *vm, t_champ *champ,
   else if (op_tab[i].code == 1)
     living(champ, board);
   else if (op_tab[i].code == 9)
-    zjump(champ, board);
+    zjump(champ, board, vm);
   else
     {
       if (vm->debug == 1)
