@@ -5,10 +5,9 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar 21 17:39:07 2016 Antoine Roig
-** Last update Fri Mar 25 13:04:08 2016 Antoine Roig
+** Last update Fri Mar 25 14:25:00 2016 Antoine Roig
 */
 
-#include <stdio.h>
 #include "corewar.h"
 
 void    add_list_begin_vm(t_vm *vm, t_champ *champ)

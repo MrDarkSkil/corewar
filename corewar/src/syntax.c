@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 23 20:47:49 2016 Antoine Roig
-** Last update Fri Mar 25 13:20:04 2016 Eric DESCHODT
+** Last update Fri Mar 25 14:07:34 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -38,7 +38,7 @@ int	find_n(t_dlist *list)
       if (my_strcmp(tmp->arg, "-n") == 0)
 	{
 	  var.n++;
-	  if (tmp->next == NULL || valid_a(tmp->next->arg) != 0)
+	  if (tmp->next == NULL || valid_n(tmp->next->arg) != 0)
 	    my_puterror("-n");
 	  tmp = tmp->next->next;
 	  tmp2 = tmp;

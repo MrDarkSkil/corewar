@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Fri Mar 25 13:22:16 2016 Eric DESCHODT
+** Last update Fri Mar 25 14:54:25 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -63,7 +63,7 @@ int		start_vm(t_vm *vm,
 
   var = 0;
   end = CYCLE_TO_DIE;
-  while (end > 0 && vm->nb > 0)
+  while (end > 0 && vm->nb > 1)
     {
       start = end;
       init_alive(vm);

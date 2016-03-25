@@ -5,7 +5,7 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:18:01 2016 Eric DESCHODT
-## Last update Thu Mar 24 19:02:34 2016 Antoine Roig
+## Last update Fri Mar 25 14:50:23 2016 Eric DESCHODT
 ##
 
 NAME		=		corewar
@@ -42,15 +42,17 @@ SRC		=		src/main.c		\
 				src/create_champ.c	\
 				src/movingPC.c		\
 				src/info_champ.c	\
+				src/init_board.c	\
 				src/st.c		\
 				src/lld.c		\
 				src/aff.c		\
 				src/my_strdup.c		\
-				src/debug.c
+				src/debug.c		\
+				src/winning.c
 
 OBJ		=		$(SRC:.c=.o)
 
-CFLAGS		+=		-W -Wall -Wextra -ansi -pedantic -g3
+CFLAGS		+=		-W -Wall -Wextra -ansi -pedantic
 CFLAGS		+=		-Werror
 CFLAGS		+=		-I../include
 

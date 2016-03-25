@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:26:06 2016 Eric DESCHODT
-** Last update Fri Mar 25 13:49:00 2016 Eric DESCHODT
+** Last update Fri Mar 25 14:31:07 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -57,6 +57,7 @@ void		champ_info(t_champ *new_elem,
     new_elem->cursor = MEM_SIZE - (MEM_SIZE / 4);
   else
     new_elem->cursor = info->a;
+  info->a = new_elem->cursor;
   new_elem->start = &board[new_elem->cursor];
   new_elem->instru = &board[new_elem->cursor];
   new_elem->cycle = 0;
@@ -91,7 +92,6 @@ int		create_champ(t_champ *new_elem,
   int		fd;
   char		*prog;
   header_t	head;
-  t_byte        nb;
   int		rd;
 
   if ((fd = open(info->name, O_RDONLY)) == -1
@@ -101,11 +101,6 @@ int		create_champ(t_champ *new_elem,
     return (-1);
   champ_info(new_elem, board, info, head);
   champ_memory(head, board, info, prog);
-  nb.full = info->id;
-  new_elem->reg[0][0] = nb.byte[0];
-  new_elem->reg[0][1] = nb.byte[1];
-  new_elem->reg[0][2] = nb.byte[2];
-  new_elem->reg[0][3] = nb.byte[3];
   new_elem = pad_reg(new_elem);
   new_elem->name = my_strdup(head.prog_name);
   new_elem->carry = 0;
