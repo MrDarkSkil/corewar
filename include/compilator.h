@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 17:53:01 2016 Léo Hubert
-** Last update Fri Mar 25 08:51:37 2016 Eric DESCHODT
+** Last update Fri Mar 25 11:58:38 2016 Eric DESCHODT
 */
 
 #ifndef _COMPILATOR
@@ -68,6 +68,7 @@ int             agregate(char *nb, int *i, char *tmp);
 int             get_args(t_arg *arg, char *nb, int *i, char *tmp);
 int             live(char *param, int fdwrite, char code);
 int             sti(char *param, int fdwrite, char code);
+int             ldi(char *param, int fdwrite, char code);
 int             ld(char *param, int fdwrite, char code);
 int             and(char *param, int fdwrite, char code);
 int             zjump(char *param, int fdwrite, char code);

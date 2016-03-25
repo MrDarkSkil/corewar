@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 **
 ** Started on  Thu Mar 17 12:57:29 2016 Eric DESCHODT
-** Last update Fri Mar 25 08:52:17 2016 Eric DESCHODT
+** Last update Fri Mar 25 11:57:50 2016 Eric DESCHODT
 */
 
 #include "compilator.h"
@@ -25,13 +25,13 @@ op_t    op_tab[] =
      "ou (xor  r1, r2, r3   r1^r2 -> r3", NULL, &and},
     {"zjmp", 1, {T_DIR}, 9, 20, "jump if zero", NULL, &zjump},
     {"ldi", 3, {T_REG | T_DIR | T_IND, T_DIR | T_REG, T_REG}, 10, 25,
-     "load index", NULL, NULL},
+     "load index", NULL, &ldi},
     {"sti", 3, {T_REG, T_REG | T_DIR | T_IND, T_DIR | T_REG}, 11, 25,
      "store index", NULL, &sti},
     {"fork", 1, {T_DIR}, 12, 800, "fork", NULL, &zjump},
     {"lld", 2, {T_DIR | T_IND, T_REG}, 13, 10, "long load", NULL, &ld},
     {"lldi", 3, {T_REG | T_DIR | T_IND, T_DIR | T_REG, T_REG}, 14, 50,
-     "long load index", NULL, NULL},
+     "long load index", NULL, &ldi},
     {"lfork", 1, {T_DIR}, 15, 1000, "long fork", NULL, &zjump},
     {"aff", 1, {T_REG}, 16, 2, "aff", NULL, &aff},
     {0, 0, {0}, 0, 0, 0, NULL, NULL}
