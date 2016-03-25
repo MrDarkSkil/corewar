@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Thu Mar 24 14:26:53 2016 Antoine Roig
+** Last update Fri Mar 25 13:12:23 2016 Antoine Roig
 ** Last update Wed Mar 23 22:14:07 2016 Eric DESCHODT
 */
 
@@ -39,6 +39,13 @@ typedef struct		s_champ
   struct s_champ	*next;
   struct s_champ	*prev;
 }			t_champ;
+
+typedef	struct	s_var
+{
+  int	a;
+  int	n;
+  int	d;
+}		t_var;
 
 typedef struct		s_vm
 {
@@ -233,4 +240,7 @@ void	find_n2(t_list *, int *, int *, int *);
 void	find_a2(t_list *, int *, int *, int *);
 void	search_cor_a(t_list *tmp2, int *a, int *n, int *d);
 void	search_cor_n(t_list *tmp2, int *a, int *n, int *d);
+int     is_nbr_dump(char *str);
+void	init_var(t_var *var);
+t_list		*inifind(t_dlist *list, int *j);
 #endif /* !COREWAR_H */

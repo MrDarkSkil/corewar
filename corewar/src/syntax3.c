@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Thu Mar 24 00:23:38 2016 Antoine Roig
-** Last update Thu Mar 24 14:22:54 2016 Antoine Roig
+** Last update Fri Mar 25 12:39:22 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -17,16 +17,18 @@ int	check_paral(t_dlist *list)
   tmp = list->begin;
   while (tmp)
     {
-      if (my_strcmp(is_cor(tmp->arg), ".cor") != 0
-	  && is_nbr(tmp->arg) != 0
-	  && my_strcmp(tmp->arg, "-dump") != 0
-	  && my_strcmp(tmp->arg, "-a") != 0
-	  && my_strcmp(tmp->arg, "-n") != 0)
+      if (is_nbr(tmp->arg) != 0)
 	{
-	  my_putstr("Para error : ");
-	  my_putstr(tmp->arg);
-	  write(1, "\n", 1);
-	  exit(0);
+	  if (my_strcmp(is_cor(tmp->arg), ".cor") != 0
+	      && my_strcmp(tmp->arg, "-dump") != 0
+	      && my_strcmp(tmp->arg, "-a") != 0
+	      && my_strcmp(tmp->arg, "-n") != 0)
+	    {
+	      my_putstr("Paral error : ");
+	      my_putstr(tmp->arg);
+	      write(1, "\n", 1);
+	      exit(0);
+	    }
 	}
       tmp = tmp->next;
     }
@@ -45,10 +47,8 @@ int	check_para(t_dlist *list)
 				   my_strcmp(tmp->prev->arg, "-a") != 0 &&
 				   my_strcmp(tmp->prev->arg, "-n") != 0))
 	  {
-	  my_putstr("Para error : ");
-	  my_putstr(tmp->arg);
-	  write(1, "\n", 1);
-	  exit(0);
+	    my_putstr("Para error : ");
+	    exit(0);
 	  }
       tmp = tmp->next;
     }
@@ -66,11 +66,9 @@ void	my_puterror(char *str)
 void	search_cor_a(t_list *tmp2, int *a, int *n, int *d)
 {
   find_a2(tmp2, a, n, d);
-  tmp2 = tmp2->next;
 }
 
 void	search_cor_n(t_list *tmp2, int *a, int *n, int *d)
 {
   find_n2(tmp2, a, n, d);
-  tmp2 = tmp2->next;
 }

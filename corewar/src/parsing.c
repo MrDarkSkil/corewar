@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Wed Mar 16 14:47:43 2016 Antoine Roig
-** Last update Thu Mar 24 02:39:54 2016 Antoine Roig
+** Last update Fri Mar 25 13:12:34 2016 Antoine Roig
 */
 
 #include "corewar.h"
@@ -70,7 +70,10 @@ void		find_dump(t_dlist *list, t_vm *vm)
       if (my_strcmp(tmp->arg, "-dump") == 0)
 	{
 	  tmp = pop_list_somewhere(list, i);
-	  tmp = pop_list_somewhere(list, i);
+	  if (tmp->next == NULL)
+	    tmp = pop_list_end(list);
+	  else
+	    tmp = pop_list_somewhere(list, i);
 	  vm->dump = my_getnbr(tmp->arg);
 	  return;
 	}
@@ -87,8 +90,9 @@ void		find_champ(t_dlist *list, t_vm *vm, unsigned char *board, int i)
   t_champ	*new_elem;
   int		j;
 
-  j = 0;
-  tmp = list->begin;
+  /* j = 0; */
+  /* tmp = list->begin; */
+  tmp = inifind(list, &j);
   new_elem = xmalloc(sizeof(t_champ));
   while (tmp)
     {
@@ -99,8 +103,8 @@ void		find_champ(t_dlist *list, t_vm *vm, unsigned char *board, int i)
 	  info_champ(list, i, info, tmp->arg);
 	  if (create_champ(new_elem, info, board) == -1)
 	    exit(0);
-	  add_list_end_vm(vm, new_elem);
 	  i = 0;
+	  add_list_end_vm(vm, new_elem);
 	  pop_list_begin(list);
 	  tmp = list->begin;
 	}

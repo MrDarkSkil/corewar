@@ -5,7 +5,7 @@
 ## Login   <descho_e@epitech.net>
 ## 
 ## Started on  Mon Mar  7 13:18:01 2016 Eric DESCHODT
-## Last update Thu Mar 24 02:52:56 2016 Antoine Roig
+## Last update Thu Mar 24 19:02:34 2016 Antoine Roig
 ##
 
 NAME		=		corewar
@@ -28,6 +28,7 @@ SRC		=		src/main.c		\
 				src/sti.c		\
 				src/syntax.c		\
 				src/syntax2.c		\
+				src/syntaxe4.c		\
 				src/syntax3.c		\
 				src/add.c		\
 				src/ldi.c		\
