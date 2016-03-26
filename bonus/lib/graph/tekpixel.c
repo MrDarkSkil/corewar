@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Sun Jan 31 14:41:41 2016 Eric DESCHODT
-** Last update Mon Feb 29 09:38:32 2016 Eric DESCHODT
+** Last update Sat Mar 26 10:45:00 2016 Eric DESCHODT
 */
 
 #include "libgraph.h"
@@ -29,6 +29,11 @@ void			tektranspa(t_bunny_pixelarray *pix,
 {
   t_color	prev;
 
+  if (color->argb[3] == 255)
+    {
+      tekpixel(pix, pos, color);
+      return;
+    }
   if (pos->x < pix->clipable.clip_width &&
       pos->y < pix->clipable.clip_height &&
       pos->x >= 0 && pos->y >= 0)

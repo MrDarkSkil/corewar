@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Tue Feb  2 13:19:12 2016 Eric DESCHODT
-** Last update Mon Feb 29 09:45:05 2016 Eric DESCHODT
+** Last update Sat Mar 26 09:32:26 2016 Eric DESCHODT
 */
 
 #ifndef			LIBGRAPH_H_
@@ -64,14 +64,6 @@ void                    fill(t_bunny_pixelarray *pix,
 char                    *get_chmp(char *chmp,
                                   t_bunny_ini *file,
                                   int i);
-
-unsigned int		my_getnbr_base(char *str, char *base);
-
-int			my_getnbr(char *str);
-
-char			*my_strcpy(char *dest, char *source);
-
-int			my_strlen(char *str);
 
 void                    tekpixel(t_bunny_pixelarray *pix,
                                  t_bunny_position *pos,
