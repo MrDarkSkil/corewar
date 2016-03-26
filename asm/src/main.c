@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 16:45:26 2016 Léo Hubert
-** Last update Fri Mar 25 16:05:13 2016 Léo Hubert
+** Last update Fri Mar 25 19:46:08 2016 Léo Hubert
 */
 
 #include		"compilator.h"
@@ -45,7 +45,8 @@ int			main(int ac, char **av)
       else if (res == -2)
 	return (my_putstr_error("Error when create outfile \n"));
       else if (res == -3)
-	return (my_putstr_error("Error: .name or .comment not found or not good\n"));
+	return (my_putstr_error("Error: .name or .comment not \
+found or not good\n"));
       else if (res == -5)
 	return (my_putstr_error("File file_name not accessible"));
     }

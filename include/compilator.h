@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu Mar 17 17:53:01 2016 Léo Hubert
-** Last update Fri Mar 25 11:58:38 2016 Eric DESCHODT
+** Last update Fri Mar 25 19:36:43 2016 Léo Hubert
 */
 
 #ifndef _COMPILATOR
@@ -62,9 +62,8 @@ t_asm		*add_action(t_asm	*list,
 int		write_instructions(int	fd,
 				   int	fdwrite);
 char		*remove_space(char	*str);
-
 int             agregate(char *nb, int *i, char *tmp);
-
+int		instructions_file(int fdwrite, t_asm *my_asm);
 int             get_args(t_arg *arg, char *nb, int *i, char *tmp);
 int             live(char *param, int fdwrite, char code);
 int             sti(char *param, int fdwrite, char code);
@@ -76,4 +75,40 @@ int             aff(char *param, int fdwrite, char code);
 int		countword(char *str, char caract);
 int		current(char *str, char caract);
 char		**my_str_to_wordtab(char *str, char caract);
+int		my_putchar_error(char c);
+int		my_putstr_error(char *str);
+int		my_putnbr_error(int nb);
+int		error_line(int line);
+int		init_ptIns(int (*ptIns[17])(char *param));
+int		check_param(char *ins, char *param);
+int		check_arg(char *str);
+int		count_cee(char **tab);
+int		is_num(char *nbr);
+int		all_space(char *str);
+int		write_size(int fdwrite, int size);
+char		*my_strdup(char *str);
+char		*parse_action(char *str, int select);
+char		*remove_all_space(char *str);
+int			check_fork(char *param);
+int			check_lld(char *param);
+int			check_lldi(char *param);
+int			check_lfork(char *param);
+int			check_aff(char *param);
+int			check_sti(char *param);
+int			check_fork(char *param);
+int			check_lld(char *param);
+int			check_lldi(char *param);
+int			check_lfork(char *param);
+int			check_and(char *param);
+int			check_or(char *param);
+int			check_xor(char *param);
+int			check_zjmp(char *param);
+int			check_ldi(char *param);
+int			check_live(char *param);
+int			check_ld(char *param);
+int			check_st(char *param);
+int			check_add(char *param);
+int			check_sub(char *param);
+
+
 #endif /* _COMPILATOR */
