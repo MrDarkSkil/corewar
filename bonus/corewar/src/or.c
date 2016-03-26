@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar 21 12:48:24 2016 Antoine Roig
-** Last update Wed Mar 23 21:43:39 2016 Eric DESCHODT
+** Last update Sat Mar 26 11:29:31 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -21,7 +21,7 @@ void		or2(void *champ, t_byte *nb, t_args *arg)
   ((t_champ *)champ)->reg[arg[2].val][3] = nb3.byte[3];
 }
 
-int		or(t_args *arg, void *champ, unsigned char *board)
+int		or(t_args *arg, void *champ, unsigned char board[2][MEM_SIZE])
 {
   t_byte	nb[2];
   int		i;

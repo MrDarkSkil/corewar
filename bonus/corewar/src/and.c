@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar 21 12:45:04 2016 Antoine Roig
-** Last update Fri Mar 25 21:42:04 2016 Eric DESCHODT
+** Last update Sat Mar 26 11:30:13 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -23,7 +23,7 @@ void		and2(void *champ, t_byte *nb, t_args *arg)
 
 int		and(t_args *arg,
 		    void *champ,
-		    unsigned char *board)
+		    unsigned char board[2][MEM_SIZE])
 {
   t_byte	nb[2];
   int		i;

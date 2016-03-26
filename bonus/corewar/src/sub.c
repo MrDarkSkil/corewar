@@ -5,12 +5,12 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Sun Mar 20 01:35:42 2016 Antoine Roig
-** Last update Wed Mar 23 21:41:09 2016 Eric DESCHODT
+** Last update Sat Mar 26 11:32:16 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
-int		sub(t_args *arg, void *champ, unsigned char *board)
+int		sub(t_args *arg, void *champ, unsigned char board[2][MEM_SIZE])
 {
   t_byte	nb1;
   t_byte	nb2;

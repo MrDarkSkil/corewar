@@ -5,14 +5,14 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Mon Mar 21 12:55:15 2016 Antoine Roig
-** Last update Fri Mar 25 21:41:05 2016 Eric DESCHODT
+** Last update Sat Mar 26 11:38:50 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
 
 int		aff(t_args *arg,
 		    void *_champ,
-		    unsigned char *board)
+		    unsigned char board[2][MEM_SIZE])
 {
   t_byte	nb;
   int		i;

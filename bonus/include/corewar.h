@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 12:59:17 2016 Eric DESCHODT
-** Last update Sat Mar 26 10:24:30 2016 Eric DESCHODT
+** Last update Sat Mar 26 11:35:08 2016 Eric DESCHODT
 ** Last update Wed Mar 23 22:14:07 2016 Eric DESCHODT
 */
 
@@ -100,7 +100,7 @@ void			find_living_champion(int result, t_champ *champ);
 
 void			living(t_champ *champ, unsigned char *board);
 
-void			load_instru(t_vm *vm, t_champ *champ, unsigned char *board);
+void			load_instru(t_vm *vm, t_champ *champ, unsigned char board[2][MEM_SIZE]);
 
 void			revert_endian(int *nb);
 
@@ -112,22 +112,22 @@ void			printboard(unsigned char *board);
 
 void			init_board(unsigned char board[2][MEM_SIZE]);
 
-int			sti(t_args *arg, void *champ, unsigned char *board);
+int			sti(t_args *arg, void *champ, unsigned char board[2][MEM_SIZE]);
 int			forking(t_vm *vm,
 				t_champ *champ,
 				unsigned char *board,
 				int var);
-int			ldi(t_args *arg, void *champ, unsigned char *board);
-int			lldi(t_args *arg, void *champ, unsigned char *board);
-int			ld(t_args *arg, void *champ, unsigned char *board);
-int			lld(t_args *arg, void *_champ, unsigned char *board);
-int			st(t_args *arg, void *champ, unsigned char *board);
-int			add(t_args *arg, void *champ, unsigned char *board);
-int			or(t_args *arg, void *champ, unsigned char *board);
-int			xor(t_args *arg, void *champ, unsigned char *board);
-int			and(t_args *arg, void *champ, unsigned char *board);
-int			sub(t_args *arg, void *champ, unsigned char *board);
-int			aff(t_args *arg, void *champ, unsigned char *board);
+int			ldi(t_args *arg, void *champ, unsigned char board[2][MEM_SIZE]);
+int			lldi(t_args *arg, void *champ, unsigned char board[2][MEM_SIZE]);
+int			ld(t_args *arg, void *champ, unsigned char board[2][MEM_SIZE]);
+int			lld(t_args *arg, void *_champ, unsigned char board[2][MEM_SIZE]);
+int			st(t_args *arg, void *champ, unsigned char board[2][MEM_SIZE]);
+int			add(t_args *arg, void *champ, unsigned char board[2][MEM_SIZE]);
+int			or(t_args *arg, void *champ, unsigned char board[2][MEM_SIZE]);
+int			xor(t_args *arg, void *champ, unsigned char board[2][MEM_SIZE]);
+int			and(t_args *arg, void *champ, unsigned char board[2][MEM_SIZE]);
+int			sub(t_args *arg, void *champ, unsigned char board[2][MEM_SIZE]);
+int			aff(t_args *arg, void *champ, unsigned char board[2][MEM_SIZE]);
 
 int			zjump(t_champ *champ,
 			      unsigned char *board,

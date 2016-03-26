@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 **
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Wed Mar 23 22:01:45 2016 Eric DESCHODT
+** Last update Sat Mar 26 11:24:22 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -53,7 +53,7 @@ void		neg_ld(t_args *arg,
 
 int		ld(t_args *arg,
 		   void *_champ,
-		   unsigned char *board)
+		   unsigned char board[2][MEM_SIZE])
 {
   t_champ	*champ;
 
@@ -62,8 +62,8 @@ int		ld(t_args *arg,
   if (arg[1].val <= 0 || arg[1].val > 15)
     return (0);
   if (arg[0].val > 0)
-    pos_ld(arg, champ, board);
+    pos_ld(arg, champ, board[0]);
   else
-    neg_ld(arg, champ, board);
+    neg_ld(arg, champ, board[0]);
   return (0);
 }

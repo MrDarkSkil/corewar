@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Tue Feb  2 13:19:12 2016 Eric DESCHODT
-** Last update Sat Mar 26 10:21:43 2016 Eric DESCHODT
+** Last update Sat Mar 26 11:52:23 2016 Eric DESCHODT
 */
 
 #ifndef			IGRAPH_H_
@@ -14,6 +14,7 @@
 # include <unistd.h>
 # include "lapin.h"
 # include "libgraph.h"
+# include "op.h"
 
 typedef struct		s_data
 {
@@ -36,7 +37,7 @@ void                    square(t_bunny_pixelarray *pix,
                                int champ);
 
 void                    printboardgraph(t_bunny_pixelarray *pix,
-                                        unsigned char *board);
+                                        unsigned char board[2][MEM_SIZE]);
 
 # endif /* IGRAPH_H_ */
 

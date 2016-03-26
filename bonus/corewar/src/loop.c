@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Sat Mar 26 09:36:26 2016 Eric DESCHODT
-** Last update Sat Mar 26 10:49:25 2016 Eric DESCHODT
+** Last update Sat Mar 26 11:54:49 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -67,8 +67,35 @@ void			square(t_bunny_pixelarray *pix,
     }
 }
 
+void			square2(t_bunny_pixelarray *pix,
+			       t_bunny_position size,
+			       t_bunny_position	pos,
+			       int champ)
+{
+  t_bunny_position	pixel;
+  t_bunny_position	draw;
+  t_color		color;
+  
+  if (champ == 0)
+    return;
+  color.full = BLACK;
+  pixel.y = 0;
+  while (pixel.y < size.y)
+    {
+      pixel.x = 0;
+      while (pixel.x < size.x)
+	{
+	  draw.x = pos.x + pixel.x;
+	  draw.y = pos.y + pixel.y;
+	  tekpixel(pix, &draw, &color);
+	  pixel.x++;
+	}
+      pixel.y++;
+    }
+}
+
 void			printboardgraph(t_bunny_pixelarray *pix,
-					unsigned char *board)
+					unsigned char board[2][MEM_SIZE])
 {
   int			i;
   t_bunny_position	pos;
@@ -81,7 +108,8 @@ void			printboardgraph(t_bunny_pixelarray *pix,
   i = 0;
   while (i < MEM_SIZE)
     {
-      square(pix, size, pos, board[i]);
+      square2(pix, size, pos, board[0][i]);
+      square(pix, size, pos, board[1][i]);
       pos.x += size.x;
       i++;
       if (i % 101 == 0)

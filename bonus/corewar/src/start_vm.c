@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Sat Mar 26 10:46:34 2016 Eric DESCHODT
+** Last update Sat Mar 26 11:52:13 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -26,7 +26,7 @@ void            init_alive(t_vm *vm)
 }
 
 int		execute_champ(t_vm *vm, t_champ *champ,
-			      unsigned char *board)
+			      unsigned char board[2][MEM_SIZE])
 {
   if (champ->cycle == 0)
     load_instru(vm, champ, board);
@@ -45,14 +45,14 @@ int		all_champ(t_vm *vm,
   t_champ	*tmp;
 
   elarg_text(data->pix, &data->pos, &data->size, data->back);
-  printboardgraph(data->pix, board[1]);
+  printboardgraph(data->pix, board);
   bunny_blit(&data->win->buffer, &data->pix->clipable, NULL);
   bunny_display(data->win);
   i = 0;
   tmp = vm->begin;
   while (i < vm->nb && tmp != NULL)
     {
-      execute_champ(vm, tmp, board[0]);
+      execute_champ(vm, tmp, board);
       tmp = tmp->next;
       i++;
     }
@@ -71,7 +71,7 @@ int		start_vm(t_vm *vm,
   end = CYCLE_TO_DIE;
   while (end > 0 && vm->nb > 1)
     {
-      start = end;
+       start = end;
       init_alive(vm);
       while (start > 0)
 	{

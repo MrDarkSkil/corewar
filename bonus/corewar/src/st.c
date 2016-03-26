@@ -5,7 +5,7 @@
 ** Login   <julian_r@epitech.net>
 ** 
 ** Started on  Wed Mar 23 13:27:00 2016 Juliani Renaud
-** Last update Wed Mar 23 22:19:20 2016 Eric DESCHODT
+** Last update Sat Mar 26 11:28:49 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -88,7 +88,7 @@ void		st_reg(t_args *arg,
 
 int		st(t_args *arg,
 		   void *_champ,
-		   unsigned char *board)
+		   unsigned char board[2][MEM_SIZE])
 {
   t_champ	*champ;
   t_byte	uni;
@@ -100,9 +100,9 @@ int		st(t_args *arg,
   else if (arg[1].type == 2 || arg[1].type == 4)
     {
       if (arg[1].val >= 0)
-	st_2_pos(arg, champ, board, uni);
+	st_2_pos(arg, champ, board[0], uni);
       else
-	st_2_neg(arg, champ, board, uni);
+	st_2_neg(arg, champ, board[0], uni);
     }
   return (0);
 }

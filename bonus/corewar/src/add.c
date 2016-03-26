@@ -5,7 +5,7 @@
 ** Login   <roig_a@epitech.net>
 ** 
 ** Started on  Sat Mar 19 21:41:30 2016 Antoine Roig
-** Last update Fri Mar 25 21:40:07 2016 Eric DESCHODT
+** Last update Sat Mar 26 11:29:15 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -20,7 +20,7 @@ void		swap_carry(t_champ *champ)
 
 int		add(t_args *arg,
 		    void *champ,
-		    unsigned char *board)
+		    unsigned char board[2][MEM_SIZE])
 {
   t_byte	nb1;
   t_byte	nb2;

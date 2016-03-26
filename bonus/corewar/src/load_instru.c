@@ -5,7 +5,7 @@
 ** Login   <descho_e@epitech.net>
 ** 
 ** Started on  Mon Mar  7 13:35:33 2016 Eric DESCHODT
-** Last update Fri Mar 25 21:56:11 2016 Eric DESCHODT
+** Last update Sat Mar 26 11:37:46 2016 Eric DESCHODT
 */
 
 #include "corewar.h"
@@ -70,7 +70,7 @@ int		convert_reg(char *nbr)
 }
 
 void		get_jump(t_champ *champ,
-			 unsigned char *board,
+			 unsigned char board[2][MEM_SIZE],
 			 op_t *reference)
 {
   int		i;
@@ -82,7 +82,7 @@ void		get_jump(t_champ *champ,
   c = *champ->instru;
   i = 8;
   j = 0;
-  moving_PC(champ, board, 1);
+  moving_PC(champ, board[0], 1);
   while (--i >= 0 && j < reference->nbr_args)
     {
       if (c & (1u << i))
@@ -90,32 +90,32 @@ void		get_jump(t_champ *champ,
       else
 	in[(i % 2 == 1) ? 0 : 1] = 0;
       if (i % 2 == 0)
-      	decal(in, champ, &arg[j++], board);
+      	decal(in, champ, &arg[j++], board[0]);
     }
   if (reference->func != NULL)
-      reference->func(arg, champ, board);
+    reference->func(arg, champ, board);
 }
 
 void		load_instru(t_vm *vm,
 			    t_champ *champ,
-			    unsigned char *board)
+			    unsigned char board[2][MEM_SIZE])
 {
   int		i;
 
   i = 0;
   while (op_tab[i].code != *champ->instru && op_tab[i].code != 0)
     i++;
-  moving_PC(champ, board, 1);
+  moving_PC(champ, board[0], 1);
   if (op_tab[i].code == 0)
     unknown_ope(champ, vm);
   else if (op_tab[i].code == 12)
-    forking(vm, champ, board, 1);
+    forking(vm, champ, board[0], 1);
   else if (op_tab[i].code == 15)
-    forking(vm, champ, board, 0);
+    forking(vm, champ, board[0], 0);
   else if (op_tab[i].code == 1)
-    living(champ, board);
+    living(champ, board[0]);
   else if (op_tab[i].code == 9)
-    zjump(champ, board, vm);
+    zjump(champ, board[0], vm);
   else
     {
       if (vm->debug == 1)
