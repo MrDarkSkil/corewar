@@ -1,9 +1,10 @@
 # corewar
-Projet corewar EPITECH promo 2020
 
-by:
-
-leo.hubert@epitech.eu\n
-eric.deschodt@epitech.eu\n
-renaud.juliani@epitech.eu\n
-antoine.roig@epitech.eu\n
+Projet corewar EPITECH promo 2020<br>
+<br>
+by:<br>
+<br>
+leo.hubert@epitech.eu<br>
+eric.deschodt@epitech.eu<br>
+renaud.juliani@epitech.eu<br>
+antoine.roig@epitech.eu<br>
